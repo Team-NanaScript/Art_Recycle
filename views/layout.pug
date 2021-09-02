@@ -1,7 +1,23 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+	head
+		title= title
+		link(rel='stylesheet', href='/css/style.css')
+	body
+		header
+			div#logo_m
+				h2.first Art🐱🐹🐲
+				h2.second Re🐯🦔🐕
+				//- img(src="", alt="")
+			nav#menu
+				ul
+					li 공방등록
+					li 회원가입
+					li 로그인
+		
+		section#main
+			block content
+
+		footer
+			p hello
+
