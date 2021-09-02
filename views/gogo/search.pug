@@ -1,5 +1,11 @@
 extends ../layout
 
 block content
+  script(src="/js/search.js")
+  script(src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=l7xx623f62f3287f4849850f27eec0de6ee6")
+
   h1 힘내 은결아
   h1 힘내 영진아
+
+  body(onload="initTmap()")
+    div#map 
