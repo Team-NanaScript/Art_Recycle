@@ -1,5 +1,4 @@
 # Art_Recycle
 
-- npm install
 
-start
+- 2021-09-01 프로젝트 시작
