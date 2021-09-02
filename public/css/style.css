@@ -1,13 +1,61 @@
 * {
-	box-sizing: border-box;
-	margin:0;
-	padding:0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+header {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  height: 10vh;
+}
+
+header div,
+header nav {
+  margin: 5px;
+}
+
+header div#logo_m {
+  flex: 1;
+}
+
+header div#logo_m h2.first {
+  color: #22137c;
+}
+
+header div#logo_m h2.second {
+  color: #748bfd;
+}
+
+header nav#menu ul {
+  display: flex;
+}
+
+header nav#menu ul li {
+  margin: 2px 10px;
+}
+
+section#main {
+  height: 80vh;
+}
+
+li {
+  list-style: none;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+  color: #00b7ff;
+}
+
+footer {
+  height: 10vh;
+  bottom: 0;
+  background-color: #a6adb4;
+  color: white;
 }
