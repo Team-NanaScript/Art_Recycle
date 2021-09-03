@@ -5,19 +5,21 @@ html
 		link(rel='stylesheet', href='/css/style.css')
 	body
 		header
-			div#logo_m
-				h2.first Art🐱🐹🐲
-				h2.second Re🐯🦔🐕
-				//- img(src="", alt="")
-			nav#menu
-				ul
-					li 공방등록
-					li 회원가입
-					li 로그인
+			div#logo
+				svg(width="88" height="35")
+						text(transform="translate(0 29)" fill="#27187f" font-size="31" font-family="Ubuntu-Bold, Ubuntu" font-weight="700")
+							tspan(x="0" y="0") Art
+							tspan(y="0" fill="#758bfd") Re
+				nav#menu
+					ul
+						li 공방등록
+						li 회원가입
+						li 로그인
 		
 		section#main
 			block content
 
 		footer
-			p hello
+			div
+				p hello
 

@@ -6,31 +6,34 @@
 body {
   width: 100vw;
   height: 100vh;
+  background-color: #f2f5f8;
 }
+
+/*---------- layout ------------*/
+/* header */
 
 header {
   width: 100vw;
+  height: 8vh;
+  background-color: white;
+}
+
+header div#logo {
+  width: 1000px;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
-  height: 10vh;
+  /* position: relative; */
 }
 
-header div,
-header nav {
-  margin: 5px;
-}
-
-header div#logo_m {
-  flex: 1;
-}
-
-header div#logo_m h2.first {
-  color: #22137c;
-}
-
-header div#logo_m h2.second {
-  color: #748bfd;
-}
+/* header div#logo:hover::before {
+  content: "🐱🐹🐲🐯🦔🐕";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+} */
 
 header nav#menu ul {
   display: flex;
@@ -41,7 +44,9 @@ header nav#menu ul li {
 }
 
 section#main {
-  height: 80vh;
+  width: 1000px;
+  margin: 0 auto;
+  background-color: white;
 }
 
 li {
@@ -53,6 +58,7 @@ a {
   color: #00b7ff;
 }
 
+/* footer */
 footer {
   height: 10vh;
   bottom: 0;
