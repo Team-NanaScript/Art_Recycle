@@ -19,7 +19,7 @@ header {
 }
 
 header div#logo {
-  width: 1000px;
+  padding: 10px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -35,11 +35,12 @@ header div#logo {
   bottom: 0;
 } */
 
-header nav#menu ul {
+header nav.menu_wrap ul {
   display: flex;
 }
 
-header nav#menu ul li {
+header nav.menu_wrap ul li {
+  padding: 10px;
   margin: 2px 10px;
 }
 
@@ -60,8 +61,8 @@ a {
 
 /* footer */
 footer {
+  padding: 10px;
   height: 10vh;
-  bottom: 0;
   background-color: #a6adb4;
   color: white;
 }
