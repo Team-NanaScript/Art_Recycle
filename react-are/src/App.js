@@ -13,6 +13,8 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/join" component={Join} />
         <Route path="/join" component={Join} />
+        <Route path="/search" component={Search} />
+        <Route path="/detail" component={Detail} />
         <Footer />
       </div>
     </BrowserRouter>
