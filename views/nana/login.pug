@@ -48,22 +48,26 @@ style.
 
 	div.btn_button button {
 		background-color : transparent;
-		
+	}
+
+	button.btn_find , button.btn_join {
+		padding: 0 20px 0 20px;
 	}
 	
 div.logo
 	svg(width="88" height="35")
-		text(transform="translate(0 29)" fill="#27187f" font-size="31" font-family="Ubuntu-Bold, Ubuntu" font-weight="700")
+		text(transform="translate(0 30)" fill="#27187f" font-size="31" font-family="Ubuntu-Bold, Ubuntu" font-weight="700")
 			tspan(x="0" y="0") Art
 			tspan(y="0" fill="#758bfd") Re 
 form(method="POST")
 	div.login
 		div.ID
-			input(name="ID", )
 			i(class="far fa-user")
+			input(name="ID")
+			
 		div.PW
-			input(name="PW")
 			i(class="fas fa-unlock-alt")
+			input(name="PW")
 	button.btn_login login	
 	div.btn_button
 		//- lable ID 찾기
