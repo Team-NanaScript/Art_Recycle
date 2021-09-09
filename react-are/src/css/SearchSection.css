@@ -1,0 +1,39 @@
+section.search_section {
+  border: 1px solid red;
+
+  margin: 0 auto;
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.tag {
+  padding: 15px;
+}
+
+div.tag:hover {
+  background-color: rgb(195, 223, 240);
+  border-radius: 5px;
+}
+
+/* LocalSearcch */
+div.local_box {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+
+div.map_sample {
+  flex: 1.7;
+  min-height: 30vh;
+
+  background-image: url("../image/map.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
+  background-size: cover;
+}
+
+/* WaySearch */

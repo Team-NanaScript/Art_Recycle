@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/SearchSection.css";
 
 import { BrowserRouter, Route } from "react-router-dom";
 import { LocalSearch, WaySearch, MaterialSearch, Result } from "../search";

@@ -24,10 +24,15 @@ const localData = [
 const LocalSearch = () => {
   const local_box = useCallback(() => {
     return localData.map((text) => {
-      return <div>{text}</div>;
+      return <div className="tag">{text}</div>;
     });
   }, []);
-  return <div className="LocalSearch">{local_box()}</div>;
+  return (
+    <section className="search_section">
+      <div className="local_box">{local_box()}</div>
+      <div className="map_sample"></div>
+    </section>
+  );
 };
 
 export default LocalSearch;
