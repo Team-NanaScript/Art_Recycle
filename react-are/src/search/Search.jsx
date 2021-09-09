@@ -11,9 +11,9 @@ const Search = () => {
         <header>
           <h2>공방찾기</h2>
         </header>
-        <Route path="/search/local" component={LocalSearch} />
-        <Route path="/search/way" component={WaySearch} />
-        <Route path="/search/material" component={MaterialSearch} />
+        <Route path="/search/local" component={LocalSearch} exact />
+        <Route path="/search/way" component={WaySearch} exact />
+        <Route path="/search/material" component={MaterialSearch} exact />
         <Result />
       </div>
     </BrowserRouter>

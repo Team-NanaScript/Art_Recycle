@@ -1,11 +1,11 @@
 section.search_section {
   border: 1px solid red;
-
   margin: 0 auto;
   width: 1000px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  min-height: 30vh;
+  /* justify-content: center; */
 }
 
 div.tag {
@@ -27,7 +27,6 @@ div.local_box {
 
 div.map_sample {
   flex: 1.7;
-  min-height: 30vh;
 
   background-image: url("../image/map.png");
   background-repeat: no-repeat;
@@ -37,3 +36,19 @@ div.map_sample {
 }
 
 /* WaySearch */
+
+div.offline {
+  border: 1px solid green;
+  flex: 1;
+}
+
+div.online {
+  border: 1px solid blue;
+  flex: 1;
+
+  background-image: url("../image/online.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: bottom;
+  background-size: contain;
+}
