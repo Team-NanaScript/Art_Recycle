@@ -1,12 +1,12 @@
-div.Search header{
-	position: relative;
-	right:450px;
-	margin:5px;
+div.Search header {
+  position: relative;
+  right: 450px;
+  margin: 5px;
 }
 
-div.Search header h2{
-	font-weight: 300;
-	color:rgb(117, 139, 253);
+div.Search header h2 {
+  font-weight: 300;
+  color: rgb(117, 139, 253);
 }
 
 section.search_section {
@@ -16,31 +16,31 @@ section.search_section {
   width: 1000px;
   display: flex;
   align-items: center;
-  min-height: 30vh;
+  min-height: 40vh;
   /* justify-content: center; */
 }
 
 div.tag {
   padding: 15px;
-  color:rgba(0,0,0,0.7);
+  color: rgba(0, 0, 0, 0.7);
   font-weight: 500;
 }
 
-div.tag:nth-of-type(1){
+div.tag:nth-of-type(1) {
   background-color: rgb(117, 139, 253);
   border-radius: 5px;
-  transition:0.5s ease;
-  cursor:pointer;
-  color:white;
+  transition: 0.5s ease;
+  cursor: pointer;
+  color: white;
   font-weight: bold;
 }
 
 div.tag:hover {
   background-color: rgb(117, 139, 253);
   border-radius: 5px;
-  transition:0.5s ease;
-  cursor:pointer;
-  color:white;
+  transition: 0.5s ease;
+  cursor: pointer;
+  color: white;
   font-weight: bold;
 }
 
@@ -76,7 +76,7 @@ div.offline {
 }
 
 div.offline {
-  border: 1px solid green;
+  /* border: 1px solid green; */
 
   background-image: url("../image/offline.jpg");
   background-repeat: no-repeat;
@@ -86,11 +86,19 @@ div.offline {
 }
 
 div.online {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 
   background-image: url("../image/online.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: bottom;
   background-size: contain;
+}
+
+/* MaterialSearch */
+
+div.material_box {
+  display: flex;
+
+  margin: 0 auto;
 }
