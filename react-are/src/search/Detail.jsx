@@ -92,12 +92,14 @@ function Detail() {
         <div className="postscr">
           <h3>여기부터는 후기~</h3>
           <hr />
+          <br />
           <div className="postscr_insert">
             <button className="image">이미지</button>
             <input name="postscript" placeholder="후기를 입력해주세요" />
           </div>
           <button className="postscr_save">등록</button>
           <hr />
+          <br />
         </div>
         <div></div>
       </section>
@@ -166,6 +168,7 @@ function Detail() {
           <div></div>
         </section>
       </section>
+      <br />
     </div>
   );
 }
