@@ -6,7 +6,7 @@ div.join_form {
 	margin-top: 4%;
 }
 
-label {
+div.join_form label {
 	display: inline-block;
 	width: 10%;
 	text-align: center;
@@ -15,14 +15,14 @@ label {
 	padding:8px;
 	font-weight: bold;
 }
-input {
+div.join_form input {
 	display: inline-block;
 	width: 100%;
 	margin: 6px;
 	padding:30px;
 	border:1px solid gray;
 }
-input, button {
+div.join_form input,div.btn_join button {
 	outline : none;
 	box-shadow : none;
 	border : none;

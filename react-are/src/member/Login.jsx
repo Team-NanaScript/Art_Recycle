@@ -21,7 +21,7 @@ function Login() {
 		  <input name="u_id" placeholder="ID" />
 		  {/* <span class="far fa-user"></span> */}
 	  </div>
-	  <div>
+	  <div className="input_id">
 		<input name="u_pw" placeholder="PW" />
 		{/* <span class="fas fa-unlock-alt"></span> */}
 	  </div>
