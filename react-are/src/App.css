@@ -47,9 +47,32 @@ li {
   list-style: none;
 }
 
-footer {
+.footer {
   padding: 10px;
   height: 10vh;
-  background-color: #a6adb4;
-  color: white;
+  border-top:1px solid lightgray;
+  border-bottom:1px solid lightgray;
+  color: rgba(0,0,0,0.6);
+  display:flex;
 }
+
+.footer div.footer_logo{
+	margin:8px 50px;
+}
+
+div.footer_logo address{
+	font-size: 14px;
+}
+
+.footer ul{
+	display:flex;
+	margin:12px;
+}
+
+.footer li{
+	margin:5px 80px;
+	font-size:20px;
+	font-weight: 300;
+	cursor:pointer;
+}
+
