@@ -2,8 +2,8 @@ import React from "react";
 
 function Footer() {
   return (
-    <div class="footer">
-		<div class="footer_logo">
+    <div className="footer">
+		<div className="footer_logo">
 		<svg width="97" height="35">
           <text transform="translate(0 29)" fill="#27187f" fontSize="35" fontFamily="Ubuntu-Bold, Ubuntu" fontWeight="700">
             <tspan x="0" y="0">Art</tspan>

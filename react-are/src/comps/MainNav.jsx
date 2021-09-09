@@ -1,6 +1,6 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
-import "../css/mainNav.css"
+import "../css/main.css"
 
 function MainNav() {
   return (
@@ -16,7 +16,7 @@ function MainNav() {
         <nav className="menu_wrap">
           <ul className="main_menu center">
             <li><NavLink to="/" exact>A-Re 소개</NavLink></li>
-            <li><NavLink to="/search" exact>공방찾기</NavLink></li>
+            <li><NavLink to="/search/local" exact>공방찾기</NavLink></li>
             <li><NavLink to="/" exact>커뮤니티</NavLink></li>
           </ul>
           <ul className="main_menu right">
