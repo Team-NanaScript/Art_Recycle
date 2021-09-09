@@ -1,0 +1,77 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	overflow: hidden;
+}
+/* div.logo {
+	text-align : center;
+	margin-top : 40%;
+	margin-bottom : 5%; */
+/* } */
+form {		
+	text-align : center;
+}
+div.login {
+	display : flex;
+	flex-direction : column;
+	height: 10%;
+	margin-bottom: 10%;
+	margin-top: 10%;
+}
+
+input, button {
+	outline : none;
+	box-shadow : none;
+	border : none;
+	
+}
+div.id_pw {
+	height: 70vh;
+	margin-top: 5%;
+}
+div.input_id {
+	position: relative;
+	/* width: 30%; */
+}
+/* 
+div.input_id i{
+	position: absolute;
+	right: 30px;
+} */
+input {
+	padding: 10px;
+	border-bottom : 1px solid;
+	background-color : #f2f5f8;
+	width: 15%;
+	margin-bottom : 15px;	
+}
+
+div.input_id span {
+	position: absolute;
+	left:30px;
+}
+button {
+	padding : 2px 3px 2px 3px ;
+	margin : 5px;
+	outline : none;	
+}
+
+button.btn_login {
+	padding : 15px 20px 20px 20px;
+	/* font-family: Ubuntu; */
+	width: 15%;
+	font-weight : bold;
+	font-size : 24;
+	
+}
+
+div.btn_button button {
+	background-color : transparent;
+}
+
+button.btn_find , button.btn_join {
+	padding: 0 20px 0 20px;
+}

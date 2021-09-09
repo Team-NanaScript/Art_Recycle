@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <MainNav />
         <Route path="/" component={MainBody} exact />
-        <Route path="/login" component={Login} />
+        <Route path="/login" component={Login} exact/>
         <Route path="/join" component={Join} />
         <Route path="/search" component={Search} />
         <Route path="/detail" component={Detail} />
