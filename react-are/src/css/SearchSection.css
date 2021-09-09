@@ -28,6 +28,7 @@ div.local_box {
 div.map_sample {
   flex: 1.7;
 
+  min-height: 30vh;
   background-image: url("../image/map.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
