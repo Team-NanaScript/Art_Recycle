@@ -1,5 +1,17 @@
+div.Search header{
+	position: relative;
+	right:450px;
+	margin:5px;
+}
+
+div.Search header h2{
+	font-weight: 300;
+	color:rgb(117, 139, 253);
+}
+
 section.search_section {
-  border: 1px solid red;
+  border: 1px solid lightgray;
+  border-top: 1px solid gray;
   margin: 0 auto;
   width: 1000px;
   display: flex;
@@ -10,11 +22,26 @@ section.search_section {
 
 div.tag {
   padding: 15px;
+  color:rgba(0,0,0,0.7);
+  font-weight: 500;
+}
+
+div.tag:nth-of-type(1){
+  background-color: rgb(117, 139, 253);
+  border-radius: 5px;
+  transition:0.5s ease;
+  cursor:pointer;
+  color:white;
+  font-weight: bold;
 }
 
 div.tag:hover {
-  background-color: rgb(195, 223, 240);
+  background-color: rgb(117, 139, 253);
   border-radius: 5px;
+  transition:0.5s ease;
+  cursor:pointer;
+  color:white;
+  font-weight: bold;
 }
 
 /* LocalSearcch */
