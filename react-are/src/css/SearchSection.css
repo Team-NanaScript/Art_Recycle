@@ -38,14 +38,28 @@ div.map_sample {
 
 /* WaySearch */
 
+div.online,
+div.offline {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 30vh;
+  align-items: center;
+  justify-content: center;
+}
+
 div.offline {
   border: 1px solid green;
-  flex: 1;
+
+  background-image: url("../image/offline.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: bottom;
+  background-size: contain;
 }
 
 div.online {
   border: 1px solid blue;
-  flex: 1;
 
   background-image: url("../image/online.png");
   background-repeat: no-repeat;
