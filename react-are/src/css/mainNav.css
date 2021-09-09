@@ -1,6 +1,13 @@
 header.App-header {
-	flex-wrap: nowrap;
+	padding: 5px;
+	justify-content: space-around;
+	align-items: center;
+	border-bottom: 2px solid lightslategrey;
 }
+/* header.App-header,
+header.App-header nav.menu_wrap {
+	justify-content: space-around;
+} */
 
 header.App-header,
 header.App-header nav.menu_wrap,
@@ -11,20 +18,21 @@ header.App-header nav.menu_wrap ul {
 
 header.App-header div#logo {
 	padding: 10px;
-	margin:0 auto;
-	/* display: flex; */
-	/* flex-direction: row; */
+	margin-left:10px;
 }
 
-header.App-header div#logo {
-	flex: 1;
-}
-header.App-header nav.menu_wrap ul.center,
-header.App-header nav.menu_wrap ul.right {
-	flex: 2;
+header.App-header nav.menu_wrap ul{
+	margin-right: 1rem;
 }
 
 header.App-header nav.menu_wrap ul li {
-	padding: 5px;
+	transition: 0.2s;
+	padding: 10px;
 	margin: 2px 10px;
+}
+
+header.App-header nav.menu_wrap ul li:hover {
+	color:white;
+	border-radius: 15px;
+	background-color: #7b65f7cb;
 }
