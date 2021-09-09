@@ -1,3 +1,9 @@
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+
 .App {
   text-align: center;
 }
@@ -14,14 +20,9 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: white;
+  min-height: 8vh;
+  width: 100vw;
 }
 
 .App-link {
@@ -35,4 +36,20 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+a {
+  text-decoration: none;
+  color:inherit;
+}
+
+li {
+  list-style: none;
+}
+
+footer {
+  padding: 10px;
+  height: 10vh;
+  background-color: #a6adb4;
+  color: white;
 }
