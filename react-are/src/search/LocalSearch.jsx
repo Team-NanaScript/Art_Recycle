@@ -26,8 +26,8 @@ const LocalSearch = () => {
     return localData.map((text) => {
       return <div>{text}</div>;
     });
-  });
-  return <div className="LocalSearch"></div>;
+  }, []);
+  return <div className="LocalSearch">{local_box}</div>;
 };
 
 export default LocalSearch;
