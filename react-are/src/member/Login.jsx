@@ -1,7 +1,9 @@
 import React from "react";
 import "../css/Login.css"
+import { Link } from 'react-router-dom' 
 
 function Login() {
+
   return (
     <div>
 	<header>
@@ -16,18 +18,21 @@ function Login() {
 	</header>
 	<div className="id_pw">
       <div className="input_id">
-		  <input name="ID" placeholder="ID" />
+		  <input name="u_id" placeholder="ID" />
 		  {/* <span class="far fa-user"></span> */}
 	  </div>
 	  <div>
-		<input name="PW" placeholder="PW" />
+		<input name="u_pw" placeholder="PW" />
 		{/* <span class="fas fa-unlock-alt"></span> */}
 	  </div>
-	  
+	  <Link to="..comps/MainBody">
 	  <button className="btn_login">LOGIN</button>
+	  </Link>
 	  <div className="btn_button">
 		<button className="btn_find">ID/PW 찾기</button>
+		<Link to="./Join">
 		<button className="btn_join">회원가입</button>
+		</Link>
 	  </div>
 	  </div>
     </div>
