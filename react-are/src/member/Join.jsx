@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/Join.css"
+import { Link } from 'react-router-dom' 
 
 function Join() {
   return (
@@ -31,7 +32,9 @@ function Join() {
       	<input name="u_nick" />
 	  	</div>
 		<div className="btn_join">
+		<Link to="..comps/MainBody">
 		  <button>가입하기</button>
+		</Link>
 		</div>
     </div>
   );
