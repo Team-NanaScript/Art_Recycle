@@ -14,9 +14,7 @@ ul.search_nav {
 
 ul.search_nav a {
   display: inline-block;
-  text-decoration: none;
   padding: 0.3rem;
-  color: inherit;
 
   border-top: 3px solid transparent;
   border-bottom: 3px solid transparent;

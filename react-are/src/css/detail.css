@@ -7,7 +7,7 @@ header.detail_header {
   font-size: calc(10px + 2vmin);
   color: white;
 
-  width: 100vw;
+  width: 1000px;
   background-image: url("../image/atelier.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -16,17 +16,23 @@ header.detail_header {
   border-radius: 0 0 50px 50px;
 
   text-shadow: 2px 2px 2px black;
+
+  margin: 0 auto;
 }
 
 div.map {
-  width: 70%;
-  height: 400px;
-  border: 1px solid;
+  width: 616px;
+  height: 280px;
   margin: 0 auto;
 }
 
 hr {
-  width: 80%;
+  width: 1000px;
+  margin: 10px auto;
+}
+
+div.postscr_list {
+  width: 1000px;
   margin: 0 auto;
 }
 
@@ -34,6 +40,9 @@ div.postscr_insert {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  width: 1000px;
+  margin: 0 auto;
 }
 
 button.image {
@@ -50,7 +59,10 @@ input[name="postscript"] {
 }
 
 button.postscr_save {
-  margin-left: 1000px;
+  width: 10%;
+  border: none;
+  padding: 5px 12px;
+  margin: 5px 10px;
 }
 
 h3.re_size {

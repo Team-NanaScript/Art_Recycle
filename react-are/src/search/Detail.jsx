@@ -1,4 +1,5 @@
 import React from "react";
+import { Tmap } from "./index";
 
 import "../css/detail.css";
 
@@ -7,13 +8,13 @@ function Detail() {
     <div>
       <header className="detail_header">
         <h2>BOX ATELIER</h2>
-        <p>With. RE;CODE</p>
+        <h4>With. RE;CODE</h4>
       </header>
       <section>
         <p>BOX ATELIER - 리폼/리페어 지속 가능한 패션 서비스 제공</p>
         <div>
           <h3>Address</h3>
-          <p>서울 용산구 양녕로 445 노들섬</p>
+          <h4>서울 용산구 양녕로 445 노들섬</h4>
         </div>
         <div>
           <h3>오픈 시간</h3>
@@ -84,20 +85,25 @@ function Detail() {
       </section>
       <section>
         <div>
+          <br />
           <h3>여기서 지도를 보여줄 곳</h3>
-          <div className="map"></div>
+          <div className="map">
+            <Tmap />
+          </div>
         </div>
       </section>
       <section>
         <div className="postscr">
+          <br />
           <h3>여기부터는 후기~</h3>
           <hr />
           <br />
           <div className="postscr_insert">
             <button className="image">이미지</button>
             <input name="postscript" placeholder="후기를 입력해주세요" />
+            <button className="postscr_save">등록</button>
           </div>
-          <button className="postscr_save">등록</button>
+
           <hr />
           <br />
         </div>
@@ -105,6 +111,7 @@ function Detail() {
       </section>
       <section>
         <h3 className="re_size"> 댓글 119 </h3>
+        <br />
         <section>
           <div className="postscr">
             <div className="postscr_list">
@@ -114,8 +121,39 @@ function Detail() {
                 placeholder=" 수선 (REPAIR) : 간단한 수선을 통해 소중한 옷을 고쳐 오래 입어보세요."
                 readOnly="readonly"
               />
+              <button className="postscr_save">등록</button>
             </div>
-            <button className="postscr_save">등록</button>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section>
+          <div className="postscr">
+            <div className="postscr_list">
+              <button className="image">REFORM</button>
+              <input
+                name="postscript"
+                placeholder=" 리폼 (REFORM) : 유행이 지나 입지않는 옷을 가져오면 새로운 디자인으로 재탄생해드립니다."
+                readOnly="readonly"
+              />
+              <button className="postscr_save">등록</button>
+            </div>
+          </div>
+          <div></div>
+        </section>
+      </section>
+      <section>
+        <section>
+          <div className="postscr">
+            <div className="postscr_list">
+              <button className="image">REPAIR</button>
+              <input
+                name="postscript"
+                placeholder=" 수선 (REPAIR) : 간단한 수선을 통해 소중한 옷을 고쳐 오래 입어보세요."
+                readOnly="readonly"
+              />
+              <button className="postscr_save">등록</button>
+            </div>
           </div>
           <div></div>
         </section>
@@ -130,40 +168,8 @@ function Detail() {
                 placeholder=" 리폼 (REFORM) : 유행이 지나 입지않는 옷을 가져오면 새로운 디자인으로 재탄생해드립니다."
                 readOnly="readonly"
               />
+              <button className="postscr_save">등록</button>
             </div>
-            <button className="postscr_save">등록</button>
-          </div>
-          <div></div>
-        </section>
-      </section>
-      <section>
-        <section>
-          <div className="postscr">
-            <div className="postscr_list">
-              <button className="image">REPAIR</button>
-              <input
-                name="postscript"
-                placeholder=" 수선 (REPAIR) : 간단한 수선을 통해 소중한 옷을 고쳐 오래 입어보세요."
-                readOnly="readonly"
-              />
-            </div>
-            <button className="postscr_save">등록</button>
-          </div>
-          <div></div>
-        </section>
-      </section>
-      <section>
-        <section>
-          <div className="postscr">
-            <div className="postscr_list">
-              <button className="image">REFORM</button>
-              <input
-                name="postscript"
-                placeholder=" 리폼 (REFORM) : 유행이 지나 입지않는 옷을 가져오면 새로운 디자인으로 재탄생해드립니다."
-                readOnly="readonly"
-              />
-            </div>
-            <button className="postscr_save">등록</button>
           </div>
           <div></div>
         </section>
