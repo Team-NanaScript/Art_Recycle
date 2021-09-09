@@ -1,8 +1,8 @@
 import React from "react";
-import MainNav from "./comps/MainNav";
-import { Footer } from "./comps";
+import MainNav from "../comps/MainNav";
+import { Footer } from "../comps";
 import { BrowserRouter, Route } from "react-router-dom";
-import { LocalSearch, WaySearch, MaterialSearch } from "../search";
+import { LocalSearch, WaySearch, MaterialSearch, Result } from "../search";
 
 const Search = () => {
   return (

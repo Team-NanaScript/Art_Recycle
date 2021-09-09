@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 const localData = [
   "전체",
@@ -27,9 +27,7 @@ const LocalSearch = () => {
       return <div>{text}</div>;
     });
   });
-  return (
-
-  );
+  return <div className="LocalSearch"></div>;
 };
 
 export default LocalSearch;
