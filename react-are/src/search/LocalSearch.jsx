@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import { Tmap } from "./index";
 
 const localData = [
   "전체",
@@ -30,7 +31,9 @@ const LocalSearch = () => {
   return (
     <section className="search_section">
       <div className="local_box">{local_box()}</div>
-      <div className="map_sample"></div>
+      <div className="map_sample">
+		  <Tmap/>
+	  </div>
     </section>
   );
 };
