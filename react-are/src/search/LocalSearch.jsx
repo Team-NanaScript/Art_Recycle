@@ -27,7 +27,7 @@ const LocalSearch = () => {
       return <div>{text}</div>;
     });
   }, []);
-  return <div className="LocalSearch">{local_box}</div>;
+  return <div className="LocalSearch">{local_box()}</div>;
 };
 
 export default LocalSearch;

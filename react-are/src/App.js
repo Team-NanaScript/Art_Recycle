@@ -10,11 +10,10 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <MainNav />
-        <MainBody />
         <Route path="/" component={MainBody} exact />
         <Route path="/login" component={Login} />
         <Route path="/join" component={Join} />
-        <Route path="/search" component={Search} />
+        <Route path="/search/local" component={Search} />
         <Route path="/detail" component={Detail} />
         <Footer />
       </div>
