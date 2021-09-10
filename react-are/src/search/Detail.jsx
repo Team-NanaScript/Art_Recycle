@@ -23,8 +23,7 @@ function Detail() {
         <div>
           <h3>관련 정보</h3>
           <p>
-            - 인스타그램 : @recode_Instagram DM <br /> - 네이버 예약 서비스 :
-            Box atelier
+            - 인스타그램 : @recode_Instagram DM <br /> - 네이버 예약 서비스 : Box atelier
           </p>
         </div>
       </section>
@@ -73,8 +72,7 @@ function Detail() {
             <br />
             2) 리폼 (REFORM)
             <br />
-            유행이 지나 입지않는 옷을 가져오면 새로운 디자인으로
-            재탄생해드립니다.
+            유행이 지나 입지않는 옷을 가져오면 새로운 디자인으로 재탄생해드립니다.
             <br />
             <br />
             수선/리폼은 1:1 상담을 통해 비용과 소요시간이 책정됩니다.
