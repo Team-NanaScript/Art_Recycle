@@ -17,11 +17,11 @@ section.search_section {
   display: flex;
   align-items: center;
   min-height: 40vh;
-  /* justify-content: center; */
 }
 
 div.tag {
   padding: 15px;
+  margin: 5px;
   color: rgba(0, 0, 0, 0.7);
   font-weight: 500;
 }
@@ -49,7 +49,7 @@ div.local_box {
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 div.map_sample {
@@ -76,8 +76,6 @@ div.offline {
 }
 
 div.offline {
-  /* border: 1px solid green; */
-
   background-image: url("../image/offline.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -86,8 +84,6 @@ div.offline {
 }
 
 div.online {
-  /* border: 1px solid blue; */
-
   background-image: url("../image/online.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -101,4 +97,16 @@ div.material_box {
   display: flex;
 
   margin: 0 auto;
+
+  width: 50%;
+  flex-wrap: wrap;
+
+  align-items: center; /* 이거 없어도 상관없긴함*/
+  justify-content: center;
+}
+
+div.tag.material {
+  width: 100px;
+  height: 100px;
+  border: 0.5px solid #eee;
 }

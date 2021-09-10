@@ -11,16 +11,17 @@ const materialData = [
   "금속",
   "유리",
   "고무",
+  "식료품",
   "기타",
 ];
 const MaterialSearch = () => {
   const material_box = useCallback(() => {
     return materialData.map((text) => {
-      return <div className="tag">{text}</div>;
+      return <div className="tag material">{text}</div>;
     });
   }, []);
   return (
-    <section className="search_section">
+    <section className="search_section material">
       <div className="material_box">{material_box()}</div>
     </section>
   );
