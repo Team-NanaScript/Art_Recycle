@@ -11,25 +11,28 @@ function Detail() {
         <h4>With. RE;CODE</h4>
       </header>
       <section>
-        <p>BOX ATELIER - 리폼/리페어 지속 가능한 패션 서비스 제공</p>
+        <span>BOX ATELIER - 리폼/리페어 지속 가능한 패션 서비스 제공</span>
         <div>
           <h3>Address</h3>
-          <h4>서울 용산구 양녕로 445 노들섬</h4>
+          <span>서울 용산구 양녕로 445 노들섬</span>
         </div>
         <div>
           <h3>오픈 시간</h3>
-          <p>12시 ~ 저녁 8시 ( 월요일은 쉽니다~ )</p>
+          <span>12시 ~ 저녁 8시 ( 월요일은 쉽니다~ )</span>
         </div>
         <div>
           <h3>관련 정보</h3>
-          <p>
+          <span>
+            <i class="fab fa-instagram"></i>
+          </span>
+          <span>
             - 인스타그램 : @recode_Instagram DM <br /> - 네이버 예약 서비스 : Box atelier
-          </p>
+          </span>
         </div>
       </section>
       <section>
         <div>
-          <p>
+          <span>
             BOX ATELIER (박스아뜰리에)
             <br />
             래코드가 제안하는 지속가능 패션서비스
@@ -78,7 +81,7 @@ function Detail() {
             수선/리폼은 1:1 상담을 통해 비용과 소요시간이 책정됩니다.
             <br />
             상담시 의뢰할 의류를 가져와주세요.
-          </p>
+          </span>
         </div>
       </section>
       <section>
