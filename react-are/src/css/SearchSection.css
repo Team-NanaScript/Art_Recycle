@@ -73,6 +73,23 @@ div.offline {
   min-height: 30vh;
   align-items: center;
   justify-content: center;
+
+  cursor: pointer;
+
+  border: 1px solid #eee;
+  border-radius: 10px;
+
+  margin: 10px 60px;
+}
+
+div.online:hover,
+div.offline:hover {
+  background-color: rgb(117, 139, 253);
+  border-radius: 5px;
+  transition: 0.5s ease;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
 }
 
 div.offline {
@@ -106,7 +123,7 @@ div.material_box {
 }
 
 div.tag.material {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   border: 0.5px solid #eee;
 }
