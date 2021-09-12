@@ -15,11 +15,25 @@ const materialData = [
   "기타",
 ];
 const MaterialSearch = () => {
+  const addTag = (e) => {
+    const tag = e.target;
+
+    if (tag.tagName === "DIV") {
+      const tagValue = tag.innerText;
+      alert(tagValue);
+    }
+  };
+
   const material_box = useCallback(() => {
     return materialData.map((text) => {
-      return <div className="tag material">{text}</div>;
+      return (
+        <div className="tag material" onClick={addTag}>
+          {text}
+        </div>
+      );
     });
   }, []);
+
   return (
     <section className="search_section material">
       <div className="material_box">{material_box()}</div>
