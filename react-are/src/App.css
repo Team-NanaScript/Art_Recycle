@@ -1,7 +1,7 @@
-*{
+* {
   box-sizing: border-box;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
@@ -40,7 +40,7 @@
 
 a {
   text-decoration: none;
-  color:inherit;
+  color: inherit;
 }
 
 li {
@@ -49,30 +49,65 @@ li {
 
 .footer {
   padding: 10px;
-  height: 10vh;
-  border-top:1px solid lightgray;
-  border-bottom:1px solid lightgray;
-  color: rgba(0,0,0,0.6);
-  display:flex;
+  height: 250px;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  color: rgba(255, 255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(117, 140, 253);
 }
 
-.footer div.footer_logo{
-	margin:8px 50px;
+.footer div.footer_box {
+  margin: 15px;
 }
 
-div.footer_logo address{
-	font-size: 14px;
+.logo {
+  margin-left: -800px;
 }
 
-.footer ul{
-	display:flex;
-	margin:12px;
+.msg_box {
+  margin-left: 975px;
 }
 
-.footer li{
-	margin:5px 80px;
-	font-size:20px;
-	font-weight: 300;
-	cursor:pointer;
+.msg_box label {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 255);
+  text-align: right;
+  margin: 10px;
 }
 
+.msg_box button {
+  padding: 15px;
+  height: 60px;
+  border-radius: 50em;
+  border: 1px solid rgba(230, 230, 230, 0.6);
+  color: white;
+  background-color: rgba(117, 140, 253);
+  cursor: pointer;
+}
+
+div.footer p {
+  font-size: 14px;
+}
+
+div.footer_nav {
+  display: flex;
+  margin-left: 1230px;
+}
+
+.footer li {
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+div.copy {
+  margin-left: 1065px;
+  color: rgba(228, 228, 228, 0.8);
+}
+
+.msg_box {
+  display: flex;
+}
