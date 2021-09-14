@@ -47,6 +47,11 @@ section.main_body article.main_top div.main_search_box {
   display: flex;
 }
 
+section.main_body article.main_top,
+section.main_body article.main_bottom {
+  width: 1000px;
+}
+
 section.main_body,
 section.main_body article.main_top {
   flex-direction: column;
@@ -57,9 +62,14 @@ section.main_body {
 }
 
 section.main_body article.main_top h1 {
-  margin: 2rem;
+  margin: 3rem;
   padding: 10px;
   font-size: 30px;
+}
+
+section.main_body article.main_top div.main_search_box {
+  margin: 2rem auto;
+  width: 30%;
 }
 
 section.main_body article.main_top div.main_search_box input,
@@ -70,7 +80,7 @@ section.main_body article.main_top div.main_search_box button {
 section.main_body article.main_top div.main_search_box input {
   text-align: center;
   padding: 15px;
-  width: 40%;
+  width: 100%;
   border-radius: 5px 0px 0px 5px;
 }
 section.main_body article.main_top div.main_search_box button {
@@ -79,8 +89,7 @@ section.main_body article.main_top div.main_search_box button {
 }
 
 section.main_body article.main_bottom {
-  width: 1000px;
-  margin: 0 auto;
+  margin: 1rem auto;
   display: flex;
   flex-direction: row;
 }
