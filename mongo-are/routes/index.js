@@ -21,4 +21,10 @@ router.get("/data", (req, res) => {
   res.json(userList);
 });
 
+router.get("/user",async (req,res) => {
+	const users = await USER.find({})
+	// console.table(userList)
+	res.json(userList)
+})
+
 module.exports = router;
