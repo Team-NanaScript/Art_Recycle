@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/Login.css";
 import { Link } from "react-router-dom";
+// import user from "../mongo-are/models/user";
 
 function Login() {
+
+	// const {userList, setUserList} = useState({});
+
+	const userfetch = async () => {
+		const res = await fetch("http://localhost:5000/user")
+
+		const user = await res.json();
+		console.log(user)
+
+		// if(userList.u_id === u_id) {
+		// 	const userList = user.find(user.id);
+		// }else {
+		// 	console.log("불일치")
+		}
+	// 	return user
+	// }
   return (
     <div>
       <header>
@@ -21,7 +38,7 @@ function Login() {
           <span class="far fa-user"></span>
         </div>
         <div className="input_id">
-          <input name="u_pw" placeholder="PW" />
+          <input name="u_pw" placeholder="PW" type="password" />
           <span class="fas fa-unlock-alt"></span>
         </div>
         <Link to="/">
