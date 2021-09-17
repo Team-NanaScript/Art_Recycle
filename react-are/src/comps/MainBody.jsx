@@ -24,13 +24,16 @@ function MainBody() {
           <span class="fas fa-map-marked-alt fa-4x"></span>
         </div>
         <div className="go">
-          <h2>직접 가기</h2>
-          <p>직접 찾아가 재활용품을 전달하거나, 제작에 참여 할 수 있어요</p>
+          {/* <h2>직접 가기</h2>
+          <p>직접 찾아가 재활용품을 전달하거나, 제작에 참여 할 수 있어요</p> */}
+          <h2>재료별 검색</h2>
+          <p>여러가지 재료들을 그래요...</p>
           <span class="fas fa-walking fa-4x"></span>
         </div>
         <div className="delivery">
+          {/* 알아서 제목 바꿔주세욤 */}
           <h2>택배 배송</h2>
-          <p>택배를 이용하여 재활용품을 전달할 수 있어요</p>
+          <p>택배를 보내거나 직접 방문하여 재활용품을 전달할 수 있어요</p>
           {/* <span class="fas fa-gift fa-4x"></span> */}
           <span class="fas fa-box fa-4x"></span>
         </div>
