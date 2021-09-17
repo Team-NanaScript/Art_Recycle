@@ -21,13 +21,15 @@ function Detail() {
           <span>12시 ~ 저녁 8시 ( 월요일은 쉽니다~ )</span>
         </div>
         <div>
-          <h3>관련 정보</h3>
+          <h3>SITE</h3>
           <span>
-            <i class="fab fa-instagram"></i>
+            <a href="https://www.instagram.com/recode_/">
+              <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            <br />
           </span>
-          <span>
-            - 인스타그램 : @recode_Instagram DM <br /> - 네이버 예약 서비스 : Box atelier
-          </span>
+          <span>네이버 예약 서비스</span>
+          <span>Box atelier</span>
         </div>
       </section>
       <section>
