@@ -13,7 +13,7 @@ function MainBody() {
             placeholder="공방명이나 재료를 입력해주세요"
           />
           <button>
-            <span class="fas fa-box fa-2x"></span>
+            <span class="fas fa-search fa-2x"></span>
           </button>
         </div>
       </article>
@@ -23,16 +23,16 @@ function MainBody() {
           <p>우리 지역의 공방을 찾아봐요</p>
           <span class="fas fa-map-marked-alt fa-4x"></span>
         </div>
-        <div className="go">
+        <div className="material">
           {/* <h2>직접 가기</h2>
           <p>직접 찾아가 재활용품을 전달하거나, 제작에 참여 할 수 있어요</p> */}
           <h2>재료별 검색</h2>
-          <p>여러가지 재료들을 그래요...</p>
+          <p>새로 태어날 재활용품 재료들을 찾아볼 수 있어요 </p>
           <span class="fas fa-walking fa-4x"></span>
         </div>
-        <div className="delivery">
+        <div className="way">
           {/* 알아서 제목 바꿔주세욤 */}
-          <h2>택배 배송</h2>
+          <h2>택배 / 방문</h2>
           <p>택배를 보내거나 직접 방문하여 재활용품을 전달할 수 있어요</p>
           {/* <span class="fas fa-gift fa-4x"></span> */}
           <span class="fas fa-box fa-4x"></span>
