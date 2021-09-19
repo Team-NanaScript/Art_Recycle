@@ -1,11 +1,13 @@
 div.Search header {
-  position: relative;
-  right: 450px;
-  margin: 5px;
+  width: 1000px;
+  margin: 1.7rem auto;
 }
 
 div.Search header h2 {
-  font-weight: 300;
+  display: inline-block;
+  /* text-align: left; */
+
+  font-weight: bold;
   color: rgb(117, 139, 253);
 }
 
