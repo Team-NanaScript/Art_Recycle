@@ -21,10 +21,7 @@ const Search = () => {
         <Route path="/search/local" component={LocalSearch} exact />
         <Route path="/search/way" component={WaySearch} exact />
         <Route path="/search/material" component={MaterialSearch} exact />
-        <div className="result_tag">
-          <div>Hash-Tag</div>
-          <button>검색</button>
-        </div>
+        <div className="result_tag"></div>
         <Result />
       </div>
     </BrowserRouter>

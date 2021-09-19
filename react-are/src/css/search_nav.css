@@ -19,6 +19,8 @@ ul.search_nav a {
   border-top: 3px solid transparent;
   border-bottom: 3px solid transparent;
   transition: 0.3s;
+
+  width: 10vw;
 }
 
 ul.search_nav a:hover:not(.active_nav) {
