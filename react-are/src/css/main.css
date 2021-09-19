@@ -1,3 +1,24 @@
+/* Animation */
+@keyframes hover_up {
+  0% {
+    transition: 0.5s;
+    transform: translateY(0);
+  }
+  100% {
+    transition: 0.2s;
+    transform: translateY(-15px);
+  }
+  /* to {
+  transform:translateY(-15px);
+  } */
+}
+
+/* @media (prefers-reduced-motion: no-preference) {
+  section.main_body article.main_bottom div:hover span {
+    animation: hover_up 1s linear;
+  }
+} */
+
 /* Main Nav */
 header.App-header {
   padding: 5px;
@@ -103,12 +124,22 @@ section.main_body article.main_bottom div {
   background-color: white;
   padding: 2rem;
   transition: 0.2s;
+  cursor: pointer;
 }
 
 section.main_body article.main_bottom div:hover {
-  cursor: pointer;
   background-color: #7863f1;
   color: white;
+}
+
+section.main_body article.main_bottom div:hover span {
+  /* animation: hover_up; */
+  /* transition-property: transfrom;
+  transition-duration: 1s;
+  transition-delay: 1s;
+  transform: translateY(-10px); */
+  transform: translateY(-10px);
+  /* transition:0.5s; */
 }
 
 section.main_body article.main_bottom div h2,
@@ -116,7 +147,17 @@ section.main_body article.main_bottom div p {
   margin: 10px auto;
 }
 
+section.main_body article.main_bottom div h2{
+  text-align: center;
+}
+
+section.main_body article.main_bottom div p {
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
 section.main_body article.main_bottom div span {
-  width: 50%;
+  display: block;
+  width: 72px;
   margin: 0 auto;
 }
