@@ -20,9 +20,11 @@ router.get('/test', (req, res)=> {
 });
 
 router.get('/test/:query', (req, res)=> {
-  let query = req.params.query;
+  let {query }= req.params;
   console.log(query);
+
   const tmpUserList = {...userList, u_nickname:query};
+  console.table(tmpUserList)
   // userList = [...userList, u_nickname=query]
   res.json(tmpUserList);
 });
