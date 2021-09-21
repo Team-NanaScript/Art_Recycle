@@ -13,16 +13,17 @@ import {
 const Search = () => {
   const [hashTag, setHashTag] = useState([]);
 
-  const hashTagChange = (event) => {
-    // const { name, value } = event.target;
+  const changeHashTag = (event) => {
+    const tag = event.target;
+    if (tag.tagName === "DIV") {
+      const { value } = event.target;
 
-    const _tag = [...hashTag];
+      const _tag = [...hashTag];
 
-    _tag[_tag.length] = "다진마늘";
-    setHashTag(_tag);
-
-    _tag[_tag.length] = "갈매기";
-    setHashTag(_tag);
+      _tag[_tag.length] = value;
+      setHashTag(_tag);
+      console.log(hashTag);
+    }
   };
 
   return (
@@ -35,19 +36,19 @@ const Search = () => {
         <Route
           path="/search/local"
           component={LocalSearch}
-          hashTagChange={hashTagChange}
+          changeHashTag={changeHashTag}
           exact
         />
         <Route
           path="/search/way"
           component={WaySearch}
-          hashTagChange={hashTagChange}
+          changeHashTag={changeHashTag}
           exact
         />
         <Route
           path="/search/material"
           component={MaterialSearch}
-          hashTagChange={hashTagChange}
+          changeHashTag={changeHashTag}
           exact
         />
         <div className="result_tag"></div>
