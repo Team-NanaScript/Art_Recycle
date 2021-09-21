@@ -75,6 +75,8 @@ function TMap() {
 		
 		///// 좌표 /////
 
+
+
          }
          
          initTmap();
