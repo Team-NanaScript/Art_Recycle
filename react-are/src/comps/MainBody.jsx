@@ -1,11 +1,7 @@
 import React from "react";
 import "../css/main.css";
-import { useHistory } from "react-router-dom"; 
 
-function MainBody( props ) {
-  const searchList = props.searchList;
-  const history = useHistory();
-
+function MainBody({history}) {
   // const userFetch = useCallback(async  ()=>{
   //   const res = await fetch("http://localhost:5000/users/test")
   //   const userList = await res.json();
@@ -16,18 +12,22 @@ function MainBody( props ) {
 
   const keyToSearch = (e)=>{
     if(e.keyCode === 13) {
-      let search_query = e.target.value
-      // alert(search_query)
-      const tmpList = searchList(search_query);
-      // history.push(`/search/result/${search_query}`, tmpList)
-      history.push(`/search/${search_query}`)
+      let query = e.target.value
+      alert(query)
+      // const tmpList = searchList(query);
+      history.push(`/search/result/${query}`);
+      
+      // history.push([tmpList],`/search/result/${search_query}`)
+      // history.push(`/search/result/${search_query}`, { state :tmpList })
+      // history.pushState(`/search/result/${search_query}`, { state :tmpList })
+      // history.pushState({ state :tmpList },`/search/result/${search_query}`)
+      // history.push({pathname : `/search/result/${search_query}`, state :{helpList:tmpList} })
     }
   }
 
   const btnToSearch = ()=>{
       let search_query = document.querySelector("input.main_search").value
       alert(search_query)
-    
   }
   return (
     <section className="main_body">
