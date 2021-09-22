@@ -76,6 +76,10 @@ function TMap() {
 		///// 좌표 /////
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a2e6eee4ce3062ff0216e90179bc31ade9b5dd21
          }
          
          initTmap();

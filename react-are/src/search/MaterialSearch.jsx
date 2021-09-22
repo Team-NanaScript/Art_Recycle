@@ -14,20 +14,24 @@ const materialData = [
   "식료품",
   "기타",
 ];
-const MaterialSearch = () => {
-  const addTag = (e) => {
+const MaterialSearch = ({ changeTag }) => {
+  const clickTag = (e) => {
     const tag = e.target;
+    alert(tag.tagName);
 
     if (tag.tagName === "DIV") {
-      const tagValue = tag.innerText;
-      alert(tagValue);
+      const tagText = tag.innerText;
+      alert(tagText);
+      {
+        changeTag(tagText);
+      }
     }
   };
 
   const material_box = useCallback(() => {
     return materialData.map((text) => {
       return (
-        <div className="tag material" onClick={addTag}>
+        <div className="tag material" onClick={clickTag}>
           {text}
         </div>
       );
