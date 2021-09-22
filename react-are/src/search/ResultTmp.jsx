@@ -6,14 +6,16 @@ const ResultTmp = ({match}) => {
 
   const {query} = match.params
 
-  const searchList = useCallback(
+  const searchList =
+  //  useCallback(
    async(search_query)=>{
     const res = await fetch(`http://localhost:5000/users/test/${search_query}`)
     const tmpList = await res.json();
     console.table(tmpList);
-    // return tmpList;
-    setUserList(tmpList)
-  }, [])
+    return tmpList;
+    // setUserList(tmpList)
+  }
+  // , [])
   // useEffect(searchList, [searchList])
 
   const testBody = ()=> {
@@ -49,7 +51,7 @@ const ResultTmp = ({match}) => {
 
       <section>
         <h2 className="result">검색 결과</h2>
-            {/* {testBody()} */}
+            {testBody}
       </section>
     </div>
   );

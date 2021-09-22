@@ -29,6 +29,11 @@ function MainBody({history}) {
       let search_query = document.querySelector("input.main_search").value
       alert(search_query)
   }
+
+  const btnOnClick = (e)=> {
+    let div_className = e.target.closest("div").className
+    history.push(`/search/${div_className}`)
+  }
   return (
     <section className="main_body">
       <article className="main_top">
@@ -47,17 +52,17 @@ function MainBody({history}) {
         </div>
       </article>
       <article className="main_bottom">
-        <div className="area">
+        <div className="local" onClick={btnOnClick}>
           <h2>지역별 공방</h2>
           <p>우리 지역의 공방을 찾아봐요</p>
           <span class="fas fa-map-marked-alt fa-4x up"></span>
         </div>
-        <div className="material">
+        <div className="material" onClick={btnOnClick}>
           <h2>재료별 검색</h2>
           <p>새로 태어날 재활용품 재료들을 찾아볼 수 있어요 </p>
           <span class="far fa-lightbulb fa-4x up"></span>
         </div>
-        <div className="way">
+        <div className="way" onClick={btnOnClick}>
           <h2>택배 / 방문</h2>
           <p>택배를 보내거나 직접 방문하여 재활용품을 전달할 수 있어요</p>
           {/* <span class="fas fa-box fa-4x"></span> */}
