@@ -16,9 +16,13 @@ const Search = () => {
   const changeTag = (tagText) => {
     const _tag = [...hashTag];
 
+    alert("_tag길이: " + _tag.length);
+    alert("tagText: " + tagText);
+
     _tag[_tag.length] = tagText;
+    alert("_tag:" + _tag);
     setHashTag(_tag);
-    console.table(hashTag[_tag.length - 1]);
+    console.table(hashTag[_tag.length]);
   };
 
   return (
