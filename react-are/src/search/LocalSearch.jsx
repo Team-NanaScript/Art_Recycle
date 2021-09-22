@@ -32,8 +32,8 @@ const LocalSearch = () => {
     <section className="search_section">
       <div className="local_box">{local_box()}</div>
       <div className="map_sample">
-		  <Tmap/>
-	  </div>
+        <Tmap />
+      </div>
     </section>
   );
 };
