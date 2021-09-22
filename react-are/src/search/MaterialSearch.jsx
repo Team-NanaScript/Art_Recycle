@@ -14,25 +14,24 @@ const materialData = [
   "식료품",
   "기타",
 ];
-const MaterialSearch = (props) => {
-  const { changeHashTag } = props;
+const MaterialSearch = ({ changeTag }) => {
+  const clickTag = (e) => {
+    const tag = e.target;
+    alert(tag.tagName);
 
-  // const addTag = (e) => {
-  //   const tag = e.target;
-
-  //   if (tag.tagName === "DIV") {
-  //     const tagText = tag.innerText;
-  //     alert(tagText);
-  //     {
-  //       changeHashTag;
-  //     }
-  //   }
-  // };
+    if (tag.tagName === "DIV") {
+      const tagText = tag.innerText;
+      alert(tagText);
+      {
+        changeTag(tagText);
+      }
+    }
+  };
 
   const material_box = useCallback(() => {
     return materialData.map((text) => {
       return (
-        <div className="tag material" onClick={changeHashTag}>
+        <div className="tag material" onClick={clickTag}>
           {text}
         </div>
       );
