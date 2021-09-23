@@ -10,7 +10,7 @@ function TMap() {
                center: new Tmapv2.LatLng(37.566481622437934,126.98502302169841),
                width: "616px",
                height: "280px",
-               zoom:15
+               zoom:7
             });
 
 			///// 지도 생성 /////
@@ -20,10 +20,7 @@ function TMap() {
 			var markers1 = [];
 
 			var positions = [//다중 마커 저장 배열
-				{
-					 title: 'SKT타워', 
-					 lonlat: new Tmapv2.LatLng(37.566369,126.984895)//좌표 지정
-				 },
+								// 여기 어캐함?? 데이터를 만들어서 싹 추가를 해줘야 하는 부분..?
 				 {
 					 title: '호텔', 
 					 lonlat: new Tmapv2.LatLng(37.564432,126.979979)
@@ -31,10 +28,6 @@ function TMap() {
 				 {
 					 title: '명동성당', 
 					 lonlat: new Tmapv2.LatLng(37.5632423,126.987210)
-				 },
-				 {
-					 title: '을지로3가역',
-					 lonlat: new Tmapv2.LatLng(37.566337,126.992703)
 				 },
 				 {
 					 title: '덕수궁',
@@ -72,7 +65,7 @@ function TMap() {
             });
 		
 		// 지도를 이동시킵니다.
-		map.setCenter(wgs84);
+		// map.setCenter(wgs84);
          
 		}
 
@@ -80,7 +73,8 @@ function TMap() {
 
 		///// 좌표 /////
 
-		function loadGetAddressFromLonLat() {
+		function loadGetAddressFromLonLat(param) {
+
 			// TData 객체 생성
 			var tData = new Tmapv2.extension.TData();
 		  
@@ -93,16 +87,62 @@ function TMap() {
 			  onProgress: onProgress, //데이터 로드 중에 실행하는 함수 입니다.
 			  onError: onError, //데이터 로드가 실패했을때 실행하는 함수 입니다.
 			};
-		  
+
+			var options = {
+				numResults : 1,
+			};
+
 			// TData 객체의 지오코딩 함수
-			tData.getGeoFromAddressJson("서울", "은평", "갈현", "397", optionObj, params);
+			if(param === "서울"){
+				tData.getGeoFromAddressJson("서울", "은평", "갈현", "397" , optionObj, params);
+			} else if (param === "광주"){
+				tData.getGeoFromAddressJson("광주", "서구", "치평동", "1200" , optionObj, params);
+			} else if (param === "경기"){
+				tData.getGeoFromAddressJson("용인시", "처인구", "삼가동", "556" , optionObj, params);
+			} else if (param === "대구"){
+				tData.getGeoFromAddressJson("대구광역시", "중구", "동인동1가", "2-1" , optionObj, params);	
+			} else if (param === "대전"){
+				tData.getGeoFromAddressJson("용인시", "처인구", "중부대로", "1199" , optionObj, params);
+			} else if (param === "부산"){
+				tData.getGeoFromAddressJson("용인시", "처인구", "중부대로", "1199" , optionObj, params);
+			} else if (param === "세종"){
+				tData.getGeoFromAddressJson("용인시", "처인구", "중부대로", "1199" , optionObj, params);
+			} else if (param === "울산"){
+				tData.getGeoFromAddressJson("용인시", "처인구", "중부대로", "1199" , optionObj, params);
+			} else if (param === "인천"){
+				tData.getGeoFromAddressJson("용인시", "처인구", "중부대로", "1199" , optionObj, params);
+			} else if (param === "강원"){
+				tData.getGeoFromAddressJson("용인시", "처인구", "중부대로", "1199" , optionObj, params);
+			} else if (param === "경남"){
+				tData.getGeoFromAddressJson("용인시", "처인구", "중부대로", "1199" , optionObj, params);
+			} else if (param === "경북"){
+				tData.getGeoFromAddressJson("용인시", "처인구", "중부대로", "1199" , optionObj, params);
+			} else if (param === "전남"){
+				tData.getGeoFromAddressJson("용인시", "처인구", "중부대로", "1199" , optionObj, params);
+			} else if (param === "전북"){
+				tData.getGeoFromAddressJson("용인시", "처인구", "중부대로", "1199" , optionObj, params);
+			} else if (param === "충남"){
+				tData.getGeoFromAddressJson("용인시", "처인구", "중부대로", "1199" , optionObj, params);
+			} else if (param === "충북"){
+				tData.getGeoFromAddressJson("용인시", "처인구", "중부대로", "1199" , optionObj, params);
+			} else if (param === "제주"){
+				tData.getGeoFromAddressJson("용인시", "처인구", "중부대로", "1199" , optionObj, params);
+			} else{
+				map.setZoom(6)
+			}  
+			
+			
+			
 		  }
+
+		    
 		  
 		  function onComplete() {
 			console.log(this._responseData); //json으로 데이터를 받은 정보들을 콘솔창에서 확인할 수 있습니다.
-		  
+			
 			var lon = this._responseData.coordinateInfo.lon; //json으로 데이터를 받은 정보에서 경도정보를 추출합니다.
 			var lat = this._responseData.coordinateInfo.lat; //json으로 데이터를 받은 정보에서 위도정보를 추출합니다.
+			
 		  
 			var marker = new Tmapv2.Marker({
 			  position: new Tmapv2.LatLng(lat, lon),
@@ -110,6 +150,7 @@ function TMap() {
 		  
 			marker.setMap(map);
 			map.setCenter(new Tmapv2.LatLng(lat, lon));
+			map.setZoom(9)
 		  }
 		  
 		  //데이터 로드중 실행하는 함수입니다.
@@ -123,11 +164,17 @@ function TMap() {
 		  }
 
 		document.querySelector("div.local_box").addEventListener("click",(e)=>{
-			let cName = e.target.className
-			if( cName === "tag" ){
-				alert("됐냐?")
-				loadGetAddressFromLonLat()
+			let active = document.querySelector("div.active")
+			if(active){
+				active.classList.remove("active")
 			}
+			let cName = e.target.className
+			let param = e.target.textContent
+			if( cName === "tag" ){
+				e.target.classList.add("active")
+				loadGetAddressFromLonLat(param)
+			}
+			
 		})
 		
       `;
