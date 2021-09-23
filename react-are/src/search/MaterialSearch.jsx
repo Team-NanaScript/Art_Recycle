@@ -17,11 +17,9 @@ const materialData = [
 const MaterialSearch = ({ changeTag }) => {
   const clickTag = (e) => {
     const tag = e.target;
-    alert(tag.tagName);
 
     if (tag.tagName === "DIV") {
       const tagText = tag.innerText;
-      alert(tagText);
       {
         changeTag(tagText);
       }
