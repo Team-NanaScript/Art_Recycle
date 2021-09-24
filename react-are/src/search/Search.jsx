@@ -12,16 +12,17 @@ import {
 
 const Search = () => {
   const [hashTag, setHashTag] = useState([]);
-  const _tag = [...hashTag];
 
   const changeTag = (tagText) => {
     const _tag = [...hashTag];
+
     alert("_tag길이: " + _tag.length); // 길이가 계속 0인 문제 발생
-    _tag[_tag.length] = tagText;
+    // _tag[_tag.length] = tagText;
+    _tag.push(tagText);
 
     setHashTag(_tag);
     alert("_tag길이: " + _tag.length); // 길이가 계속 1인 문제 발생
-    alert("hashTag 길이: " + hashTag.length); // 길이가 계속 1인 문제 발생
+    alert("hashTag 길이: " + hashTag.length); // 길이가 계속 0인 문제 발생
     // alert("tagText: " + tagText); //정상
     console.table(hashTag); // undefined 로만 뜬다.
   };
