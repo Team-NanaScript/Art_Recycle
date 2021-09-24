@@ -1,25 +1,77 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "../css/Login.css";
-import { Link } from "react-router-dom";
+import { Link, history } from "react-router-dom";
 // import user from "../mongo-are/models/user";
+
 
 function Login() {
 
-	// const {userList, setUserList} = useState({});
 
-	const userfetch = async () => {
+	const [userList, setUserList] = useState({
+		u_id : "",
+		u_pw : ""
+	})
+
+	const userfetch = useCallback(async () => {
+
+	// 	// userList가 담겨있음
 		const res = await fetch("http://localhost:5000/user")
 
-		const user = await res.json();
-		console.log(user)
+		const users = await res.json();
+		console.table(users)
+		console.log(users)
 
-		// if(userList.u_id === u_id) {
-		// 	const userList = user.find(user.id);
-		// }else {
-		// 	console.log("불일치")
-		}
-	// 	return user
-	// }
+		
+		const user = users.u_id === userList.u_id && users.u_pw === userList.u_pw
+			
+		// const user = users.find(
+		// 	(user) => users.u_id === userList.u_id && users.u_pw === userList.u_pw)
+		
+		// setUserList(user)
+		console.log(user)
+		
+		},[]);
+
+		
+
+		useEffect(userfetch, [userfetch])
+
+
+	
+
+	const loginIdChange = (e) => {
+		const u_id = e.target.value
+		console.log("id", u_id)
+
+		setUserList({
+			...userList,u_id
+		})
+
+		console.log("userList",userList)
+
+	}
+
+	const loginPwChange = (e) => {
+		const u_pw = e.target.value
+		console.log("pw", u_pw)
+		setUserList ({
+			...userList,u_pw
+		})
+		console.log("userList",userList)
+	}
+	
+	// const history = useHistory();
+		
+
+	const onLoginClick = (e) => {
+		const user = userfetch(userList);
+
+
+
+	}
+
+
+
   return (
     <div>
       <header>
@@ -34,16 +86,16 @@ function Login() {
       </header>
       <div className="id_pw">
         <div className="input_id">
-          <input name="u_id" placeholder="ID" />
+          <input onChange={loginIdChange} name="u_id" placeholder="ID" />
           <span class="far fa-user"></span>
         </div>
         <div className="input_id">
-          <input name="u_pw" placeholder="PW" type="password" />
+          <input onChange={loginPwChange} name="u_pw" placeholder="PW" type="password" />
           <span class="fas fa-unlock-alt"></span>
         </div>
-        <Link to="/">
-          <button className="btn_login">LOGIN</button>
-        </Link>
+        {/* <Link to="/"> */}
+          <button onClick={onLoginClick} className="btn_login">LOGIN</button>
+        {/* </Link> */}
         <div className="btn_button">
           <button className="btn_find">ID/PW 찾기</button>
           <Link to="./Join">

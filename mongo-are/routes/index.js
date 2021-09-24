@@ -27,4 +27,9 @@ router.get("/user",async (req,res) => {
 	res.json(userList)
 })
 
+router.post("/user", (req,res)=> {
+	const body = req.body
+	console.log(body)
+})
+
 module.exports = router;
