@@ -12,18 +12,18 @@ import {
 
 const Search = () => {
   const [hashTag, setHashTag] = useState([]);
+  const _tag = [...hashTag];
 
   const changeTag = (tagText) => {
     const _tag = [...hashTag];
     alert("_tag길이: " + _tag.length); // 길이가 계속 0인 문제 발생
     _tag[_tag.length] = tagText;
 
-    // alert("_tag:" + _tag); // 방금 누른 text만 보여준다
-
     setHashTag(_tag);
-    alert("_tag길이: " + _tag.length); // 길이가 계속 0인 문제 발생
-    alert("tagText: " + tagText); //정상
-    console.table(hashTag[_tag.length]); // undefined 로만 뜬다.
+    alert("_tag길이: " + _tag.length); // 길이가 계속 1인 문제 발생
+    alert("hashTag 길이: " + hashTag.length); // 길이가 계속 1인 문제 발생
+    // alert("tagText: " + tagText); //정상
+    console.table(hashTag); // undefined 로만 뜬다.
   };
 
   return (
