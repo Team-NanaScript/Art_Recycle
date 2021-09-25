@@ -10,24 +10,22 @@ import {
   SearchNav,
 } from "../search";
 
-const Search = (props) => {
-  const { changeTag } = props;
-  // const [hashTag, setHashTag] = useState([]);
+const Search = () => {
+  const [hashTag, setHashTag] = useState([]);
 
-  // const changeTag = (tagText) => {
-  //   const _tag = [...hashTag];
+  const changeTag = (tagText) => {
+    const _tag = [...hashTag];
 
-  //   alert("_tag길이: " + _tag.length); // 길이가 계속 0인 문제 발생
-  //   // _tag[_tag.length] = tagText;
-  //   _tag.push(tagText);
+    alert("_tag길이: " + _tag.length); // 길이가 계속 0인 문제 발생
+    // _tag[_tag.length] = tagText;
+    _tag.push(tagText);
 
-  //   // setHashTag(_tag);
-  //   setHashTag(_tag);
-  //   alert("_tag길이: " + _tag.length); // 길이가 계속 1인 문제 발생
-  //   alert("hashTag 길이: " + hashTag.length); // 길이가 계속 0인 문제 발생
-  //   // alert("tagText: " + tagText); //정상
-  //   console.table(hashTag); // undefined 로만 뜬다.
-  // };
+    // setHashTag(_tag);
+    setHashTag(_tag);
+    alert("_tag길이: " + _tag.length); // 길이가 계속 1인 문제 발생
+    alert("hashTag 길이: " + hashTag.length); // 길이가 계속 0인 문제 발생
+    console.table(hashTag); // undefined 로만 뜬다.
+  };
 
   const clickTag = (e) => {
     const tag = e.target;
