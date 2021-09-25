@@ -29,6 +29,17 @@ const Search = (props) => {
   //   console.table(hashTag); // undefined 로만 뜬다.
   // };
 
+  const clickTag = (e) => {
+    const tag = e.target;
+
+    if (tag.tagName === "DIV") {
+      const tagText = tag.innerText;
+      {
+        changeTag(tagText);
+      }
+    }
+  };
+
   return (
     <BrowserRouter>
       <div className="Search">
@@ -38,17 +49,17 @@ const Search = (props) => {
         <SearchNav />
         <Route
           path="/search/local"
-          render={() => <LocalSearch changeTag={changeTag} />}
+          render={() => <LocalSearch clickTag={clickTag} />}
           exact
         />
         <Route
           path="/search/way"
-          render={() => <WaySearch changeTag={changeTag} />}
+          render={() => <WaySearch clickTag={clickTag} />}
           exact
         />
         <Route
           path="/search/material"
-          render={() => <MaterialSearch changeTag={changeTag} />}
+          render={() => <MaterialSearch clickTag={clickTag} />}
           exact
         />
         <Result />

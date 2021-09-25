@@ -14,18 +14,7 @@ const materialData = [
   "식료품",
   "기타",
 ];
-const MaterialSearch = ({ changeTag }) => {
-  const clickTag = (e) => {
-    const tag = e.target;
-
-    if (tag.tagName === "DIV") {
-      const tagText = tag.innerText;
-      {
-        changeTag(tagText);
-      }
-    }
-  };
-
+const MaterialSearch = ({ clickTag }) => {
   const material_box = useCallback(() => {
     return materialData.map((text) => {
       return (

@@ -3,8 +3,8 @@ import MainNav from "./comps/MainNav";
 import { Footer, MainBody } from "./comps";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Login, Join } from "./member";
-import { Search, Detail} from "./search";
-import ResultTmp from "./search/ResultTmp"
+import { Search, Detail } from "./search";
+import ResultTmp from "./search/ResultTmp";
 import { useState } from "react";
 
 function App() {
@@ -24,38 +24,42 @@ function App() {
     // alert("hashTag 길이: " + tagList.length); // 길이가 계속 0인 문제 발생
     // alert("tagText: " + tagText); //정상
     // console.table(tagList); // undefined 로만 뜬다.
-    tmp_changeTag(tagText, hashTag, setHashTag)
+    tmp_changeTag(tagText, hashTag, setHashTag);
   };
 
-  const tmp_changeTag = (tagText, hashTag, setHashTag) =>{
+  const tmp_changeTag = (tagText, hashTag, setHashTag) => {
     const _tag = [...hashTag];
     // alert("tag : "+ _tag[0] + " hash : " + hashTag[0])
     _tag.push(tagText);
     setHashTag(_tag);
-    alert("tag : "+ _tag[0] + " hash : " + hashTag[0])
-  }
+    alert("tag : " + _tag[0] + " hash : " + hashTag[0]);
+  };
 
   const args = {
     changeTag,
     hashTag,
-    setHashTag
-  }
+    setHashTag,
+  };
 
   // const args_result = {
-   
+
   // }
   return (
     <BrowserRouter>
       <div className="App">
         <MainNav />
         <Route path="/" component={MainBody} exact />
-        <Route path="/login" component={Login} exact/>
+        <Route path="/login" component={Login} exact />
         <Route path="/join" component={Join} />
-        <Route path="/search/local" render={() => <Search changeTag={changeTag} />} exact /> 
-        <Route path="/search/result/:query" component={ResultTmp} exact/>
+        <Route
+          path="/search/local"
+          render={() => <Search changeTag={changeTag} />}
+          exact
+        />
+        <Route path="/search/result/:query" component={ResultTmp} exact />
         <Route path="/detail" component={Detail} />
-        <Route path="/search/way" component={Search} exact/>
-        <Route path="/search/material" component={Search}/>
+        <Route path="/search/way" component={Search} exact />
+        <Route path="/search/material" component={Search} />
         <Footer />
       </div>
     </BrowserRouter>
