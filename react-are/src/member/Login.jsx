@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import "../css/Login.css";
-import { Link, history } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 // import user from "../mongo-are/models/user";
 
 
@@ -12,6 +12,12 @@ function Login() {
 		u_pw : ""
 	})
 
+	const [tuserList, setTuserList] = useState([{
+		tu_id : "",
+		tu_pw : "",
+	}
+	])
+
 	const userfetch = useCallback(async () => {
 
 	// 	// userList가 담겨있음
@@ -22,13 +28,13 @@ function Login() {
 		console.log(users)
 
 		
-		const user = users.u_id === userList.u_id && users.u_pw === userList.u_pw
+		// const user = users.u_id === userList.u_id && users.u_pw === userList.u_pw
 			
-		// const user = users.find(
-		// 	(user) => users.u_id === userList.u_id && users.u_pw === userList.u_pw)
-		
-		// setUserList(user)
-		console.log(user)
+		// const user = users.filter( (user) => {
+			// return users.u_id === userList.u_id && users.u_pw === userList.u_pw})
+			setTuserList(users)
+		// setUserList(users)
+		// console.log(user)
 		
 		},[]);
 
@@ -39,15 +45,33 @@ function Login() {
 
 	
 
-	const loginIdChange = (e) => {
-		const u_id = e.target.value
-		console.log("id", u_id)
+	const loginIdChange = () => {
+		const u_id = document.querySelector("input[name='u_id']").value
 
-		setUserList({
-			...userList,u_id
-		})
 
+		//  = e.target.value
+		alert("u_id" + u_id)
+
+		// setUserList({
+			// ...userList,u_id
+		// })
+
+		tuserList.filter
+
+		const r_user
+		//  = "";
+		= tuserList.filter( tuser => {
+			// for(let i = 0 ; i < tuserList.length ; i++) {
+			// 	if(u_id === tuserList[i].tu_id) {
+			// 		r_user = tuserList[i]
+			// 		break;
+			// 	}
+			return u_id === tuser.tu_id })
+		// }
+		setUserList([...r_user])
 		console.log("userList",userList)
+
+
 
 	}
 
@@ -60,11 +84,14 @@ function Login() {
 		console.log("userList",userList)
 	}
 	
-	// const history = useHistory();
+	const history = useHistory();
 		
 
 	const onLoginClick = (e) => {
-		const user = userfetch(userList);
+		userfetch(userList);
+		loginIdChange()
+		alert(userList[0].u_id)
+		history.push("/")
 
 
 
@@ -86,7 +113,7 @@ function Login() {
       </header>
       <div className="id_pw">
         <div className="input_id">
-          <input onChange={loginIdChange} name="u_id" placeholder="ID" />
+          <input name="u_id" placeholder="ID" />
           <span class="far fa-user"></span>
         </div>
         <div className="input_id">
