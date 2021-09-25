@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import "../css/result.css";
 
-const ResultTmp = ({match}) => {
+const ResultTmp = ({match}, props) => {
   const [userList, setUserList] = useState([]);
 
   const {query} = match.params
