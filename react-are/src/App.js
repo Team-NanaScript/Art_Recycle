@@ -55,7 +55,9 @@ function App() {
         <Route path="/search/result/:query" component={ResultTmp} exact />
         <Route path="/detail" component={Detail} />
         <Route path="/search/way" component={Search} exact />
-        <Route path="/search/material" component={Search} />
+        <Route path="/search/material" component={Search} exact />
+        {/* 커뮤니티 수정해주세염 */}
+        <Route path="/board" component={Search} exact />
         <Footer />
       </div>
     </BrowserRouter>

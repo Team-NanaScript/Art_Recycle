@@ -17,7 +17,7 @@ function MainNav() {
           <ul className="main_menu center">
             <li><NavLink to="/" exact>A-Re 소개</NavLink></li>
             <li><NavLink to="/search/local" exact>공방찾기</NavLink></li>
-            <li><NavLink to="/" exact>커뮤니티</NavLink></li>
+            <li><NavLink to="/board" exact>커뮤니티</NavLink></li>
           </ul>
           <ul className="main_menu right">
             <li><NavLink to="/" exact>공방등록</NavLink></li>
