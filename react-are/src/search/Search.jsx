@@ -11,20 +11,21 @@ import {
 } from "../search";
 
 const Search = () => {
-  const [hashTag, setHashTag] = useState([]);
+  let [hashTag, setHashTag] = useState([]);
 
   const changeTag = (tagText) => {
-    const _tag = [...hashTag];
+    // _tag에 state 복사 + tagText 추가
+    const _tag = [...hashTag, tagText];
 
-    alert("_tag길이: " + _tag.length); // 길이가 계속 0인 문제 발생
+    // tagText를 state배열에 추가
     // _tag[_tag.length] = tagText;
-    _tag.push(tagText);
+    // _tag.push(tagText);
 
-    // setHashTag(_tag);
+    // _tag를 state에 setting
     setHashTag(_tag);
-    alert("_tag길이: " + _tag.length); // 길이가 계속 1인 문제 발생
-    alert("hashTag 길이: " + hashTag.length); // 길이가 계속 0인 문제 발생
-    console.table(hashTag); // undefined 로만 뜬다.
+    console.log("_tag길이: " + _tag.length);
+    console.log("hashTag 길이: " + hashTag.length); // 길이가 계속 0인 문제 발생
+    console.log("hashTag : " + hashTag); // undefined 로만 뜬다.
   };
 
   const clickTag = (e) => {
