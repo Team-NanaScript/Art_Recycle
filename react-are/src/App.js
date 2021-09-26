@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { Login, Join } from "./member";
 import { Search, Detail } from "./search";
 import ResultTmp from "./search/ResultTmp";
+import MainCommunity from "./community/MainCommunity";
 import { useState } from "react";
 
 function App() {
@@ -57,7 +58,8 @@ function App() {
         <Route path="/search/way" component={Search} exact />
         <Route path="/search/material" component={Search} exact />
         {/* 커뮤니티 수정해주세염 */}
-        <Route path="/board" component={Search} exact />
+        <Route path="/board" component={MainCommunity} exact />
+        <Route path="/board/insert" component={MainCommunity} />
         <Footer />
       </div>
     </BrowserRouter>

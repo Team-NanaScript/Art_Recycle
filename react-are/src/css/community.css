@@ -1,0 +1,23 @@
+div.com_main {
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+table.com_board,
+table.com_board tr,
+table.com_board td,
+table.com_board th {
+  text-align: center;
+  border: 1px solid;
+  padding: 2rem;
+}
+
+table.com_board {
+  border-collapse: collapse;
+  margin: 10px auto;
+}
+
+table.com_board tr:not(tr:first-of-type) {
+  cursor: pointer;
+}

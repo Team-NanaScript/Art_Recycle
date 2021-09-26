@@ -5,31 +5,35 @@ import "../css/detail.css";
 
 function Detail() {
   return (
-    <div>
+    <div className="detail_all">
       <header className="detail_header">
         <h2>BOX ATELIER</h2>
         <h4>With. RE;CODE</h4>
       </header>
-      <section>
-        <span>BOX ATELIER - 리폼/리페어 지속 가능한 패션 서비스 제공</span>
+      <span>BOX ATELIER - 리폼/리페어 지속 가능한 패션 서비스 제공</span>
+      <section className="detail_section">
         <div>
           <h3>Address</h3>
           <span>서울 용산구 양녕로 445 노들섬</span>
         </div>
         <div>
-          <h3>오픈 시간</h3>
+          <h3>OPEN</h3>
           <span>12시 ~ 저녁 8시 ( 월요일은 쉽니다~ )</span>
         </div>
-        <div>
+        <div className="detail_site">
           <h3>SITE</h3>
-          <span>
-            <a href="https://www.instagram.com/recode_/">
+          <span className="site_icon">
+            <a href="https://www.instagram.com/recode_/" target="_blank">
               <i class="fab fa-instagram fa-2x"></i>
             </a>
-            <br />
+            <a
+              className="booking"
+              href="https://booking.naver.com/booking/6/bizes/418377/items/3611519"
+              target="_blank"
+            >
+              Naver Book
+            </a>
           </span>
-          <span>네이버 예약 서비스</span>
-          <span>Box atelier</span>
         </div>
       </section>
       <section>
@@ -77,7 +81,8 @@ function Detail() {
             <br />
             2) 리폼 (REFORM)
             <br />
-            유행이 지나 입지않는 옷을 가져오면 새로운 디자인으로 재탄생해드립니다.
+            유행이 지나 입지않는 옷을 가져오면 새로운 디자인으로
+            재탄생해드립니다.
             <br />
             <br />
             수선/리폼은 1:1 상담을 통해 비용과 소요시간이 책정됩니다.
@@ -90,9 +95,11 @@ function Detail() {
         <div>
           <br />
           <h3>여기서 지도를 보여줄 곳</h3>
+          {/* 
           <div className="map">
             <Tmap />
           </div>
+		   */}
         </div>
       </section>
       <section>

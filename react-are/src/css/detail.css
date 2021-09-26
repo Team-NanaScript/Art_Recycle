@@ -1,3 +1,9 @@
+div.detail_all {
+  width: 1000px;
+  text-align: center;
+  margin: 0 auto;
+}
+
 header.detail_header {
   min-height: 30vh;
   display: flex;
@@ -19,6 +25,36 @@ header.detail_header {
 
   margin: 0 auto;
   margin-bottom: 5vh;
+}
+
+section.detail_section {
+  display: flex;
+  align-items: center;
+}
+
+section.detail_section div {
+  flex: 1;
+}
+
+div.detail_site {
+  margin: 10px;
+}
+
+span.site_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+}
+
+span.site_icon a {
+  margin: 0 10px;
+}
+
+a.booking {
+  border: 2px solid;
+  border-radius: 8px;
+  padding: 3px;
 }
 
 div.map {
