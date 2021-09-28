@@ -21,15 +21,15 @@ router.get("/data", (req, res) => {
   res.json(userList);
 });
 
-router.get("/user",async (req,res) => {
-	const users = await USER.find({})
-	// console.table(userList)
-	res.json(userList)
-})
+router.get("/user", async (req, res) => {
+  // const users = await USER.find({});
+  // console.table(userList)
+  res.json(userList);
+});
 
-router.post("/user", (req,res)=> {
-	const body = req.body
-	console.log(body)
-})
+router.post("/user", (req, res) => {
+  const body = req.body;
+  console.log(body);
+});
 
 module.exports = router;
