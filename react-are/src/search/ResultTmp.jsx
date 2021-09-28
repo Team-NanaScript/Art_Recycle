@@ -45,12 +45,6 @@ const ResultTmp = (props) => {
   return (
     <div>
       <section>
-        <div>Hash-Tag</div>
-        <button>검색</button>
-        <label>{query}</label>
-      </section>
-
-      <section>
         <h2 className="result">검색 결과</h2>
         {testBody}
       </section>
