@@ -44,6 +44,7 @@ header.App-header nav.menu_wrap ul {
 }
 header.App-header nav.menu_wrap ul li,
 header.App-header nav.menu_wrap ul li a {
+  text-decoration: none;
   padding: 15px 10px;
 }
 
@@ -70,7 +71,7 @@ section.main_body article.main_top div.main_search_box {
 
 section.main_body article.main_top,
 section.main_body article.main_bottom {
-  margin:0 auto;
+  margin: 0 auto;
   width: 1000px;
 }
 
@@ -147,7 +148,7 @@ section.main_body article.main_bottom div p {
   margin: 10px auto;
 }
 
-section.main_body article.main_bottom div h2{
+section.main_body article.main_bottom div h2 {
   text-align: center;
 }
 
