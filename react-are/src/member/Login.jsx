@@ -3,101 +3,53 @@ import "../css/Login.css";
 import { Link, useHistory } from "react-router-dom";
 // import user from "../mongo-are/models/user";
 
-
 function Login() {
+  const [user, setUser] = useState({});
 
+  const [userList, setUserList] = useState([
+    {
+      tu_id: "",
+      tu_pw: "",
+    },
+  ]);
 
-	const [userList, setUserList] = useState({
-		u_id : "",
-		u_pw : ""
-	})
+  const userfetch = useCallback(async () => {
+    // userList가 담겨있음
+    const res = await fetch("http://localhost:5000/user");
 
-	const [tuserList, setTuserList] = useState([{
-		tu_id : "",
-		tu_pw : "",
-	}
-	])
+    const users = await res.json();
+    console.table(users);
 
-	const userfetch = useCallback(async () => {
+    const _user = { ...users };
 
-	// 	// userList가 담겨있음
-		const res = await fetch("http://localhost:5000/user")
+    if (user.u_id === _user.u_id) {
+      history.push("/");
+    } // else if (user === _user) {
+    //   alert("ID 또는 password가 다릅니다.");
+    // }
 
-		const users = await res.json();
-		console.table(users)
-		console.log(users)
+    // setUser(_user);
+  }, []);
+  // userfetch가 변화되면 사용할 수 있도록 하는 코드
+  //   useEffect(userfetch, [userfetch]);
 
-		
-		// const user = users.u_id === userList.u_id && users.u_pw === userList.u_pw
-			
-		// const user = users.filter( (user) => {
-			// return users.u_id === userList.u_id && users.u_pw === userList.u_pw})
-			setTuserList(users)
-		// setUserList(users)
-		// console.log(user)
-		
-		},[]);
+  const loginChange = (e) => {
+    const { value, name } = e.target;
 
-		
+    // const login = { [name]: value };
+    setUser({ ...user, [name]: value });
+    // console.log("login", login);
+    // setUserList(...userList);
+  };
 
-		useEffect(userfetch, [userfetch])
+  const history = useHistory();
 
-
-	
-
-	const loginIdChange = () => {
-		const u_id = document.querySelector("input[name='u_id']").value
-
-
-		//  = e.target.value
-		alert("u_id" + u_id)
-
-		// setUserList({
-			// ...userList,u_id
-		// })
-
-		// tuserList.filter
-
-		const r_user
-		//  = "";
-		= tuserList.filter( tuser => {
-			// for(let i = 0 ; i < tuserList.length ; i++) {
-			// 	if(u_id === tuserList[i].tu_id) {
-			// 		r_user = tuserList[i]
-			// 		break;
-			// 	}
-			return u_id === tuser.tu_id })
-		// }
-		setUserList([...r_user])
-		console.log("userList",userList)
-
-
-
-	}
-
-	const loginPwChange = (e) => {
-		const u_pw = e.target.value
-		console.log("pw", u_pw)
-		setUserList ({
-			...userList,u_pw
-		})
-		console.log("userList",userList)
-	}
-	
-	const history = useHistory();
-		
-
-	const onLoginClick = (e) => {
-		userfetch(userList);
-		loginIdChange()
-		alert(userList[0].u_id)
-		history.push("/")
-
-
-
-	}
-
-
+  const onLoginClick = (e) => {
+    userfetch();
+    // loginChange();
+    // alert(user[0].u_id);
+    console.log("user", user);
+  };
 
   return (
     <div>
@@ -113,15 +65,17 @@ function Login() {
       </header>
       <div className="id_pw">
         <div className="input_id">
-          <input name="u_id" placeholder="ID" />
+          <input name="u_id" placeholder="ID" onChange={loginChange} />
           <span class="far fa-user"></span>
         </div>
         <div className="input_id">
-          <input onChange={loginPwChange} name="u_pw" placeholder="PW" type="password" />
+          <input onChange={loginChange} name="u_pw" placeholder="PW" type="password" />
           <span class="fas fa-unlock-alt"></span>
         </div>
         {/* <Link to="/"> */}
-          <button onClick={onLoginClick} className="btn_login">LOGIN</button>
+        <button onClick={onLoginClick} className="btn_login">
+          LOGIN
+        </button>
         {/* </Link> */}
         <div className="btn_button">
           <button className="btn_find">ID/PW 찾기</button>
