@@ -1,47 +1,32 @@
 import React from "react";
 import "../css/main.css";
 
-function MainBody({history}) {
-  // const userFetch = useCallback(async  ()=>{
-  //   const res = await fetch("http://localhost:5000/users/test")
-  //   const userList = await res.json();
-  //   await setUserList(userList);
-  // }, []);
-
-  // useEffect(userFetch, [userFetch]);
-
-  const keyToSearch = (e)=>{
-    if(e.keyCode === 13) {
-      let query = e.target.value
-      alert(query)
-      // const tmpList = searchList(query);
+function MainBody({ history }) {
+  const keyToSearch = (e) => {
+    if (e.keyCode === 13) {
+      let query = e.target.value;
+      //   alert(query)
       history.push(`/search/result/${query}`);
-      
-      // history.push([tmpList],`/search/result/${search_query}`)
-      // history.push(`/search/result/${search_query}`, { state :tmpList })
-      // history.pushState(`/search/result/${search_query}`, { state :tmpList })
-      // history.pushState({ state :tmpList },`/search/result/${search_query}`)
-      // history.push({pathname : `/search/result/${search_query}`, state :{helpList:tmpList} })
     }
-  }
+  };
 
-  const btnToSearch = ()=>{
-      let search_query = document.querySelector("input.main_search").value
-      alert(search_query)
-  }
+  const btnToSearch = () => {
+    let search_query = document.querySelector("input.main_search").value;
+    alert(search_query);
+  };
 
-  const btnOnClick = (e)=> {
-    let div_className = e.target.closest("div").className
-    history.push(`/search/${div_className}`)
-  }
+  const btnOnClick = (e) => {
+    let div_className = e.target.closest("div").className;
+    history.push(`/search/${div_className}`);
+  };
   return (
     <section className="main_body">
       <article className="main_top">
         <h1>국내 재활용 공방을 한곳에</h1>
-        
+
         <div className="main_search_box">
           <input
-          onKeyDown={keyToSearch}
+            onKeyDown={keyToSearch}
             name="search"
             className="main_search"
             placeholder="공방명이나 재료를 입력해주세요"
