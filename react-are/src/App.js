@@ -9,6 +9,23 @@ import MainCommunity from "./community/MainCommunity";
 import { useState } from "react";
 
 function App() {
+  //   const [hashTag, setHashTag] = useState([]);
+
+  //   const changeTag = (tagText) => {
+  //     setHashTag([...hashTag, tagText]);
+  //     console.log("hashTag 길이: " + hashTag.length); // 길이가 계속 0인 문제 발생
+  //     console.table(hashTag); // undefined 로만 뜬다.
+  //   };
+
+  //   const clickTag = (e) => {
+  //     const tag = e.target;
+  //     if (tag.tagName === "DIV") {
+  //       const tagText = tag.innerText;
+  //       changeTag(tagText);
+  //     }
+  //   };
+
+  //================================================================
   // const [hashTag, setHashTag] = useState([]);
 
   // const changeTag = (tagText) => {
@@ -52,7 +69,12 @@ function App() {
         <Route path="/" component={MainBody} exact />
         <Route path="/login" component={Login} exact />
         <Route path="/join" component={Join} />
-        <Route path="/search/local" component={Search} exact />
+        {/* <Route
+          path="/search/local"
+          render={() => <Search clickTag={clickTag} />}
+          exact
+        /> */}
+        <Route path="/search/local" component={Search} />
         <Route path="/search/result/:query" component={ResultTmp} exact />
         <Route path="/detail" component={Detail} />
         <Route path="/search/way" component={Search} exact />

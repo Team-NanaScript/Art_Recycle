@@ -22,10 +22,14 @@ const localData = [
   "제주",
 ];
 
-const LocalSearch = () => {
+const LocalSearch = ({ clickTag }) => {
   const local_box = useCallback(() => {
     return localData.map((text) => {
-      return <div className="tag">{text}</div>;
+      return (
+        <div className="tag local" onClick={clickTag}>
+          {text}
+        </div>
+      );
     });
   }, []);
   return (
