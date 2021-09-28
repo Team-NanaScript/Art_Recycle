@@ -4,6 +4,8 @@
   padding: 0;
 }
 
+
+
 .App {
   text-align: center;
 }
@@ -48,66 +50,64 @@ li {
 }
 
 .footer {
-  padding: 10px;
-  height: 250px;
-  border-top: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
-  color: rgba(255, 255, 255, 255);
-  display: flex;
-  flex-direction: column;
+  height:40vh;
+  border-top: 1px solid rgba(0,0,0,0.3);
+  /* border-bottom: 1px solid rgba(0,0,0,0.3); */
+  /* color: rgba(117, 140, 253); */
+  color:white;
+  font-size:17px;
+  text-align: left;
   background-color: rgba(117, 140, 253);
 }
 
-.footer div.footer_box {
-  margin: 15px;
+div.footer_box{
+  width: 990px;
+  margin: 0 auto;
+  padding: 37px 0 78px;
+  
 }
 
-.logo {
-  margin-left: -800px;
+ul.ft_nav{
+  display:flex;
+  margin:0 2px;
 }
 
-.msg_box {
-  margin-left: 975px;
-}
-
-.msg_box label {
-  font-weight: 600;
-  color: rgba(255, 255, 255, 255);
-  text-align: right;
-  margin: 10px;
-}
-
-.msg_box button {
-  padding: 15px;
-  height: 60px;
-  border-radius: 50em;
-  border: 1px solid rgba(230, 230, 230, 0.6);
-  color: white;
-  background-color: rgba(117, 140, 253);
-  cursor: pointer;
-}
-
-div.footer p {
-  font-size: 14px;
-}
-
-div.footer_nav {
-  display: flex;
-  margin-left: 1230px;
-}
-
-.footer li {
-  margin: 10px;
-  font-size: 20px;
+ul.ft_nav li, ul.ft_nav p{
+  display:flex;
+  margin:0 4px;
+  font-size:24px;
   font-weight: 300;
-  cursor: pointer;
 }
 
-div.copy {
-  margin-left: 1065px;
-  color: rgba(228, 228, 228, 0.8);
+ul.ft_nav li{
+  cursor:pointer;
 }
 
-.msg_box {
-  display: flex;
+ul.ft_nav li:nth-of-type(5){
+  position: relative;
+  left:500px;
+  border:1px solid white;
+  padding:12px;
+  border-radius: 100px;
+  width:120px;
+  text-align: center;
+  font-size:16px;
 }
+
+div.notice{
+  margin:15px 5px;
+  font-weight: 600;
+  /* color:rgb(117, 139, 253); */
+  font-size:16px;
+}
+
+div.notice p{
+ cursor:pointer;
+}
+
+div.copy{
+  margin:0 5px;
+  font-size:12px;
+  font-weight: 200;
+}
+
