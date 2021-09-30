@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
+import AreContext from "../context/AreContext";
 
-function Board({ commuList }) {
+function Board() {
+  const { commuList } = useContext(AreContext);
+
   const commu_body = commuList.map((community) => {
     return (
       <tr>
@@ -12,6 +16,12 @@ function Board({ commuList }) {
       </tr>
     );
   });
+
+  const history = useHistory();
+  const btn_write = () => {
+    history.push("/board/insert");
+  };
+
   return (
     <div>
       <table className="com_board">
@@ -27,7 +37,7 @@ function Board({ commuList }) {
         <tbody>{commu_body}</tbody>
       </table>
       <div>
-        <button>글쓰기</button>
+        <button onClick={btn_write}>글쓰기</button>
       </div>
     </div>
   );
