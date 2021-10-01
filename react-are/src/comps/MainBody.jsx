@@ -5,14 +5,13 @@ function MainBody({ history }) {
   const keyToSearch = (e) => {
     if (e.keyCode === 13) {
       let query = e.target.value;
-      //   alert(query)
       history.push(`/search/result/${query}`);
     }
   };
 
   const btnToSearch = () => {
     let search_query = document.querySelector("input.main_search").value;
-    alert(search_query);
+    history.push(`/search/result/${search_query}`);
   };
 
   const btnOnClick = (e) => {
