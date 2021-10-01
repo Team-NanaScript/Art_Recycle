@@ -28,8 +28,8 @@ header.App-header {
 }
 
 header.App-header,
-header.App-header nav.menu_wrap,
-header.App-header nav.menu_wrap ul {
+header.App-header div.menu_wrap,
+header.App-header div.menu_wrap nav.main_menu {
   display: flex;
   flex-direction: row;
 }
@@ -37,26 +37,22 @@ header.App-header nav.menu_wrap ul {
 header.App-header div#logo {
   padding: 10px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
-header.App-header nav.menu_wrap ul {
+header.App-header div.menu_wrap nav.main_menu {
   margin-right: 1rem;
 }
-header.App-header nav.menu_wrap ul li,
-header.App-header nav.menu_wrap ul li a {
+header.App-header div.menu_wrap nav.main_menu a {
   text-decoration: none;
-  padding: 15px 10px;
-}
-
-header.App-header nav.menu_wrap ul li {
-  cursor: pointer;
   transition: 0.2s;
   margin: 2px 10px;
 
   color: #8172d5;
+  padding: 15px 10px;
 }
 
-header.App-header nav.menu_wrap ul li:hover {
+header.App-header div.menu_wrap nav.main_menu a:hover {
   color: #27187f;
   border-radius: 30px;
   background-color: #bac5ff;
