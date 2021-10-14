@@ -37,7 +37,7 @@ function Login() {
           <span class="far fa-user"></span>
         </div>
         <div className="input_id">
-          <input onChange={loginChange} name="u_pw" placeholder="PW" type="password" />
+          <input onChange={loginChange} name="u_pw" placeholder="PW" />
           <span class="fas fa-unlock-alt"></span>
         </div>
         {/* <Link to="/"> */}
