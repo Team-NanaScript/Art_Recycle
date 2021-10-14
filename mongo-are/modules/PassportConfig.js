@@ -7,6 +7,8 @@ const LocalStratege = passportLocal.Strategy;
 
 const exportPassport = () => {
   //  로그인이 성공했을 때 (내부에서) 호출되는 함수
+  console.log("뭐가문제야");
+
   passport.serializeUser((user, done) => {
     console.log("로그인 성공");
     done(null, user);
@@ -24,23 +26,24 @@ const exportPassport = () => {
     new LocalStratege(
       {
         // login을 수행할 때 전달될 변수명 설정
-        usernameField: "userid",
-        passwordField: "password",
+        usernameField: "u_id",
+        passwordField: "u_pw",
         session: true, // 세션저장하기
       },
-      (userid, password, done) => {
+      (u_id, u_pw, done) => {
         console.log("member");
         const result = users.map((member) => {
           // memeber에 있는 id가 같으면 바로 코드 종료
-          if (member.userid === userid && member.password === password) {
+          if (member.u_id === u_id && member.u_pw === u_pw) {
             console.log("찾았다");
             return done(null, member);
           }
         });
         if (!result) {
           console.log("실패");
+
+          return done(null, false, { messege: "login fail" });
         }
-        return done(null, false, { messege: "login fail" });
       }
     )
   );

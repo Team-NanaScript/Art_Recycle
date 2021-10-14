@@ -7,16 +7,14 @@ const fetchOption = {
   credentials: "include",
 };
 
-const fetchLogin = async () => {
-  // userList가 담겨있음
-  const res = await fetch("http://localhost:5000/users");
+const fetchLogin = async (u_id, u_pw) => {
+  fetchOption.body = JSON.stringify({ u_id, u_pw });
+  const res = await fetch("http://localhost:5000/users/login", fetchOption);
+  console.log("res", res);
 
   const users = await res.json();
+
   console.table(users);
-
-  //   setUser(users);
-
-  console.log("DB유저" + users);
 };
 
 const fetchUser = () => {};
