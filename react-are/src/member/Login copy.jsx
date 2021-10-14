@@ -1,21 +1,66 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "../css/Login.css";
 import { Link, useHistory } from "react-router-dom";
-import { fetchLogin } from "../modules/memberFetch";
 // import user from "../mongo-are/models/user";
 
 function Login() {
-  const history = useHistory();
-
   const [user, setUser] = useState({});
+
+  //   const [userList, setUserList] = useState([
+  //     {
+  //       tu_id: "",
+  //       tu_pw: "",
+  //     },
+  //   ]);
+
+  // const [dbUser, setDbUser] = useState({});
+
+  const [userList, setUserList] = useState([user]);
+
+  const userfetch = useCallback(async () => {
+    // userList가 담겨있음
+    const res = await fetch("http://localhost:5000/user");
+
+    const users = await res.json();
+    console.table(users);
+
+    setUser(users);
+
+    // const _dbUser = { users };
+
+    // dbUser(users);
+
+    // setDbUser({ ...dbUser });
+
+    console("DB유저" + users);
+
+    // const _userList = userList.filter((user) => _user.u_id !== u_id);
+    // if (user.u_id === _user.u_id) {}
+    // history.push("/");
+    // else if (user === _user) {
+    //   alert("ID 또는 password가 다릅니다.");
+    // }
+
+    // setUser(_user);
+  }, []);
+  // userfetch가 변화되면 사용할 수 있도록 하는 코드
+  //   useEffect(userfetch, [userfetch]);
 
   const loginChange = (e) => {
     const { value, name } = e.target;
+
+    // const login = { [name]: value };
     setUser({ ...user, [name]: value });
+    // console.log("login", login);
+    // setUserList(...userList);
   };
 
+  const history = useHistory();
+
   const onLoginClick = (e) => {
-    fetchLogin();
+    userfetch();
+    // loginChange();
+    // alert(user[0].u_id);
     console.log("user", user);
   };
 
@@ -37,7 +82,7 @@ function Login() {
           <span class="far fa-user"></span>
         </div>
         <div className="input_id">
-          <input onChange={loginChange} name="u_pw" placeholder="PW" />
+          <input onChange={loginChange} name="u_pw" placeholder="PW" type="password" />
           <span class="fas fa-unlock-alt"></span>
         </div>
         {/* <Link to="/"> */}

@@ -10,4 +10,4 @@ const user = Schema({
   u_role: Number,
 });
 
-module.exports = mongoose.model("are_user", user);
+module.exports = mongoose.model("users", user);
