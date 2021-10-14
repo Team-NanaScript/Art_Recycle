@@ -6,12 +6,12 @@ import { Link, useHistory } from "react-router-dom";
 function Login() {
   const [user, setUser] = useState({});
 
-  const [userList, setUserList] = useState([
-    {
-      tu_id: "",
-      tu_pw: "",
-    },
-  ]);
+//   const [userList, setUserList] = useState([
+//     {
+//       tu_id: "",
+//       tu_pw: "",
+//     },
+//   ]);
 
   const userfetch = useCallback(async () => {
     // userList가 담겨있음
