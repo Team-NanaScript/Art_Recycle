@@ -2,57 +2,47 @@ import React, { useCallback, useEffect, useState } from "react";
 import "../css/result.css";
 import { useParams } from "react-router";
 
-const ResultTmp = (props) => {
+const ResultTmp = () => {
   const [userList, setUserList] = useState([]);
+  const [user, setUser] = useState({});
 
   const { query } = useParams();
 
-  const searchList =
-    //  useCallback(
-    async (search_query) => {
-      const res = await fetch(
-        `http://localhost:5000/users/test/${search_query}`
-      );
-      const tmpList = await res.json();
-      console.table(tmpList);
-      return tmpList;
-      // setUserList(tmpList)
-    };
-  // , [])
-  // useEffect(searchList, [searchList])
+  const searchResult = useCallback(async () => {
+    const res = await fetch(`http://localhost:5000/users/test/${query}`);
+    const tmpList = await res.json();
+    console.table(tmpList);
+    setUser(tmpList);
+  }, []);
 
-  const testBody = () => {
-    searchList(query);
-    // console.table(tmp)
-    // if(tmp.length > 0){
-    if (userList.length > 0) {
-      // return tmp.map((user) =>
-      return userList.map((user) => (
-        <div className="result_search">
-          <div className="result_image"></div>
-          <div className="result_ex">
-            <h2>{user.u_id}</h2>
-            <p>{user.u_email}</p>
-            <p>{user.u_nickname}</p>
-          </div>
-        </div>
-      ));
-    }
+  const getUser = async () => {
+    const res = await fetch("http://localhost:5000/users/test");
+    const tmpList = await res.json();
+    console.table(tmpList);
+    setUser(tmpList);
   };
 
-  // useEffect(searchList,[searchList]);
+  //   useCallback(searchList, [searchList]);
+
+  //   useEffect(searchList_tmp, [searchList_tmp]);
+  useEffect(searchResult, [searchResult]);
 
   return (
     <div>
       <section>
-        <div>Hash-Tag</div>
-        <button>검색</button>
-        <label>{query}</label>
-      </section>
-
-      <section>
         <h2 className="result">검색 결과</h2>
-        {testBody}
+        <button onClick={getUser}>가져오기</button>
+        <p>{query}</p>
+        <p>
+          {user.u_id ? (
+            <>
+              <p>{user.u_nickname}</p>
+              <p>{user.u_id}</p>
+            </>
+          ) : (
+            "false"
+          )}
+        </p>
       </section>
     </div>
   );

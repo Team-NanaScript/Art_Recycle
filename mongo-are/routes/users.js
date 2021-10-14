@@ -1,4 +1,4 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
 const userList = {
@@ -11,20 +11,21 @@ const userList = {
 };
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get("/", function (req, res, next) {
+  res.send("respond with a resource");
 });
 
-router.get('/test', (req, res)=> {
+router.get("/test", async (req, res) => {
   res.json(userList);
+  console.log(userList);
 });
 
-router.get('/test/:query', (req, res)=> {
-  let {query }= req.params;
+router.get("/test/:query", (req, res) => {
+  let { query } = req.params;
   console.log(query);
 
-  const tmpUserList = {...userList, u_nickname:query};
-  console.table(tmpUserList)
+  const tmpUserList = { ...userList, u_nickname: query };
+  console.table(tmpUserList);
   // userList = [...userList, u_nickname=query]
   res.json(tmpUserList);
 });

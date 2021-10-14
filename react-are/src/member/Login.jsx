@@ -6,12 +6,18 @@ import { Link, useHistory } from "react-router-dom";
 function Login() {
   const [user, setUser] = useState({});
 
+<<<<<<< HEAD
 //   const [userList, setUserList] = useState([
 //     {
 //       tu_id: "",
 //       tu_pw: "",
 //     },
 //   ]);
+=======
+  // const [dbUser, setDbUser] = useState({});
+
+  const [userList, setUserList] = useState([user]);
+>>>>>>> 7e24065a0ab873480bfdad786216b0969034c7ad
 
   const userfetch = useCallback(async () => {
     // userList가 담겨있음
@@ -20,11 +26,20 @@ function Login() {
     const users = await res.json();
     console.table(users);
 
-    const _user = { ...users };
+    setUser(users);
 
-    if (user.u_id === _user.u_id) {
-      history.push("/");
-    } // else if (user === _user) {
+    // const _dbUser = { users };
+
+    // dbUser(users);
+
+    // setDbUser({ ...dbUser });
+
+    console("DB유저" + users);
+
+    // const _userList = userList.filter((user) => _user.u_id !== u_id);
+    // if (user.u_id === _user.u_id) {}
+    // history.push("/");
+    // else if (user === _user) {
     //   alert("ID 또는 password가 다릅니다.");
     // }
 
