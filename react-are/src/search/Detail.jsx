@@ -10,7 +10,7 @@ function Detail() {
         <h2>BOX ATELIER</h2>
         <h4>With. RE;CODE</h4>
       </header>
-      <span>BOX ATELIER - 리폼/리페어 지속 가능한 패션 서비스 제공</span>
+      <div>BOX ATELIER - 리폼/리페어 지속 가능한 패션 서비스 제공</div>
       <section className="detail_section">
         <div>
           <h3>Address</h3>
@@ -18,7 +18,7 @@ function Detail() {
         </div>
         <div>
           <h3>OPEN</h3>
-          <span>12시 ~ 저녁 8시 ( 월요일은 쉽니다~ )</span>
+          <span>12시 ~ 저녁 8시 ( 월요일 휴무 )</span>
         </div>
         <div className="detail_site">
           <h3>SITE</h3>
@@ -38,10 +38,9 @@ function Detail() {
       </section>
       <section>
         <div>
+          <span>BOX ATELIER</span>
           <span>
-            BOX ATELIER (박스아뜰리에)
-            <br />
-            래코드가 제안하는 지속가능 패션서비스
+            래코드가 제안하는 지속 가능한 패션 서비스
             <br />
             Reform & Repair
             <br />
@@ -81,8 +80,7 @@ function Detail() {
             <br />
             2) 리폼 (REFORM)
             <br />
-            유행이 지나 입지않는 옷을 가져오면 새로운 디자인으로
-            재탄생해드립니다.
+            유행이 지나 입지않는 옷을 가져오면 새로운 디자인으로 재탄생해드립니다.
             <br />
             <br />
             수선/리폼은 1:1 상담을 통해 비용과 소요시간이 책정됩니다.
@@ -91,7 +89,7 @@ function Detail() {
           </span>
         </div>
       </section>
-      <section>
+      <section className="detail_map">
         <div>
           <br />
           <h3>여기서 지도를 보여줄 곳</h3>
@@ -102,89 +100,9 @@ function Detail() {
 		   */}
         </div>
       </section>
-      <section>
-        <div className="postscr">
-          <br />
-          <h3>여기부터는 후기~</h3>
-          <hr />
-          <br />
-          <div className="postscr_insert">
-            <button className="image">이미지</button>
-            <input name="postscript" placeholder="후기를 입력해주세요" />
-            <button className="postscr_save">등록</button>
-          </div>
-
-          <hr />
-          <br />
-        </div>
-        <div></div>
-      </section>
-      <section>
-        <h3 className="re_size"> 댓글 119 </h3>
-        <br />
-        <section>
-          <div className="postscr">
-            <div className="postscr_list">
-              <button className="image">REPAIR</button>
-              <input
-                name="postscript"
-                placeholder=" 수선 (REPAIR) : 간단한 수선을 통해 소중한 옷을 고쳐 오래 입어보세요."
-                readOnly="readonly"
-              />
-              <button className="postscr_save">등록</button>
-            </div>
-          </div>
-        </section>
-      </section>
-      <section>
-        <section>
-          <div className="postscr">
-            <div className="postscr_list">
-              <button className="image">REFORM</button>
-              <input
-                name="postscript"
-                placeholder=" 리폼 (REFORM) : 유행이 지나 입지않는 옷을 가져오면 새로운 디자인으로 재탄생해드립니다."
-                readOnly="readonly"
-              />
-              <button className="postscr_save">등록</button>
-            </div>
-          </div>
-          <div></div>
-        </section>
-      </section>
-      <section>
-        <section>
-          <div className="postscr">
-            <div className="postscr_list">
-              <button className="image">REPAIR</button>
-              <input
-                name="postscript"
-                placeholder=" 수선 (REPAIR) : 간단한 수선을 통해 소중한 옷을 고쳐 오래 입어보세요."
-                readOnly="readonly"
-              />
-              <button className="postscr_save">등록</button>
-            </div>
-          </div>
-          <div></div>
-        </section>
-      </section>
-      <section>
-        <section>
-          <div className="postscr">
-            <div className="postscr_list">
-              <button className="image">REFORM</button>
-              <input
-                name="postscript"
-                placeholder=" 리폼 (REFORM) : 유행이 지나 입지않는 옷을 가져오면 새로운 디자인으로 재탄생해드립니다."
-                readOnly="readonly"
-              />
-              <button className="postscr_save">등록</button>
-            </div>
-          </div>
-          <div></div>
-        </section>
-      </section>
-      <br />
+      <div className="postscr">
+        <h3>여기부터는 후기~</h3>
+      </div>
     </div>
   );
 }

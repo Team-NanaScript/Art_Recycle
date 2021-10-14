@@ -30,6 +30,10 @@ header.detail_header {
 section.detail_section {
   display: flex;
   align-items: center;
+  padding: 1rem;
+  margin: 3rem auto;
+
+  border: 1px solid;
 }
 
 section.detail_section div {
@@ -49,6 +53,8 @@ span.site_icon {
 
 span.site_icon a {
   margin: 0 10px;
+  color: inherit;
+  text-decoration: none;
 }
 
 a.booking {
@@ -57,52 +63,10 @@ a.booking {
   padding: 3px;
 }
 
+/* 
 div.map {
   width: 616px;
   height: 280px;
   margin: 0 auto;
-}
-
-hr {
-  width: 1000px;
-  margin: 10px auto;
-}
-
-div.postscr_list {
-  width: 1000px;
-  margin: 0 auto;
-}
-
-div.postscr_insert {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 1000px;
-  margin: 0 auto;
-}
-
-button.image {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-right: 20px;
-}
-
-input[name="postscript"] {
-  height: 60px;
-  width: 50%;
-  border-radius: 5px;
-}
-
-button.postscr_save {
-  width: 10%;
-  border: none;
-  padding: 5px 12px;
-  margin: 5px 10px;
-}
-
-h3.re_size {
-  margin-right: 850px;
-  color: #61dafb;
-}
+} 
+*/
