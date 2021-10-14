@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import "../css/community.css";
 
 import { Board, Insert } from "../community";
-import AreContext from "../context/AreContext";
+import AreContext from "../context/CommunityContext";
 
 function MainCommunity() {
   const [board, setBoard] = useState({

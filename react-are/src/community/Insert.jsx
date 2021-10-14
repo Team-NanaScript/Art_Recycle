@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import moment from "moment";
-import AreContext from "../context/AreContext";
+import AreContext from "../context/CommunityContext";
 
 function Insert() {
   const { board, setBoard, commuList, setCommuList } = useContext(AreContext);

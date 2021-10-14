@@ -30,4 +30,8 @@ router.get("/test/:query", (req, res) => {
   res.json(tmpUserList);
 });
 
+router.post("/", (req, res) => {
+  console.log("user", user);
+});
+
 module.exports = router;

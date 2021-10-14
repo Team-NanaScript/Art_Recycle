@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import AreContext from "../context/AreContext";
+import AreContext from "../context/CommunityContext";
 
 function Board() {
   const { commuList } = useContext(AreContext);
