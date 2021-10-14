@@ -15,7 +15,7 @@ function Login() {
   };
 
   const onLoginClick = (e) => {
-    fetchLogin();
+    fetchLogin(user.u_id, user.u_pw);
     console.log("user", user);
   };
 

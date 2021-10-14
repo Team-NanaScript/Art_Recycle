@@ -1,6 +1,7 @@
 const passport = require("passport");
 const passportLocal = require("passport-local");
 const users = require("../models/user.js");
+const members = require("../models/member.js");
 
 // local login 정책을 수행하는 모듈
 const LocalStratege = passportLocal.Strategy;
@@ -32,7 +33,8 @@ const exportPassport = () => {
       },
       (u_id, u_pw, done) => {
         console.log("member");
-        const result = users.map((member) => {
+        console.log("u_id,u_pw", u_id, u_pw);
+        const result = members.map((member) => {
           // memeber에 있는 id가 같으면 바로 코드 종료
           if (member.u_id === u_id && member.u_pw === u_pw) {
             console.log("찾았다");
