@@ -1,7 +1,7 @@
 const passport = require("passport");
 const passportLocal = require("passport-local");
 const users = require("../models/user.js");
-const members = require("../models/member.js");
+const members = require("../models/members.json");
 
 // local login 정책을 수행하는 모듈
 const LocalStratege = passportLocal.Strategy;
@@ -34,18 +34,31 @@ const exportPassport = () => {
       (u_id, u_pw, done) => {
         console.log("member");
         console.log("u_id,u_pw", u_id, u_pw);
-        const result = members.map((member) => {
-          // memeber에 있는 id가 같으면 바로 코드 종료
-          if (member.u_id === u_id && member.u_pw === u_pw) {
-            console.log("찾았다");
-            return done(null, member);
-          }
+        console.log(members);
+        const result = members.filter((member) => {
+          console.log("Member", member);
+          member.u_id === u_id && member.u_pw === u_pw;
         });
-        if (!result) {
-          console.log("실패");
 
+        if (result) {
+          console.log(" 성공 ");
+          return done(null, result[0]);
+        } else {
           return done(null, false, { messege: "login fail" });
         }
+
+        // const result = members.map((member) => {
+        //   // memeber에 있는 id가 같으면 바로 코드 종료
+        //   if (member.u_id === u_id && member.u_pw === u_pw) {
+        //     vconsole.log("찾았다");
+        //     return done(null, member);
+        //   }
+        // });
+        // if (!result) {
+        //   console.log("실패");
+
+        //   return done(null, false, { messege: "login fail" });
+        // }
       }
     )
   );
