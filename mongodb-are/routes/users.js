@@ -2,7 +2,7 @@ import express from "express";
 const router = express.Router();
 
 import passport from "passport";
-import users from "../models/users.js";
+import users from "../models/user.js";
 
 const userList = {
   u_id: "nana",
