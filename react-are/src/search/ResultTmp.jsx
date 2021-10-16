@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import "../css/result.css";
 import { useParams } from "react-router";
+import AteList from "../atelier/AteList";
 
 const ResultTmp = () => {
   const [userList, setUserList] = useState([]);
@@ -35,10 +36,7 @@ const ResultTmp = () => {
         <p>{query}</p>
         <p>
           {user.u_id ? (
-            <>
-              <p>{user.u_nickname}</p>
-              <p>{user.u_id}</p>
-            </>
+            <AteList notMsg="검색 결과가 없습니다"/>
           ) : (
             "false"
           )}
