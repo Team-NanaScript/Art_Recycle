@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import "../css/Login.css";
 import { Link, useHistory } from "react-router-dom";
 import { fetchLogin } from "../modules/memberFetch";
+import { useUserContext } from "../context/UserContext";
 // import user from "../mongo-are/models/user";
 
 function Login() {
   const history = useHistory();
 
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState();
+  const { user, setUser } = useUserContext();
 
   const loginChange = (e) => {
     const { value, name } = e.target;

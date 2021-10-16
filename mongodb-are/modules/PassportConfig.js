@@ -1,6 +1,7 @@
 import passport from "passport";
 import passportLocal from "passport-local";
 import users from "../models/user.js";
+import { testSample } from "../models/testSample.js";
 
 // local login 정책을 수행하는 모듈
 const LocalStratege = passportLocal.Strategy;
@@ -31,17 +32,18 @@ const exportPassport = () => {
         session: true, // 세션저장하기
       },
       (u_id, u_pw, done) => {
-        console.log("member");
-        const result = users.map((member) => {
+        console.log("test");
+        const result = testSample.map((member) => {
           // memeber에 있는 id가 같으면 바로 코드 종료
-          if (member.u_id === u_id && member.u_pw === u_pw) {
+          if (member.userid === u_id && member.password === u_pw) {
             console.log("찾았다");
             return done(null, member);
           }
+
+          // return done(null, false, { messege: "login fail" });
         });
         if (!result) {
           console.log("실패");
-
           return done(null, false, { messege: "login fail" });
         }
       }

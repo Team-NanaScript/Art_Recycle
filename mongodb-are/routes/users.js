@@ -45,11 +45,18 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
     u_pw: req.user.u_pw,
   });
 
-  console.log("login id,pw", login);
+  // console.log("login id,pw", login);
 });
 
 router.post("/join", (req, res) => {
-  console.log("join", users);
+  console.log("ok?");
+  const userVO = new users(req.body);
+
+  console.log(userVO);
+
+  // userVO.save((err.data) => {
+  //   res.json(data)
+  // })
 });
 
 export default router;
