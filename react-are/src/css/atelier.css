@@ -1,0 +1,27 @@
+div.atelier_list {
+	display: flex;
+	width: 1000px;
+	border-radius: 15px;
+	border: 1px solid;
+	margin: 10px auto;
+}
+
+div.atelier_image {
+	flex: 1;
+  
+	height: 20vh;
+	background-image: url("../image/result_image.jpg");
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: center;
+	background-size: cover;
+  
+	border-radius: 15px 0 0 15px;
+}
+  
+div.atelier_item {
+	flex: 3;
+	align-items: center;
+	justify-content: center;
+}
+  

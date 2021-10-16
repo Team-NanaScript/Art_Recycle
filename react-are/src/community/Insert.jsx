@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import moment from "moment";
+import AreContext from "../context/CommunityContext";
 
-function Insert({ board, setBoard, commuList, setCommuList }) {
+function Insert() {
+  const { board, setBoard, commuList, setCommuList } = useContext(AreContext);
   const changeInput = (e) => {
     const { name, value } = e.target;
     // console.log(name, value);

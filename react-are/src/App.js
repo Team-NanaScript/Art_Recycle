@@ -7,15 +7,18 @@ import { Search, Detail } from "./search";
 import ResultTmp from "./search/ResultTmp";
 import MainCommunity from "./community/MainCommunity";
 import { useState } from "react";
+import UserContextProvider from "./context/UserContext";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <MainNav />
-        <Route path="/" component={MainBody} exact />
-        <Route path="/login" component={Login} exact />
-        <Route path="/join" component={Join} />
+        <UserContextProvider>
+          <Route path="/" component={MainBody} exact />
+          <Route path="/login" component={Login} exact />
+          <Route path="/join" component={Join} />
+        </UserContextProvider>
         {/* <Route
           path="/search/local"
           render={() => <Search clickTag={clickTag} />}

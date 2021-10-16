@@ -1,15 +1,22 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-const cors = require("cors");
-const passport = require("passport");
-const PassportConfig = require("./modules/PassportConfig.js");
-const session = require("express-session");
+/**
+ * express generator ES6+ template
+ * @edit : callor@callor.com
+ * @since : 2020-12-10
+ * @see : nodejs + express 프로젝트에서 ES6+ 문법을 사용하기 위한 template
+ */
+import createError from "http-errors";
+import express from "express";
+import path from "path";
+import cookieParser from "cookie-parser";
+import logger from "morgan";
+
+import cors from "cors";
+import passport from "passport";
+import PassportConfig from "./modules/PassportConfig.js";
+import session from "express-session";
 
 /** mongoose DB 관련 */
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const dbConn = mongoose.connection;
 
@@ -22,12 +29,10 @@ dbConn.on("error", () => {
 
 mongoose.connect("mongodb://localhost:27017/are");
 
-/** */
+import indexRouter from "./routes/index.js";
+import usersRouter from "./routes/users.js";
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-
-var app = express();
+const app = express();
 
 const whilteURL = ["http://localhost:3000"];
 const corsOption = {
@@ -45,14 +50,14 @@ app.use(cors(corsOption)); // 여기수정필요
 app.disable("x-powered-by");
 
 // view engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "jade");
+app.set("views", path.join("./views"));
+app.set("view engine", "pug");
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join("./public")));
 
 // 세션활성화
 const oneDay = 1000 * 60 * 60 * 24; // 밀리초 * 60초 * 60분 * 24시간
@@ -101,4 +106,4 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-module.exports = app;
+export default app;

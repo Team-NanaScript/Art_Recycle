@@ -1,7 +1,8 @@
-var express = require("express");
-var router = express.Router();
-const passport = require("passport");
-const users = require("../models/user.js");
+import express from "express";
+const router = express.Router();
+
+import passport from "passport";
+import users from "../models/user.js";
 
 const userList = {
   u_id: "nana",
@@ -9,7 +10,7 @@ const userList = {
   u_email: "nananana",
   u_name: "na",
   u_nickname: "naa",
-  u_role: 00,
+  u_role: 0,
 };
 
 /* GET users listing. */
@@ -37,16 +38,25 @@ router.post("/", (req, res) => {
 
 router.post("/login", passport.authenticate("local"), (req, res) => {
   console.log("랄라라라라라랄");
-  // console.log("login", req.user);
+  console.log("login", req.user);
 
-  res.json({
+  const login = res.json({
     u_id: req.user.u_id,
     u_pw: req.user.u_pw,
   });
+
+  // console.log("login id,pw", login);
 });
 
 router.post("/join", (req, res) => {
-  console.log("join", users);
+  console.log("ok?");
+  const userVO = new users(req.body);
+
+  console.log(userVO);
+
+  // userVO.save((err.data) => {
+  //   res.json(data)
+  // })
 });
 
-module.exports = router;
+export default router;
