@@ -10,7 +10,7 @@ const userList = {
   u_email: "nananana",
   u_name: "na",
   u_nickname: "naa",
-  u_role: 00,
+  u_role: 0,
 };
 
 /* GET users listing. */
