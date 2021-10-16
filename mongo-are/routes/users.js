@@ -37,14 +37,12 @@ router.post("/", (req, res) => {
 
 router.post("/login", passport.authenticate("local"), (req, res) => {
   console.log("랄라라라라라랄");
-  console.log("login", req.user);
+  // console.log("login", req.user);
 
-  const login = res.json({
+  res.json({
     u_id: req.user.u_id,
     u_pw: req.user.u_pw,
   });
-
-  console.log("login id,pw", login);
 });
 
 router.post("/join", (req, res) => {

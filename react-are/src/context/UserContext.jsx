@@ -9,7 +9,8 @@ export const useUserContext = () => {
 
 const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState();
-  const providerData = { user, setUser };
+  const [joinUser, setJoinUser] = useState();
+  const providerData = { user, setUser, joinUser, setJoinUser };
 
   return <UserContext.Provider value={providerData}>{children}</UserContext.Provider>;
 };
