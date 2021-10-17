@@ -5,11 +5,13 @@ const AppContext = createContext;
 export const useSearchContext = () => {
   return useContext(AppContext);
 };
+
 const SearchContext = ({ children }) => {
-  const [hashTag, setHashTag] = useState({
-    h_cate: "",
-    h_text: "",
-  });
+  // 해시태그 state
+  // const [hashTag, setHashTag] = useState({
+  //   h_cate: "",
+  //   h_text: "",
+  // });
 
   const [hashTagList, setHashTagList] = useState([]);
 

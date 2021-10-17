@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/Join.css";
 import { Link } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 import { fetchJoin } from "../modules/memberFetch";
 
 function Join() {
-  // const { joinUser, setJoinUser } = useUserContext({
+  // const { joinUser, setJoinUser } = useState({
   //   u_id: "",
   //   u_pw: "",
   //   u_email: "",
