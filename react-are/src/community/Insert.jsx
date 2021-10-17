@@ -13,13 +13,31 @@ function Insert() {
       c_no: commuList.length,
       c_date: moment().format("YYYY[-]MM[-]DD"),
       c_time: moment().format("HH:mm:ss"),
+      c_text: "",
     });
     // console.log(board);
   };
 
-  const onClickSave = () => {
-    setCommuList([...commuList, board]);
-    console.log("hi", commuList);
+  const onClickSave = async () => {
+    // setCommuList([...commuList, board]);
+    // console.log("hi", commuList);
+
+    const { c_no, c_date, c_time, c_text } = board;
+
+    const response = await fetch("http://localhost:5000/board/insert", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000",
+      },
+      body: JSON.stringify(c_no, c_date, c_time, c_text),
+    });
+
+    if (response.ok) {
+      const json = await response.json();
+      alert(JSON.stringify(json));
+      console.log(JSON.stringify(json));
+    }
   };
 
   return (
