@@ -26,6 +26,8 @@ const fetchJoin = async () => {
     const json = res.json();
     console.log("정보", json);
     alert(JSON.stringify(json));
+  } else {
+    console.log("실패?");
   }
 };
 
