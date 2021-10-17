@@ -2,7 +2,8 @@ import express from "express";
 const router = express.Router();
 
 import passport from "passport";
-import users from "../models/user.js";
+import user from "../models/user.js";
+// import users from "../models/user.js";
 
 const userList = {
   u_id: "nana",
@@ -48,9 +49,10 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
   // console.log("login id,pw", login);
 });
 
-router.post("/join", (req, res) => {
+router.post("/join", async (req, res) => {
   console.log("ok?");
-  const userVO = new users(req.body);
+  const userVO = new user(req.body);
+  // const response = await user.create(req.body);
 
   console.log(userVO);
 
