@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import "../css/SearchSection.css";
 
 import { BrowserRouter, Route } from "react-router-dom";
@@ -9,6 +9,7 @@ import {
   Result,
   SearchNav,
 } from "../search";
+import HashTagContext from "../context/HashTagContext";
 
 const Search = () => {
   // const hashTagView = hashTagList.map((hash) => {
@@ -22,21 +23,11 @@ const Search = () => {
           <h2>공방찾기</h2>
         </header>
         <SearchNav />
-        <Route
-          path="/search/local"
-          render={() => <LocalSearch clickTag={clickTag} />}
-          exact
-        />
-        <Route
-          path="/search/way"
-          render={() => <WaySearch clickTag={clickTag} />}
-          exact
-        />
-        <Route
-          path="/search/material"
-          render={() => <MaterialSearch clickTag={clickTag} />}
-          exact
-        />
+        <HashTagContext>
+          <Route path="/search/local" component={LocalSearch} exact />
+          <Route path="/search/way" component={WaySearch} exact />
+          <Route path="/search/material" component={MaterialSearch} exact />
+        </HashTagContext>
         {/* <div>{hashTagView}</div> */}
         <Result />
       </div>

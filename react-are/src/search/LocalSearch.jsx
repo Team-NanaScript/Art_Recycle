@@ -1,4 +1,5 @@
-import React, { useCallback } from "react";
+// import React, { useCallback } from "react";
+import { useHashTagContext } from "../context/HashTagContext";
 import { Tmap } from "./index";
 
 const localData = [
@@ -22,8 +23,10 @@ const localData = [
   "제주",
 ];
 
-const LocalSearch = ({ clickTag }) => {
-  const local_box = useCallback(() => {
+const LocalSearch = () => {
+  const { clickTag } = useHashTagContext();
+  // const local_box = useCallback(() => {
+  const local_box = () => {
     return localData.map((text) => {
       return (
         <div className="tag local" onClick={clickTag}>
@@ -31,7 +34,8 @@ const LocalSearch = ({ clickTag }) => {
         </div>
       );
     });
-  }, []);
+  };
+  // }, []);
   return (
     <section className="search_section">
       <div className="local_box">{local_box()}</div>

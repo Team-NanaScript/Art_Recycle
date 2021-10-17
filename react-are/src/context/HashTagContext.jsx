@@ -7,12 +7,6 @@ export const useHashTagContext = () => {
 };
 
 const HashTagContext = ({ children }) => {
-  // 해시태그 state
-  // const [hashTag, setHashTag] = useState({
-  //   h_cate: "",
-  //   h_text: "",
-  // });
-
   const [hashTagList, setHashTagList] = useState([]);
 
   const changeTag = (tagCate, tagText) => {

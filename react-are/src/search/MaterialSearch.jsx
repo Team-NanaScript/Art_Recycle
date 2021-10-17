@@ -1,4 +1,5 @@
-import React, { useCallback } from "react";
+// import React, { useCallback } from "react";
+import { useHashTagContext } from "../context/HashTagContext";
 
 const materialData = [
   "목재",
@@ -14,8 +15,11 @@ const materialData = [
   "식료품",
   "기타",
 ];
-const MaterialSearch = ({ clickTag }) => {
-  const material_box = useCallback(() => {
+const MaterialSearch = () => {
+  const { clickTag } = useHashTagContext();
+
+  // const material_box = useCallback(() => {
+  const material_box = () => {
     return materialData.map((text) => {
       return (
         <div className="tag material" onClick={clickTag}>
@@ -23,7 +27,8 @@ const MaterialSearch = ({ clickTag }) => {
         </div>
       );
     });
-  }, []);
+  };
+  // }, []);
 
   return (
     <section className="search_section material">
