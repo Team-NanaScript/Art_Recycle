@@ -11,37 +11,9 @@ import {
 } from "../search";
 
 const Search = () => {
-  const [hashTag, setHashTag] = useState({
-    h_cate: "",
-    h_text: "",
-  });
-
-  const [hashTagList, setHashTagList] = useState([]);
-
-  const changeTag = (tagCate, tagText) => {
-    const _hashTag = {
-      h_cate: tagCate,
-      h_text: tagText,
-    };
-    // setHashTag(_hashTag);
-    // console.log(hashTag);
-    setHashTagList([...hashTagList, _hashTag]);
-    console.table(hashTagList);
-  };
-
-  const clickTag = (e) => {
-    const tag = e.target;
-    if (tag.tagName === "DIV") {
-      const tagText = tag.innerText;
-      const tagCate = tag.className;
-      changeTag(tagCate, tagText);
-    }
-  };
-
-  console.log(hashTagList.length);
-  const hashTagView = hashTagList.map((hash) => {
-    return <div>{hash.h_text}</div>;
-  });
+  // const hashTagView = hashTagList.map((hash) => {
+  //   return <div>{hash.h_text}</div>;
+  // });
 
   return (
     <BrowserRouter>
@@ -65,7 +37,7 @@ const Search = () => {
           render={() => <MaterialSearch clickTag={clickTag} />}
           exact
         />
-        <div>{hashTagView}</div>
+        {/* <div>{hashTagView}</div> */}
         <Result />
       </div>
     </BrowserRouter>
