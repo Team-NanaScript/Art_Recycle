@@ -6,7 +6,6 @@ import { Login, Join } from "./member";
 import { Search, Detail } from "./search";
 import ResultTmp from "./search/ResultTmp";
 import MainCommunity from "./community/MainCommunity";
-import { useState } from "react";
 import UserContextProvider from "./context/UserContext";
 
 function App() {
