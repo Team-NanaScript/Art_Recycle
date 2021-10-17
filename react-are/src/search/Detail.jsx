@@ -11,7 +11,7 @@ function Detail() {
         <h4>With. RE;CODE</h4>
       </header>
       <div>BOX ATELIER - 리폼/리페어 지속 가능한 패션 서비스 제공</div>
-      <section className="detail_section">
+      <div className="detail_section">
         <div>
           <h3>Address</h3>
           <span>서울 용산구 양녕로 445 노들섬</span>
@@ -35,30 +35,32 @@ function Detail() {
             </a>
           </span>
         </div>
-      </section>
+      </div>
+      <div>
+        <h3>RE;CODE'S ATELIER PROJECT</h3>
+        <div>
+          <p>래코드가 제안하는 지속가능한 패션 서비스</p>
+          <p>Reform & Repair</p>
+          <p>옷장에서 잠자고 있던 소중한 옷이 재탄생됩니다.</p>
+          <p>간단한 수선과 리폼에 대한 상담을 통해서</p>
+          <p>고쳐 입고 다시 입는 문화를 전파 & 싱글맘의 자립을 지원</p>
+        </div>
+      </div>
+      <div>
+        <h3>공방 소개</h3>
+        <div>
+          <p>더 이상 입지 않는 옷의 업사이클 서비스 제공</p>
+          <h4>수선 (Repair)</h4>
+          <p>간단한 수선을 통해 </p>
+          <h4>리폼 (Reform)</h4>
+          <p>유행이 지나 입지 않는 옷을 새롭게 재탄생 시켜줌으로써 쓸 데 없이 버리지 않게 해줌</p>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
       <section>
         <div>
-          <span>BOX ATELIER</span>
           <span>
-            래코드가 제안하는 지속 가능한 패션 서비스
-            <br />
-            Reform & Repair
-            <br />
-            <br />
-            옷장에 잠자고 있던 소중한 옷을 다시 입을 수 있게
-            <br />
-            작은 래코드의 BOX ATELIER공간에서 재탄생됩니다.
-            <br />
-            <br />
-            간단한 수선과 리폼에 대한 상담을 통해
-            <br />
-            고쳐 입고 다시 입는 문화를 전파하고
-            <br />
-            싱글맘의 자립을 지원하는
-            <br />
-            래코드의 아뜰리에 프로젝트입니다.
-            <br />
-            <br />
             <h3>상세정보</h3>
             <br />
             래코드 박스아뜰리에

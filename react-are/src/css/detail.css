@@ -27,7 +27,7 @@ header.detail_header {
   margin-bottom: 5vh;
 }
 
-section.detail_section {
+div.detail_section {
   display: flex;
   align-items: center;
   padding: 1rem;
@@ -36,7 +36,7 @@ section.detail_section {
   border: 1px solid;
 }
 
-section.detail_section div {
+div.detail_section div {
   flex: 1;
 }
 

@@ -19,6 +19,14 @@ const fetchLogin = async (u_id, u_pw) => {
 
 const fetchUser = () => {};
 
-const fetchJoin = () => {};
+const fetchJoin = async () => {
+  const res = await fetch("http://localhost:5000/users/join", fetchOption);
 
-export { fetchLogin };
+  if (res?.ok) {
+    const json = res.json();
+    console.log("정보", json);
+    alert(JSON.stringify(json));
+  }
+};
+
+export { fetchLogin, fetchJoin };
