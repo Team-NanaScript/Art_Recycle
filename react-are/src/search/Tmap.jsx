@@ -163,8 +163,8 @@ function TMap() {
 			alert("onError");
 		  }
 
-		const local_box = document.querySelector("div.local_box")
-	  if (local_box) {
+		const local_map = document.querySelector("div.local_box")
+	  if (local_map) {
 		local_box.addEventListener("click", (e) => {
 			let active = document.querySelector("div.active")
 			if(active){
