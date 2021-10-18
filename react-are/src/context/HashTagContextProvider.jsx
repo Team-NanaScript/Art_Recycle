@@ -1,12 +1,12 @@
 import { createContext, useContext, useState } from "react";
 
-const AppContext = createContext();
+const HashTagContext = createContext();
 
 export const useHashTagContext = () => {
-  return useContext(AppContext);
+  return useContext(HashTagContext);
 };
 
-const HashTagContext = ({ children }) => {
+const HashTagContextProvider = ({ children }) => {
   const [hashTagList, setHashTagList] = useState([]);
 
   const changeTag = (tagCate, tagText) => {
@@ -32,8 +32,10 @@ const HashTagContext = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider value={propsStore}>{children}</AppContext.Provider>
+    <HashTagContext.Provider value={propsStore}>
+      {children}
+    </HashTagContext.Provider>
   );
 };
 
-export default HashTagContext();
+export default HashTagContextProvider;

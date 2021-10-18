@@ -1,5 +1,5 @@
 // import React, { useCallback } from "react";
-import { useHashTagContext } from "../context/HashTagContext";
+import { useHashTagContext } from "../context/HashTagContextProvider";
 
 // const wayData = [
 //   { w_title: "직접참여", w_text: "직접 공방을 방문하기" },

@@ -9,7 +9,7 @@ import {
   Result,
   SearchNav,
 } from "../search";
-import HashTagContext from "../context/HashTagContext";
+import HashTagContextProvider from "../context/HashTagContextProvider";
 
 const Search = () => {
   // const hashTagView = hashTagList.map((hash) => {
@@ -23,11 +23,11 @@ const Search = () => {
           <h2>공방찾기</h2>
         </header>
         <SearchNav />
-        <HashTagContext>
+        <HashTagContextProvider>
           <Route path="/search/local" component={LocalSearch} exact />
           <Route path="/search/way" component={WaySearch} exact />
           <Route path="/search/material" component={MaterialSearch} exact />
-        </HashTagContext>
+        </HashTagContextProvider>
         {/* <div>{hashTagView}</div> */}
         <Result />
       </div>
