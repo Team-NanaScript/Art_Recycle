@@ -3,7 +3,7 @@ import { React, useEffect } from "react";
 function TMap() {
   useEffect(() => {
     const script = document.createElement("script");
-    script.innerHTML = `       
+    script.innerHTML = `        
 		var map,marker;  
          function initTmap() {
             map = new Tmapv2.Map("TMapApp", {
@@ -163,7 +163,9 @@ function TMap() {
 			alert("onError");
 		  }
 
-		document.querySelector("div.local_box").addEventListener("click",(e)=>{
+		const local_box = document.querySelector("div.local_box")
+	  if (local_box) {
+		local_box.addEventListener("click", (e) => {
 			let active = document.querySelector("div.active")
 			if(active){
 				active.classList.remove("active")
@@ -176,7 +178,9 @@ function TMap() {
 			}
 			
 		})
-		
+
+		}
+	  		
       `;
     script.type = "text/javascript";
     script.async = "async";
