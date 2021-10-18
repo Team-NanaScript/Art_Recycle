@@ -165,7 +165,7 @@ function TMap() {
 
 		const local_map = document.querySelector("div.local_box")
 	  if (local_map) {
-		local_box.addEventListener("click", (e) => {
+		local_map.addEventListener("click", (e) => {
 			let active = document.querySelector("div.active")
 			if(active){
 				active.classList.remove("active")
