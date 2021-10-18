@@ -1,21 +1,18 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import AreContext from "../context/CommunityContext";
 
 function Board() {
-  const { commuList } = useContext(AreContext);
-
-  const commu_body = commuList.map((community) => {
-    return (
-      <tr>
-        <td>{community.c_no}</td>
-        <td>{community.c_title}</td>
-        <td>{community.c_writer}</td>
-        <td>{community.c_date}</td>
-        <td>0</td>
-      </tr>
-    );
-  });
+  //   const commu_body = commuList.map((community) => {
+  //     return (
+  //       <tr>
+  //         <td>{community.c_no}</td>
+  //         <td>{community.c_title}</td>
+  //         <td>{community.c_writer}</td>
+  //         <td>{community.c_date}</td>
+  //         <td>0</td>
+  //       </tr>
+  //     );
+  //   });
 
   const history = useHistory();
   const btn_write = () => {
@@ -34,7 +31,7 @@ function Board() {
             <th>조회 수</th>
           </tr>
         </thead>
-        <tbody>{commu_body}</tbody>
+        {/* <tbody>{commu_body}</tbody> */}
       </table>
       <div>
         <button onClick={btn_write}>글쓰기</button>
