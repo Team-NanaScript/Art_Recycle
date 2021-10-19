@@ -6,6 +6,7 @@ import {
   LocalSearch,
   WaySearch,
   MaterialSearch,
+  HashTag,
   Result,
   SearchNav,
 } from "../search";
@@ -27,9 +28,9 @@ const Search = () => {
           <Route path="/search/local" component={LocalSearch} exact />
           <Route path="/search/way" component={WaySearch} exact />
           <Route path="/search/material" component={MaterialSearch} exact />
+          <HashTag />
+          <Result />
         </HashTagContextProvider>
-        {/* <div>{hashTagView}</div> */}
-        <Result />
       </div>
     </BrowserRouter>
   );

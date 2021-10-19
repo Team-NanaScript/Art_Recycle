@@ -5,11 +5,6 @@ const Result = () => {
   return (
     <div>
       <section>
-        <div>Hash-Tag</div>
-        <button>검색</button>
-      </section>
-
-      <section>
         <h2 className="result">검색 결과</h2>
         <div className="result_search">
           <div className="result_image"></div>

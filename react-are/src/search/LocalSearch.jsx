@@ -29,7 +29,7 @@ const LocalSearch = () => {
   const local_box = () => {
     return localData.map((text) => {
       return (
-        <div className="tag local" onClick={clickTag}>
+        <div className="tag local" onClick={clickTag} key={text}>
           {text}
         </div>
       );
