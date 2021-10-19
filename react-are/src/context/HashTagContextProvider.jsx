@@ -27,8 +27,18 @@ const HashTagContextProvider = ({ children }) => {
     }
   };
 
+  const deleteHashTag = (e) => {
+    // alert("여긴눌림");
+    if (e.target.tagName === "I") {
+      alert("삭제");
+      // hashTagList.filter(hashTag => hashTag != "")
+    }
+  };
+
   const propsStore = {
     clickTag,
+    hashTagList,
+    deleteHashTag,
   };
 
   return (
