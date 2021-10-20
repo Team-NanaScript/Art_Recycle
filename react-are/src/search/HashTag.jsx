@@ -8,19 +8,20 @@ const HashTag = () => {
 
   const viewHashTag = hashTagList.map(({ h_text }) => {
     return (
-      <span className="hashtag" key={h_text}>
+      <div className="hashtag" key={h_text}>
         {h_text}
-        <i>
-          <IoCloseOutline className="icon_close" size="20" color="#ccc" />
-        </i>
-      </span>
+        <IoCloseOutline
+          className={h_text}
+          size="20"
+          color="#ccc"
+          onClick={deleteHashTag}
+        />
+      </div>
     );
   });
   return (
     <section className="hashtag_section">
-      <div className="hashtag_box" onClick={deleteHashTag}>
-        {viewHashTag}
-      </div>
+      <div className="hashtag_box">{viewHashTag}</div>
     </section>
   );
 };
