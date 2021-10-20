@@ -5,10 +5,10 @@ function Board() {
   //   const commu_body = commuList.map((community) => {
   //     return (
   //       <tr>
-  //         <td>{community.c_no}</td>
-  //         <td>{community.c_title}</td>
-  //         <td>{community.c_writer}</td>
-  //         <td>{community.c_date}</td>
+  //         <td>{community.b_seq}</td>
+  //         <td>{community.b_title}</td>
+  //         <td>{community.b_writer}</td>
+  //         <td>{community.b_date}</td>
   //         <td>0</td>
   //       </tr>
   //     );

@@ -8,15 +8,15 @@ function Insert() {
     <div className="board_insert">
       <div>
         <label>작성자</label>
-        <input onChange={changeInput} name="c_writer" type="text" />
+        <input onChange={changeInput} name="b_writer" type="text" />
       </div>
       <div>
         <label>제목</label>
-        <input onChange={changeInput} name="c_title" type="text" />
+        <input onChange={changeInput} name="b_title" type="text" />
       </div>
       <div>
         <label>내용</label>
-        <input onChange={changeInput} name="c_text" type="text" />
+        <input onChange={changeInput} name="b_content" type="text" />
       </div>
       <div>
         <button onClick={onClickSave}>저장</button>
