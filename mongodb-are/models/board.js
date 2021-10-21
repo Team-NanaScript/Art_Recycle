@@ -11,4 +11,4 @@ const board = Schema({
   b_content: String,
 });
 
-export default board;
+export default mongoose.model("board", board);
