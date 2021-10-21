@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
 
-function BoardItem({board}) {
-	const {c_no, c_date, c_time, c_text} = board
-	const
-	return (
-		
-	)
+function BoardItem({ board, index }) {
+  return (
+    <tr>
+      <td>{index + 1}</td>
+      <td>{board.b_title}</td>
+      <td>{board.b_writer}</td>
+      <td>{board.b_date}</td>
+      <td>0</td>
+    </tr>
+  );
 }
 
-export default BoardItem
+export default BoardItem;
