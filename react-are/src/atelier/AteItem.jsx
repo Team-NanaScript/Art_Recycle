@@ -20,4 +20,5 @@ export default function AteItem({atelier}) {
     <a>{atelier.at_page}</a>
   </div>
 </article>;
+
 }

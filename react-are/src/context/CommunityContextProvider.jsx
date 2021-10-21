@@ -1,4 +1,10 @@
-import { createContext, useContext, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import moment from "moment";
 import { useHistory } from "react-router";
 
@@ -23,6 +29,15 @@ const CommunityContextProvider = ({ children }) => {
 
   const [commuList, setCommuList] = useState([]); // 게시판 리스트
 
+  const commuFetch = useCallback(async () => {
+    const res = await fetch("http://localhost:5000/board/list");
+    const boardList = await res.json();
+    // console.log("커뮤니티 리스트", boardList);
+
+    await setCommuList(boardList);
+  }, []);
+  useEffect(commuFetch, [commuFetch]);
+
   const changeInput = (e) => {
     const { name, value } = e.target;
 
@@ -45,7 +60,14 @@ const CommunityContextProvider = ({ children }) => {
         "Access-Control-Allow-Origin": "http://localhost:3000",
       },
       credentials: "include",
-      body: JSON.stringify({ b_no, b_date, b_time, b_writer, b_title, b_content }),
+      body: JSON.stringify({
+        b_no,
+        b_date,
+        b_time,
+        b_writer,
+        b_title,
+        b_content,
+      }),
     });
 
     if (response?.ok) {
@@ -56,9 +78,13 @@ const CommunityContextProvider = ({ children }) => {
     history.replace("/board");
   };
 
-  const providerData = { changeInput, onClickSave };
+  const providerData = { commuList, commuFetch, changeInput, onClickSave };
 
-  return <CommunityContext.Provider value={providerData}>{children}</CommunityContext.Provider>;
+  return (
+    <CommunityContext.Provider value={providerData}>
+      {children}
+    </CommunityContext.Provider>
+  );
 };
 
 export default CommunityContextProvider;

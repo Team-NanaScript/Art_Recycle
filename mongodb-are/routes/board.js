@@ -11,4 +11,15 @@ router.post("/insert", (req, res) => {
   res.json("INSERT SUCCESS");
 });
 
+router.get("/list", async (req, res) => {
+  console.log("HI!");
+
+  console.log("find", board.find({}));
+
+  const result = await board.find({});
+  console.log("result", result);
+
+  await res.json(result);
+});
+
 export default router;
