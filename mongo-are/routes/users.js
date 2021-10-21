@@ -39,10 +39,16 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
   console.log("랄라라라라라랄");
   // console.log("login", req.user);
 
-  res.json({
-    u_id: req.user.u_id,
-    u_pw: req.user.u_pw,
-  });
+  const res = req.body;
+
+  if (res?.ok) {
+    res.json({
+      u_id: req.user.u_id,
+      u_pw: req.user.u_pw,
+    });
+  } else {
+    console.log("실패");
+  }
 });
 
 router.post("/join", (req, res) => {

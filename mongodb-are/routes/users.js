@@ -50,11 +50,13 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
 });
 
 router.post("/join", async (req, res) => {
-  console.log("ok?");
-  const userVO = new user(req.body);
+  console.log(req.body);
+  // const userVO = new user(req.body);
   // const response = await user.create(req.body);
 
-  console.log(userVO);
+  const join = res.json({});
+
+  // console.log("res결과", response);
 
   // userVO.save((err.data) => {
   //   res.json(data)

@@ -44,6 +44,7 @@ const exportPassport = () => {
           console.log(" 성공 ");
           return done(null, result[0]);
         } else {
+          console.log("실패");
           return done(null, false, { messege: "login fail" });
         }
 
