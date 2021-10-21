@@ -9,27 +9,37 @@ const fetchOption = {
 
 const fetchLogin = async (u_id, u_pw) => {
   fetchOption.body = JSON.stringify({ u_id, u_pw });
+
+  console.log("fetchLogin 아이디, 비밀번호", u_id, u_pw);
   const res = await fetch("http://localhost:5000/users/login", fetchOption);
-  console.log("res", res);
+  // console.log("fetchLogin res", res);
+  console.log("fetchLogin 오류발생지점");
+  // console.table(users);
 
-  const users = await res.json();
+  if (res.ok) {
+    const users = await res.json();
 
-  console.table(users);
+    console.log("fetchlogin", users);
+    return users;
+  }
 };
 
-const fetchUser = () => {};
+const fetchUser = async () => {
+  const res = await fetch("http://localhost:5000/users", fetchOption);
+  return res.json();
+};
 
 const fetchJoin = async (joinData) => {
-  fetchOption.body = JSON.stringify({ joinData });
+  console.log("ㅇㅇㅇ");
+  fetchOption.body = JSON.stringify(joinData);
   const res = await fetch("http://localhost:5000/users/join", fetchOption);
 
-  if (res?.ok) {
-    const json = res.json();
+  if (res.ok) {
+    const json = await res.json();
     console.log("정보", json);
-    // alert(JSON.stringify(json));
   } else {
     console.log("실패?");
   }
 };
 
-export { fetchLogin, fetchJoin };
+export { fetchLogin, fetchJoin, fetchUser };

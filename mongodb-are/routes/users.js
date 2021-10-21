@@ -34,14 +34,14 @@ router.get("/test/:query", (req, res) => {
   res.json(tmpUserList);
 });
 router.post("/", (req, res) => {
-  console.log("user", users);
+  // console.log("user", users);
 });
 
 router.post("/login", passport.authenticate("local"), (req, res) => {
   console.log("랄라라라라라랄");
-  console.log("login", req.user);
+  // console.log("login", req.user);
 
-  const login = res.json({
+  res.json({
     u_id: req.user.u_id,
     u_pw: req.user.u_pw,
   });
@@ -50,16 +50,17 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
 });
 
 router.post("/join", async (req, res) => {
-  console.log(req.body);
-  // const userVO = new user(req.body);
-  // const response = await user.create(req.body);
+  console.log("넘어왔어??");
+  console.log("join user정보", req.body);
+  const userVO = new user(req.body);
+  const response = await user.create(userVO);
 
-  const join = res.json({});
+  console.log("req.body", response);
 
   // console.log("res결과", response);
 
   // userVO.save((err.data) => {
-  //   res.json(data)
+  // res.json(data)
   // })
 });
 
