@@ -10,4 +10,4 @@ const user = Schema({
   u_role: Number,
 });
 
-export default user;
+export default mongoose.model("user", user);

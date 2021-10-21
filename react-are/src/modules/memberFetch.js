@@ -19,13 +19,14 @@ const fetchLogin = async (u_id, u_pw) => {
 
 const fetchUser = () => {};
 
-const fetchJoin = async () => {
+const fetchJoin = async (joinData) => {
+  fetchOption.body = JSON.stringify({ joinData });
   const res = await fetch("http://localhost:5000/users/join", fetchOption);
 
   if (res?.ok) {
     const json = res.json();
     console.log("정보", json);
-    alert(JSON.stringify(json));
+    // alert(JSON.stringify(json));
   } else {
     console.log("실패?");
   }
