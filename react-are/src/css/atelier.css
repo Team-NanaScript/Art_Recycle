@@ -1,4 +1,4 @@
-div.atelier_list {
+article.atelier_list {
 	display: flex;
 	width: 1000px;
 	border-radius: 15px;
@@ -24,4 +24,3 @@ div.atelier_item {
 	align-items: center;
 	justify-content: center;
 }
-  
