@@ -1,7 +1,9 @@
-var express = require("express");
-var router = express.Router();
-const passport = require("passport");
-const users = require("../models/user.js");
+import express from "express";
+const router = express.Router();
+
+import passport from "passport";
+import user from "../models/user.js";
+// import users from "../models/user.js";
 
 const userList = {
   u_id: "nana",
@@ -9,7 +11,7 @@ const userList = {
   u_email: "nananana",
   u_name: "na",
   u_nickname: "naa",
-  u_role: 00,
+  u_role: 0,
 };
 
 /* GET users listing. */
@@ -32,27 +34,34 @@ router.get("/test/:query", (req, res) => {
   res.json(tmpUserList);
 });
 router.post("/", (req, res) => {
-  console.log("user", users);
+  // console.log("user", users);
 });
 
 router.post("/login", passport.authenticate("local"), (req, res) => {
   console.log("랄라라라라라랄");
   // console.log("login", req.user);
 
-  const res = req.body;
+  res.json({
+    u_id: req.user.u_id,
+    u_pw: req.user.u_pw,
+  });
 
-  if (res?.ok) {
-    res.json({
-      u_id: req.user.u_id,
-      u_pw: req.user.u_pw,
-    });
-  } else {
-    console.log("실패");
-  }
+  // console.log("login id,pw", login);
 });
 
-router.post("/join", (req, res) => {
-  console.log("join", users);
+router.post("/join", async (req, res) => {
+  console.log("넘어왔어??");
+  console.log("join user정보", req.body);
+  const userVO = new user(req.body);
+  const response = await user.create(userVO);
+
+  console.log("req.body", response);
+
+  // console.log("res결과", response);
+
+  // userVO.save((err.data) => {
+  // res.json(data)
+  // })
 });
 
-module.exports = router;
+export default router;

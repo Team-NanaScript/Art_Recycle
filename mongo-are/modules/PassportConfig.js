@@ -1,14 +1,15 @@
-const passport = require("passport");
-const passportLocal = require("passport-local");
-const users = require("../models/user.js");
-const members = require("../models/members.json");
+import passport from "passport";
+import passportLocal from "passport-local";
+import users from "../models/user.js";
+import { testSample } from "../models/testSample.js";
+import user from "../models/user.js";
 
 // local login 정책을 수행하는 모듈
 const LocalStratege = passportLocal.Strategy;
 
 const exportPassport = () => {
   //  로그인이 성공했을 때 (내부에서) 호출되는 함수
-  console.log("뭐가문제야");
+  // console.log("뭐가문제야");
 
   passport.serializeUser((user, done) => {
     console.log("로그인 성공");
@@ -32,37 +33,40 @@ const exportPassport = () => {
         session: true, // 세션저장하기
       },
       (u_id, u_pw, done) => {
-        console.log("member");
-        console.log("u_id,u_pw", u_id, u_pw);
-        console.log(members);
-        const result = members.filter((member) => {
-          console.log("Member", member);
-          member.u_id === u_id && member.u_pw === u_pw;
+        console.log("LocalStratege");
+        console.log("LocalStratege1", u_id, u_pw);
+        // const userid = users.find({});
+        // const userid = users.findOne({ u_id: "sksk" });
+        // console.log(userid);
+        user.findOne({ userid: u_id, password: u_pw }, (err, data) => {
+          console.log(data);
+
+          if (!data) {
+            return done(null, false, { massage: "로그인 실패" });
+          }
+          if (data.u_id === u_id && data.u_pw === u_pw) {
+            console.log("로그인성공");
+          }
+          return done(null, data);
         });
 
-        if (result) {
-          console.log(" 성공 ");
-          return done(null, result[0]);
-        } else {
-          console.log("실패");
-          return done(null, false, { messege: "login fail" });
-        }
-
-        // const result = members.map((member) => {
+        // const result = users.map((user) => {
+        //   console.log("LocalStratege2", users.u_id, users.u_pw);
         //   // memeber에 있는 id가 같으면 바로 코드 종료
-        //   if (member.u_id === u_id && member.u_pw === u_pw) {
-        //     vconsole.log("찾았다");
-        //     return done(null, member);
-        //   }
+        // if (user.u_id === u_id && user.u_pw === u_pw) {
+        //   console.log("찾았다");
+        //   return done(null, user);
+        // }
+
+        //   // return done(null, false, { messege: "login fail" });
         // });
         // if (!result) {
         //   console.log("실패");
-
         //   return done(null, false, { messege: "login fail" });
         // }
       }
     )
   );
 };
-module.exports = exportPassport;
-// export default exportPassport;
+
+export default exportPassport;

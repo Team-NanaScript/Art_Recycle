@@ -1,22 +1,22 @@
 {
-  "name": "mongo-are",
+  "name": "mongodb-are",
   "version": "0.0.0",
-  "private": true,
+  "type": "module",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www.js"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
+    "cookie-parser": "~1.4.5",
     "cors": "^2.8.5",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
+    "debug": "~4.3.1",
+    "express": "~4.17.1",
     "express-session": "^1.17.2",
-    "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
+    "http-errors": "~1.8.0",
     "moment": "^2.29.1",
-    "mongoose": "^6.0.6",
-    "morgan": "~1.9.1",
+    "mongoose": "^6.0.11",
+    "morgan": "~1.10.0",
     "passport": "^0.5.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "pug": "~3.0.2"
   }
 }
