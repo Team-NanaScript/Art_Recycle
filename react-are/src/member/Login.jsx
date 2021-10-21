@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../css/Login.css";
 import { Link, useHistory } from "react-router-dom";
 import { fetchLogin } from "../modules/memberFetch";
