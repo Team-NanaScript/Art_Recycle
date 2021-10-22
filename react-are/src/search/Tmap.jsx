@@ -79,7 +79,7 @@ function TMap() {
 
 		///// 좌표 /////
 
-		let div_map = document.querySelector("div.map")
+		var div_map = document.querySelector("div.map")
 		if(div_map){
 			let param = "";
 			loadGetAddressFromLonLat(param)
@@ -131,9 +131,6 @@ function TMap() {
 			
 			var map_sample = document.querySelector("div.map_sample")
 			if(map_sample){
-				if(param === "전체" || param === ""){
-					map.setZoom(7)
-				}
 				tData.getGeoFromAddressJson(data[0][0], data[0][1], data[0][2], data[0][3] , optionObj, params);
 			} else {
 				tData.getGeoFromAddressJson("광주광역시", "북구",  "중흥동",  "712-3", optionObj, params);
