@@ -1,8 +1,12 @@
+// 임시 공방 리스트임
 const admin = {
-  userid: "admin",
-  password: "12345",
-  role: "ADMIN",
-  email: "123@456.com",
+  at_code: "0",
+  at_name: "BOX ATELIER - 리폼/리페어 지속 가능한 패션 서비스 제공",
+  at_page: "https://www.instagram.com/recode_/",
+  at_image: "../image/result_image.jpg",
+  at_addr: "서울 용산구 양녕로 445 노들섬",
+  at_local: "서울",
+  at_meterial: ["직물", "가죽"],
 };
 
 const user = {
