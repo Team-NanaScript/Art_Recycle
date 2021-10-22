@@ -19,10 +19,6 @@ table.com_board {
   width: 800px;
 }
 
-table.com_board tr:not(tr:first-of-type) {
-  cursor: pointer;
-}
-
 /* Insert.jsx */
 div.board_insert label,
 div.board_insert input {

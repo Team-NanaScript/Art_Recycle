@@ -1,8 +1,10 @@
 import React from "react";
+import { useCommuContext } from "../context/CommunityContextProvider";
 
 function BoardItem({ board, index }) {
+  const { onTrClick } = useCommuContext();
   return (
-    <tr>
+    <tr onClick={onTrClick} data-id={board.b_seq}>
       <td>{index + 1}</td>
       <td>{board.b_title}</td>
       <td>{board.b_writer}</td>

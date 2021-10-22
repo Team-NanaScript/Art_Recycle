@@ -7,7 +7,7 @@ function Board() {
   const { commuList } = useCommuContext();
 
   const commu_body = commuList.map((board, index) => {
-    return <BoardItem board={board} index={index} />;
+    return <BoardItem board={board} index={index} key={board.b_seq} />;
   });
 
   const history = useHistory();
