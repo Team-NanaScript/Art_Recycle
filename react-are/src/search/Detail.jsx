@@ -80,11 +80,10 @@ function Detail() {
       <section className="detail_map">
         <div>
           <h3>여기서 지도를 보여줄 곳</h3>
-          {/* 
+
           <div className="map">
             <Tmap />
           </div>
-		   */}
         </div>
       </section>
       <div className="postscr">
