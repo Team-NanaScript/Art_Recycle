@@ -35,6 +35,7 @@ router.get("/test/:query", (req, res) => {
 });
 router.post("/", (req, res) => {
   // console.log("user", users);
+  console.log();
 });
 
 router.post("/login", passport.authenticate("local"), (req, res) => {

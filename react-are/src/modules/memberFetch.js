@@ -26,6 +26,7 @@ const fetchLogin = async (u_id, u_pw) => {
 
 const fetchUser = async () => {
   const res = await fetch("http://localhost:5000/users", fetchOption);
+
   return res.json();
 };
 
