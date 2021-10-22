@@ -31,6 +31,7 @@ function App() {
         {/* 커뮤니티 수정해주세염 */}
         <Route path="/board" component={MainCommunity} exact />
         <Route path="/board/insert" component={MainCommunity} />
+        <Route path="/board/detail/:b_seq" component={MainCommunity} exact/>
         <Footer />
       </div>
     </BrowserRouter>
