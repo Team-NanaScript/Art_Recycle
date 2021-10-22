@@ -1,4 +1,10 @@
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import moment, { weekdaysShort } from "moment";
 import { useHistory } from "react-router";
 import UUID from "react-uuid";
@@ -18,11 +24,13 @@ const CommunityContextProvider = ({ children }) => {
     b_time: "",
     b_title: "",
     b_writer: "",
-    b_text: "",
+    b_content: "",
     b_count: 0,
   }); // 글 하나하나..
 
   const [commuList, setCommuList] = useState([]); // 게시판 리스트
+
+  const [boardDetail, setBoardDetail] = useState({});
 
   const commuFetch = useCallback(async () => {
     const res = await fetch("http://localhost:5000/board/list");
@@ -38,11 +46,11 @@ const CommunityContextProvider = ({ children }) => {
 
     const res = await fetch(`http://localhost:5000/board/detail/${b_seq}`);
 
-    // console.log("얍", JSON.stringify(res));
-    // console.log("얍2", res.json());
-
     const result = await res.json();
-    console.log("결과과과과과과과과ㅗ각", result);
+    // console.log("결과과과과과과과과ㅗ각", result);
+    setBoardDetail(result);
+
+    history.replace(`/board/detail/${b_seq}`);
   };
 
   const changeInput = (e) => {
@@ -85,9 +93,20 @@ const CommunityContextProvider = ({ children }) => {
     history.replace("/board");
   };
 
-  const providerData = { commuList, commuFetch, changeInput, onClickSave, onTrClick };
+  const providerData = {
+    commuList,
+    commuFetch,
+    changeInput,
+    onClickSave,
+    onTrClick,
+    boardDetail,
+  };
 
-  return <CommunityContext.Provider value={providerData}>{children}</CommunityContext.Provider>;
+  return (
+    <CommunityContext.Provider value={providerData}>
+      {children}
+    </CommunityContext.Provider>
+  );
 };
 
 export default CommunityContextProvider;
