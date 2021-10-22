@@ -3,7 +3,7 @@ import { React, useEffect } from "react";
 function TMap() {
   useEffect(() => {
     const script = document.createElement("script");
-    script.innerHTML = `   
+    script.innerHTML = `
 		var map,marker;  
          function initTmap() {
             map = new Tmapv2.Map("TMapApp", {
@@ -30,6 +30,8 @@ function TMap() {
 				},
 			  ];
 
+			function makers(){
+
 			var lat = 37.566681;
 			var lng = 126.978453;
 			var markers1 = [];
@@ -54,28 +56,34 @@ function TMap() {
 				markers: marker, // 마커들이 담긴 배열
 				map: map // 지도 객체
 			});
-
-			///// 마커 생성 /////
-
+				
 			var epsg3857 = new Tmapv2.Point(14135906, 4518356);
-		// WGS84 좌표계로 변환합니다
-		var wgs84 = Tmapv2.Projection.convertEPSG3857ToWGS84GEO(epsg3857);
-		
-		// 마커를 생성합니다.
-		var marker1 = new Tmapv2.Marker({
-			position: wgs84,
-			icon: 'http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_a.png',
-			map: map
-            });
-		
-		// 지도를 이동시킵니다.
-		// map.setCenter(wgs84);
-         
-		}
+			// WGS84 좌표계로 변환합니다
+			var wgs84 = Tmapv2.Projection.convertEPSG3857ToWGS84GEO(epsg3857);
+			
+			// 마커를 생성합니다.
+			var marker1 = new Tmapv2.Marker({
+				position: wgs84,
+				icon: 'http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_a.png',
+				map: map
+				});
+			
+			// 지도를 이동시킵니다.
+			// map.setCenter(wgs84);
+
+			}
+						
+         }
 
 		initTmap(); 
 
 		///// 좌표 /////
+
+		let div_map = document.querySelector("div.map")
+		if(div_map){
+			let param = "";
+			loadGetAddressFromLonLat(param)
+		}
 
 		function loadGetAddressFromLonLat(param) {
 
@@ -98,25 +106,22 @@ function TMap() {
 
 			const datas = [
 				[
-					"서울",
-					"은평",
-					"갈현",
-					"397"
+					"서울", "은평",	"갈현", "397"
 				],
 				[
-					"광주",
-					"서구",
-					"치평동",
-					"1200"
+					"광주",	"서구",	"치평동", "1200"
 				],
 				[
-					"용인시",
-					"처인구",
-					"삼가동",
-					"556"
+					"용인시","처인구","삼가동","556"
 				],
 				[
 					"대구광역시", "중구", "동인동1가", "2-1"
+				]
+			]
+
+			const detail_data = [
+				[
+				"광주광역시", "북구",  "중흥동",  "712-3"
 				]
 			]
 
@@ -124,31 +129,17 @@ function TMap() {
 				return _datas[0].includes(param)
 			})
 			
-			// 천재적인 코드 ㅁㅊ
-			tData.getGeoFromAddressJson(data[0][0], data[0][1], data[0][2], data[0][3] , optionObj, params);
-			if(param === "전체"){
-				map.setZoom(7)
+			var map_sample = document.querySelector("div.map_sample")
+			if(map_sample){
+				if(param === "전체" || param === ""){
+					map.setZoom(7)
+				}
+				tData.getGeoFromAddressJson(data[0][0], data[0][1], data[0][2], data[0][3] , optionObj, params);
+			} else {
+				tData.getGeoFromAddressJson("광주광역시", "북구",  "중흥동",  "712-3", optionObj, params);
 			}
-
-			// 무한 if문 지옥 해결?한듯
-			// } else if (param === "광주"){
-			// 	tData.getGeoFromAddressJson(data, optionObj, params);
-			// } else if (param === "경기"){
-			// 	tData.getGeoFromAddressJson("용인시", "처인구", "삼가동", "556" , optionObj, params);
-			// } else if (param === "대구"){
-			// 	tData.getGeoFromAddressJson("대구광역시", "중구", "동인동1가", "2-1" , optionObj, params);	
-			// } else if (param === "대전"){
-			// 	tData.getGeoFromAddressJson("용인시", "처인구", "중부대로", "1199" , optionObj, params);
-			// } else if (param === "부산"){
-			// 	tData.getGeoFromAddressJson("용인시", "처인구", "중부대로", "1199" , optionObj, params);
-			
-			
-			
-			
 		  }
 
-		    
-		  
 		  function onComplete() {
 			console.log(this._responseData); //json으로 데이터를 받은 정보들을 콘솔창에서 확인할 수 있습니다.
 			
@@ -162,7 +153,7 @@ function TMap() {
 		  
 			marker.setMap(map);
 			map.setCenter(new Tmapv2.LatLng(lat, lon));
-			map.setZoom(9)
+			map.setZoom(12)
 		  }
 		  
 		  //데이터 로드중 실행하는 함수입니다.
@@ -176,7 +167,7 @@ function TMap() {
 		  }
 
 		var local_map = document.querySelector("div.local_box")
-	  if (local_map) {
+	  	if (local_map) {
 		local_map.addEventListener("click", (e) => {
 			let active = document.querySelector("div.active")
 			if(active){

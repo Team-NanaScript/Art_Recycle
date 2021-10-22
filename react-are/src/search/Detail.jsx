@@ -69,7 +69,10 @@ function Detail() {
           <h4>1) 수선 (REPAIR)</h4>
           <p>간단한 수선을 통해 소중한 옷을 고쳐 오래 입어보세요.</p>
           <h4>2) 리폼 (REFORM)</h4>
-          <p>유행이 지나 입지않는 옷을 가져오면 새로운 디자인으로 재탄생해드립니다.</p>
+          <p>
+            유행이 지나 입지않는 옷을 가져오면 새로운 디자인으로
+            재탄생해드립니다.
+          </p>
           <p>수선/리폼은 1:1 상담을 통해 비용과 소요시간이 책정됩니다.</p>
           <p>상담시 의뢰할 의류를 가져와주세요.</p>
         </div>
@@ -77,11 +80,10 @@ function Detail() {
       <section className="detail_map">
         <div>
           <h3>여기서 지도를 보여줄 곳</h3>
-          {/* 
+
           <div className="map">
             <Tmap />
           </div>
-		   */}
         </div>
       </section>
       <div className="postscr">
