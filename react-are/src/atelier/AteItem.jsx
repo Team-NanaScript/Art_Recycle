@@ -7,7 +7,7 @@ export default function AteItem({ atelier }) {
   const clickAtelier = (e) => {
     let at_code = e.target.closest("article").dataset.code;
     // alert(div_className)
-    history.push(`/detail/${at_code}`);
+    history.replace(`/detail/${at_code}`);
   };
 
   return (
