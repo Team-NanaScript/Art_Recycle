@@ -4,7 +4,7 @@ import { Footer, MainBody } from "./comps";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Login, Join } from "./member";
 import { Search, Detail } from "./search";
-import ResultTmp from "./search/ResultTmp";
+import Result from "./search/Result";
 import MainCommunity from "./community/MainCommunity";
 import UserContextProvider from "./context/UserContext";
 
@@ -24,8 +24,8 @@ function App() {
           exact
         /> */}
         <Route path="/search/local" component={Search} />
-        <Route path="/search/result/:query" component={ResultTmp} exact />
-        <Route path="/detail" component={Detail} />
+        <Route path="/search/result/:query" component={Result} exact />
+        <Route path="/detail/:at_code" component={Detail} exact />
         <Route path="/search/way" component={Search} exact />
         <Route path="/search/material" component={Search} exact />
         {/* 커뮤니티 수정해주세염 */}
