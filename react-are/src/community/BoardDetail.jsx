@@ -1,10 +1,19 @@
 import React from "react";
+import { useParams } from "react-router";
 import { useCommuContext } from "../context/CommunityContextProvider";
 
 function BoardDetail() {
-  const { commuList } = useCommuContext();
+  const { b_seq } = useParams();
+  console.log("b-seq", b_seq);
 
-  return;
+  const { boardDetail } = useCommuContext();
+
+  return (
+    <div>
+      <label>${boardDetail.b_title}</label>
+      <label>Hi</label>
+    </div>
+  );
 }
 
 export default BoardDetail;

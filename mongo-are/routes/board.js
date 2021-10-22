@@ -35,12 +35,6 @@ router.get("/detail/:b_seq", async (req, res) => {
   console.log("seq", b_seq);
   const detail_list = await board.findOne({ b_seq: b_seq });
   res.json(detail_list);
-  // , (err, data) => {
-  //     console.log("이름", data);
-  //     // return JSON.parse(JSON.stringify(data));
-  //     // return data;
-  //   res.json(data);
-  // });
 });
 
 export default router;

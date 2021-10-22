@@ -2,6 +2,7 @@ import { Route } from "react-router";
 import CommunityContextProvider from "../context/CommunityContextProvider";
 import "../css/community.css";
 import Board from "./Board";
+import BoardDetail from "./BoardDetail";
 import Insert from "./Insert";
 
 function MainCommunity() {
@@ -25,6 +26,9 @@ function MainCommunity() {
       </Route>
       <Route path="/board" exact>
         <Board />
+      </Route>
+      <Route path="/board/detail/:b_seq" exact>
+        <BoardDetail />
       </Route>
     </CommunityContextProvider>
   );
