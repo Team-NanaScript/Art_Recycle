@@ -1,7 +1,10 @@
 import React from "react";
+import { useCommuContext } from "../context/CommunityContextProvider";
 
 function BoardDetail() {
-  return <div></div>;
+  const { commuList } = useCommuContext();
+
+  return;
 }
 
 export default BoardDetail;

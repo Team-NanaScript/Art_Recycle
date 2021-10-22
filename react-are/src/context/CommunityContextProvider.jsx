@@ -1,12 +1,7 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
-import moment from "moment";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import moment, { weekdaysShort } from "moment";
 import { useHistory } from "react-router";
+import UUID from "react-uuid";
 
 const CommunityContext = createContext();
 
@@ -18,7 +13,7 @@ const CommunityContextProvider = ({ children }) => {
   const history = useHistory();
 
   const [board, setBoard] = useState({
-    b_no: 1,
+    b_seq: 1,
     b_date: "",
     b_time: "",
     b_title: "",
@@ -38,20 +33,32 @@ const CommunityContextProvider = ({ children }) => {
   }, []);
   useEffect(commuFetch, [commuFetch]);
 
+  const onTrClick = async (e) => {
+    const b_seq = e.target.closest("tr").dataset.id;
+
+    const res = await fetch(`http://localhost:5000/board/detail/${b_seq}`);
+
+    // console.log("얍", JSON.stringify(res));
+    // console.log("얍2", res.json());
+
+    const result = await res.json();
+    console.log("결과과과과과과과과ㅗ각", result);
+  };
+
   const changeInput = (e) => {
     const { name, value } = e.target;
 
     setBoard({
       ...board,
       [name]: value,
-      b_no: commuList.length,
+      b_seq: commuList.length,
       b_date: moment().format("YYYY[-]MM[-]DD"),
       b_time: moment().format("HH:mm:ss"),
     });
   };
 
   const onClickSave = async () => {
-    const { b_no, b_date, b_time, b_writer, b_title, b_content } = board;
+    const { b_seq, b_date, b_time, b_writer, b_title, b_content } = board;
 
     const response = await fetch("http://localhost:5000/board/insert", {
       method: "POST",
@@ -61,7 +68,7 @@ const CommunityContextProvider = ({ children }) => {
       },
       credentials: "include",
       body: JSON.stringify({
-        b_no,
+        b_seq,
         b_date,
         b_time,
         b_writer,
@@ -78,13 +85,9 @@ const CommunityContextProvider = ({ children }) => {
     history.replace("/board");
   };
 
-  const providerData = { commuList, commuFetch, changeInput, onClickSave };
+  const providerData = { commuList, commuFetch, changeInput, onClickSave, onTrClick };
 
-  return (
-    <CommunityContext.Provider value={providerData}>
-      {children}
-    </CommunityContext.Provider>
-  );
+  return <CommunityContext.Provider value={providerData}>{children}</CommunityContext.Provider>;
 };
 
 export default CommunityContextProvider;
