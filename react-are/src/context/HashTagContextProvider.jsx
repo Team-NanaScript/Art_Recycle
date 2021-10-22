@@ -9,9 +9,9 @@ export const useHashTagContext = () => {
 const HashTagContextProvider = ({ children }) => {
   const [hashTagList, setHashTagList] = useState([]);
 
-  const addTag = (tagCate, tagText) => {
+  const addTag = (tagId, tagText) => {
     const _hashTag = {
-      h_cate: tagCate,
+      h_id: tagId,
       h_text: tagText,
     };
 
@@ -36,9 +36,9 @@ const HashTagContextProvider = ({ children }) => {
   const clickTag = (e) => {
     const tag = e.target;
     if (tag.tagName === "DIV") {
+      const tagId = tag.dataset.id;
       const tagText = tag.innerText;
-      const tagCate = tag.className;
-      addTag(tagCate, tagText);
+      addTag(tagId, tagText);
     }
   };
 
