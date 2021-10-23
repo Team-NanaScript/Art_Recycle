@@ -39,15 +39,15 @@ router.post("/", (req, res) => {
 });
 
 router.post("/login", passport.authenticate("local"), (req, res) => {
-  console.log("랄라라라라라랄");
-  // console.log("login", req.user);
+  console.log("와 여기까지 왔다");
+  console.log("login", req.user);
 
-  res.json({
+  const login = res.json({
     u_id: req.user.u_id,
     u_pw: req.user.u_pw,
   });
-
-  // console.log("login id,pw", login);
+  return login;
+  // console.log("login 성공한 id,pw", res.json());
 });
 
 router.post("/join", async (req, res) => {

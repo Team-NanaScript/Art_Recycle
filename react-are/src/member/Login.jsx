@@ -16,9 +16,21 @@ function Login() {
     setUser({ ...user, [name]: value });
   };
 
-  const onLoginClick = (e) => {
-    fetchLogin(user.u_id, user.u_pw);
+  const onLoginClick = async (e) => {
+    const resultLogin = await fetchLogin(user.u_id, user.u_pw);
+    await setUser(resultLogin);
     console.log("user", user);
+
+    if (resultLogin !== null) {
+      console.log("데이터있대?");
+      // history.replace("/");
+    } else if (resultLogin === null) {
+      console.log("데이터없대?");
+      return;
+    }
+    // if (user.u_id) {
+    //   history.replace("/");
+    // }
   };
 
   return (

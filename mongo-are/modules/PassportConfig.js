@@ -1,8 +1,6 @@
 import passport from "passport";
 import passportLocal from "passport-local";
 import users from "../models/user.js";
-import { testSample } from "../models/testSample.js";
-import user from "../models/user.js";
 
 // local login 정책을 수행하는 모듈
 const LocalStratege = passportLocal.Strategy;
@@ -38,16 +36,22 @@ const exportPassport = () => {
         // const userid = users.find({});
         // const userid = users.findOne({ u_id: "sksk" });
         // console.log(userid);
-        user.findOne({ userid: u_id, password: u_pw }, (err, data) => {
-          console.log(data);
 
-          if (!data) {
-            return done(null, false, { massage: "로그인 실패" });
+        users.findOne({ u_id: u_id }, (err, user) => {
+          console.log("받아온 user정보", user);
+          if (err) {
+            return done(err); // 시스템오류
           }
-          if (data.u_id === u_id && data.u_pw === u_pw) {
-            console.log("로그인성공");
+          if (!user) {
+            console.log("id없으면 넘어와야함");
+            return done(null, false, { massage: "아이디없어요" });
           }
-          return done(null, data);
+          if (user.u_id == u_id || user.u_pw != u_pw) {
+            console.log("비밀번호가 일치하지않으면 넘어와야함");
+            return done(null, false, { massage: "비밀번호 없음" });
+          }
+          console.log("id, pw 일치");
+          return done(null, user);
         });
 
         // const result = users.map((user) => {
