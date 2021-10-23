@@ -65,51 +65,6 @@ div.map_sample {
   background-size: cover; */
 }
 
-/* WaySearch */
-
-div.online,
-div.offline {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 30vh;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-
-  border: 1px solid #eee;
-  border-radius: 10px;
-
-  margin: 10px 60px;
-}
-
-div.online:hover,
-div.offline:hover {
-  background-color: rgb(117, 139, 253);
-  border-radius: 5px;
-  transition: 0.5s ease;
-  cursor: pointer;
-  color: white;
-  font-weight: bold;
-}
-
-div.offline {
-  background-image: url("../image/offline.jpg");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: bottom;
-  background-size: contain;
-}
-
-div.online {
-  background-image: url("../image/online.png");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: bottom;
-  background-size: contain;
-}
-
 /* MaterialSearch */
 
 div.material_box {
@@ -124,8 +79,64 @@ div.material_box {
   justify-content: center;
 }
 
-div.tag.material {
+.material div.tag {
   width: 90px;
   height: 90px;
   border: 0.5px solid #eee;
+}
+
+/* WaySearch */
+
+div.way_box {
+  display: flex;
+
+  margin: 0 auto;
+
+  /* width: 50%; */
+  flex-wrap: wrap;
+
+  align-items: center; /* 이거 없어도 상관없긴함*/
+  justify-content: center;
+}
+
+div.online,
+div.offline {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 30vh;
+  width: 400px;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  border: 1px solid #eee;
+  border-radius: 10px;
+
+  margin: 10px 10px;
+}
+
+div.offline:hover,
+div.online:hover {
+  transition: 0.5s ease;
+  /* transform: scale(1.2); */
+}
+
+div.offline {
+  background-image: url("data:image/svg+xml,%3Csvg id='visual' viewBox='0 0 400 400' width='400' height='400' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1'%3E%3Cg transform='translate(173.62013834688918 215.97407052925809)'%3E%3Cpath d='M146.2 -119C184.6 -68.5 207.3 -8 189.3 32C171.2 71.9 112.3 91.4 57 117.8C1.7 144.2 -49.9 177.5 -87.1 165.5C-124.2 153.5 -146.9 96.1 -142.2 51.2C-137.5 6.3 -105.4 -26.1 -77.1 -74.2C-48.9 -122.3 -24.4 -186.2 14.8 -197.9C53.9 -209.7 107.9 -169.4 146.2 -119' fill='%23ABBDF5'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+  /* background-image: url("../image/offline.jpg"); */
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: bottom;
+  background-size: contain;
+}
+
+div.online {
+  background-image: url("data:image/svg+xml,%3Csvg id='visual' viewBox='0 0 400 400' width='400' height='400' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1'%3E%3Cg transform='translate(182.90563486236462 225.2077824600737)'%3E%3Cpath d='M89.5 -66.4C130.1 -20.4 186.9 17.6 185.9 50.6C184.9 83.6 126.1 111.6 75.1 123.8C24.2 136 -18.9 132.4 -54.7 114.8C-90.4 97.1 -118.8 65.3 -136.2 21.7C-153.7 -21.9 -160.1 -77.3 -135.6 -119.6C-111 -161.9 -55.5 -190.9 -15.5 -178.5C24.4 -166.2 48.9 -112.3 89.5 -66.4' fill='%23F7AAB4'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+  /* background-image: url("../image/online.png"); */
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: bottom;
+  background-size: contain;
 }

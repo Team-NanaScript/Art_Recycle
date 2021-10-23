@@ -20,15 +20,16 @@ const MaterialSearch = () => {
 
   // const material_box = useCallback(() => {
   const material_box = () => {
-    return materialData.map((text) => {
+    return materialData.map((tag) => {
       return (
         <div
           className="tag material"
           onClick={clickTag}
-          key={text.h_id}
-          data-id={text.h_id}
+          key={tag.h_id}
+          data-id={tag.h_id}
+          data-text={tag.h_text}
         >
-          {text.h_text}
+          {tag.h_text}
         </div>
       );
     });

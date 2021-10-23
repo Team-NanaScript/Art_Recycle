@@ -33,6 +33,7 @@ const LocalSearch = () => {
           onClick={clickTag}
           key={tag.h_id}
           data-id={tag.h_id}
+          data-text={tag.h_text}
         >
           {tag.h_text}
         </div>
