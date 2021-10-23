@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useCommuContext } from "../context/CommunityContextProvider";
@@ -7,7 +7,15 @@ function BoardDetail() {
   const { b_seq } = useParams();
   // console.log("b-seq", b_seq);
 
-  const { boardDetail } = useCommuContext();
+  const { boardDetail, setBoardDetail } = useCommuContext();
+
+  const boardViewDetail = useCallback ( async() => {
+    const res = await fetch(`http://localhost:5000/board/detail/${b_seq}`);
+    const result = await res.json();
+    await setBoardDetail( result );
+  })
+
+  useEffect(boardViewDetail,[])
   // console.table(boardDetail);
 
   return (
