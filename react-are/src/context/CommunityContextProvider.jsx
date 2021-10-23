@@ -38,6 +38,7 @@ const CommunityContextProvider = ({ children }) => {
     // console.log("커뮤니티 리스트", boardList);
 
     await setCommuList(boardList);
+    // console.log("commuList", commuList);
   }, []);
   useEffect(commuFetch, [commuFetch]);
 
@@ -47,8 +48,18 @@ const CommunityContextProvider = ({ children }) => {
     const res = await fetch(`http://localhost:5000/board/detail/${b_seq}`);
 
     const result = await res.json();
-    // console.log("결과과과과과과과과ㅗ각", result);
-    setBoardDetail(result);
+    console.log("=== 1 ===");
+    console.table(result);
+    console.log("=== 2 ===");
+    // 위에랑 결과 자체는 같은 데 JSON 형식으로 나와서 table 안 됨
+    console.table(JSON.stringify(result));
+
+    await setBoardDetail({ ...boardDetail, result });
+    console.log("=== 3 ===");
+    // 아무것도 안 뜸..
+    // 왜지...
+    // 살려주세여....
+    console.table(boardDetail);
 
     history.replace(`/board/detail/${b_seq}`);
   };
