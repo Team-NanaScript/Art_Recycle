@@ -9,6 +9,17 @@ export const useHashTagContext = () => {
 const HashTagContextProvider = ({ children }) => {
   const [hashTagList, setHashTagList] = useState([]);
 
+  // hashtag click event handler
+  const clickTag = (e) => {
+    const tag = e.currentTarget;
+    if (tag.tagName === "DIV") {
+      const tagId = tag.dataset.id;
+      const tagText = tag.dataset.text;
+      addTag(tagId, tagText);
+    }
+  };
+
+  // hashtag 추가
   const addTag = (tagId, tagText) => {
     const _hashTag = {
       h_id: tagId,
@@ -33,22 +44,13 @@ const HashTagContextProvider = ({ children }) => {
     console.table(hashTagList);
   };
 
-  const clickTag = (e) => {
-    const tag = e.target;
-    if (tag.tagName === "DIV") {
-      const tagId = tag.dataset.id;
-      const tagText = tag.innerText;
-      addTag(tagId, tagText);
-    }
-  };
-
   const deleteHashTag = (e) => {
     // target과 currentTarget의 쓰임새를 알게 되었음.
     // alert(e.currentTarget.tagName);
     const target = e.currentTarget;
 
     if (target.tagName === "svg") {
-      alert("삭제");
+      // alert("삭제");
 
       const isClicked = (tag) => {
         // console.log("tag.h_text   :    ", tag.h_text);
