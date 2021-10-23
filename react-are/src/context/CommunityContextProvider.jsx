@@ -45,21 +45,21 @@ const CommunityContextProvider = ({ children }) => {
   const onTrClick = async (e) => {
     const b_seq = e.target.closest("tr").dataset.id;
 
-    const res = await fetch(`http://localhost:5000/board/detail/${b_seq}`);
+    // const res = await fetch(`http://localhost:5000/board/detail/${b_seq}`);
 
-    const result = await res.json();
-    console.log("=== 1 ===");
-    console.table(result);
-    console.log("=== 2 ===");
+    // const result = await res.json();
+    // console.log("=== 1 ===");
+    // console.table(result);
+    // console.log("=== 2 ===");
     // 위에랑 결과 자체는 같은 데 JSON 형식으로 나와서 table 안 됨
-    console.table(JSON.stringify(result));
+    // console.table(JSON.stringify(result));
 
-    await setBoardDetail({ ...boardDetail, result });
-    console.log("=== 3 ===");
+    // await setBoardDetail( result );
+    // console.log("=== 3 ===");
     // 아무것도 안 뜸..
     // 왜지...
     // 살려주세여....
-    console.table(boardDetail);
+    // console.table(boardDetail);
 
     history.replace(`/board/detail/${b_seq}`);
   };
@@ -111,6 +111,7 @@ const CommunityContextProvider = ({ children }) => {
     onClickSave,
     onTrClick,
     boardDetail,
+    setBoardDetail
   };
 
   return (
