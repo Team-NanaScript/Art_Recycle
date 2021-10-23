@@ -1,3 +1,13 @@
+div.community button {
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(117, 140, 253);
+  color: white;
+  padding: 0.5rem;
+  margin: 0.5rem 0.2rem;
+}
+
 /* Board.jsx */
 div.com_main {
   width: 1000px;
@@ -19,7 +29,7 @@ table.com_board {
   width: 800px;
 }
 
-/* Insert.jsx */
+/* Insert.jsx 
 div.board_insert label,
 div.board_insert input {
   display: inline-block;
@@ -29,6 +39,36 @@ div.board_insert input {
 
 div.board_insert label {
   text-align: right;
+}
+
+div.board_insert input {
+  width: 500px;
+}
+*/
+
+/* BoardDetail.jsx */
+div.detail_view {
+  width: 700px;
+  margin: 0.5rem auto;
+  border: 1px solid;
+}
+
+div.detail_view label,
+div.detail_view input {
+  display: inline-block;
+  padding: 0.3rem;
+  margin: 0.2rem;
+}
+
+div.detail_view label {
+  width: 20%;
+  text-align: right;
+}
+
+div.detail_view input {
+  border: none;
+  border-bottom: 1px solid rgba(117, 140, 253);
+  width: 50%;
 }
 
 div.detail_reply {
@@ -50,11 +90,4 @@ div.reply_insert button {
 div.reply_insert input {
   width: 500px;
   padding: 0.5rem;
-}
-
-div.detail_reply button {
-  width: 200px;
-  border: none;
-  border-radius: 5px;
-  background-color: rgba(117, 140, 253);
 }

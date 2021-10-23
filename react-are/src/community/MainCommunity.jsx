@@ -3,7 +3,7 @@ import CommunityContextProvider from "../context/CommunityContextProvider";
 import "../css/community.css";
 import Board from "./Board";
 import BoardDetail from "./BoardDetail";
-import Insert from "./Insert";
+import BoardInsert from "./BoardInsert";
 
 function MainCommunity() {
   return (
@@ -12,13 +12,16 @@ function MainCommunity() {
         Main
       </Route>
       <Route path="/board/insert">
-        <Insert />
+        <BoardInsert />
       </Route>
       <Route path="/board" exact>
         <Board />
       </Route>
       <Route path="/board/detail/:b_seq" exact>
         <BoardDetail />
+      </Route>
+      <Route path="/board/update/:b_seq" exact>
+        <BoardInsert />
       </Route>
     </CommunityContextProvider>
   );

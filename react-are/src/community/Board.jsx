@@ -29,7 +29,7 @@ function Board() {
         </thead>
         <tbody>{commu_body}</tbody>
       </table>
-      <div>
+      <div className="community">
         <button onClick={btn_write}>글쓰기</button>
       </div>
     </div>
