@@ -1,11 +1,11 @@
 import React from "react";
 import { useCommuContext } from "../context/CommunityContextProvider";
 
-function Insert() {
+function BoardInsert() {
   const { changeInput, onClickSave } = useCommuContext();
 
   return (
-    <div className="board_insert">
+    <div className="detail_view board_insert">
       <div>
         <label>작성자</label>
         <input onChange={changeInput} name="b_writer" type="text" />
@@ -18,11 +18,11 @@ function Insert() {
         <label>내용</label>
         <input onChange={changeInput} name="b_content" type="text" />
       </div>
-      <div>
+      <div className="community">
         <button onClick={onClickSave}>저장</button>
       </div>
     </div>
   );
 }
 
-export default Insert;
+export default BoardInsert;

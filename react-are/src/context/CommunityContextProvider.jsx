@@ -111,7 +111,7 @@ const CommunityContextProvider = ({ children }) => {
     onClickSave,
     onTrClick,
     boardDetail,
-    setBoardDetail
+    setBoardDetail,
   };
 
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { Tmap } from "./index";
 
-import "../css/detail.css";
+import "../css/search_detail.css";
 
 function Detail() {
   return (
@@ -80,14 +80,13 @@ function Detail() {
       <section className="detail_map">
         <div>
           <h3>여기서 지도를 보여줄 곳</h3>
-
           <div className="map">
             <Tmap />
           </div>
         </div>
       </section>
       <div className="postscr">
-        <h3>여기부터는 후기~</h3>
+        <h3>후기~</h3>
       </div>
     </div>
   );
