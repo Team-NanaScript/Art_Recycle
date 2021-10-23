@@ -3,6 +3,7 @@ import "../css/result.css";
 import { useParams } from "react-router";
 import AteList from "../atelier/AteList";
 import { useHashTagContext } from "../context/HashTagContextProvider";
+import {hashSearch} from "../modules/searchFetch"
 
 const Result = () => {
   const [ateList, setAteList] = useState([
@@ -25,14 +26,16 @@ const Result = () => {
       at_image: "../image/result_image.jpg",
     },
   ]);
-
-  //   const { hashTagList } = useHashTagContext();
+  
+  // const { hashTagList } = useHashTagContext();
 
   const { query } = useParams();
 
   const searchResult = useCallback(async () => {
-    const res = await fetch(`http://localhost:5000/users/test/${query}`);
-    const tmpList = await res.json();
+    // await hashSearch()
+    const res = await fetch("http://localhost:5000/test")
+    // const res = await fetch(`http://localhost:5000/users/test/${query}`);
+    // const tmpList = await res.json();
     // console.table(tmpList);
     // setAteList(tmpList);
   }, []);

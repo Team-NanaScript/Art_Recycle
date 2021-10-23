@@ -18,7 +18,7 @@ const Search = () => {
   // });
 
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
       <div className="Search">
         <header>
           <h2>공방찾기</h2>
@@ -32,7 +32,7 @@ const Search = () => {
           <Result />
         </HashTagContextProvider>
       </div>
-    </BrowserRouter>
+    // </BrowserRouter>
   );
 };
 

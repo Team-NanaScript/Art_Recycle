@@ -7,6 +7,7 @@ import { Search, Detail } from "./search";
 import Result from "./search/Result";
 import MainCommunity from "./community/MainCommunity";
 import UserContextProvider from "./context/UserContext";
+import HashTagContextProvider from "./context/HashTagContextProvider";
 
 function App() {
   return (
@@ -18,17 +19,13 @@ function App() {
           <Route path="/login" component={Login} exact />
           <Route path="/join" component={Join} />
         </UserContextProvider>
-        {/* <Route
-          path="/search/local"
-          render={() => <Search clickTag={clickTag} />}
-          exact
-        /> */}
-        <Route path="/search/local" component={Search} />
+        {/* <HashTagContextProvider> */}
+        <Route path={["/search/local", "/search/way", "/search/material"]} component={Search} exact />
         <Route path="/search/result/:query" component={Result} exact />
+        {/* </HashTagContextProvider> */}
         <Route path="/detail/:at_code" component={Detail} exact />
-        <Route path="/search/way" component={Search} exact />
-        <Route path="/search/material" component={Search} exact />
-        {/* 커뮤니티 수정해주세염 */}
+        {/* <Route path="/search/way" component={Search} exact /> */}
+        {/* <Route path="/search/material" component={Search} exact /> */}
         <Route path="/board" component={MainCommunity} exact />
         <Route path="/board/insert" component={MainCommunity} />
         <Route path="/board/detail/:b_seq" component={MainCommunity} exact/>

@@ -1,6 +1,7 @@
 import express from "express";
 const router = express.Router();
 import USER from "../models/user.js";
+import {tags} from "../models/hashTag.js"
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -30,6 +31,11 @@ router.get("/user", async (req, res) => {
 router.post("/user", (req, res) => {
   const body = req.body;
   console.log(body);
+});
+
+router.get("/test", (req, res) => {
+  // console.log(tags)
+  res.json(tags)
 });
 
 export default router;
