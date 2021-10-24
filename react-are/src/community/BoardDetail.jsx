@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useCommuContext } from "../context/CommunityContextProvider";
 import { ReplyItem } from "../community";
+import ReplyInsert from "./ReplyInsert";
 
 function BoardDetail() {
   const history = useHistory();
@@ -25,7 +26,6 @@ function BoardDetail() {
     await setBoardDetail(result);
   });
   useEffect(boardViewDetail, []);
-
   console.table(boardDetail);
 
   const boardReviewDetail = useCallback(async () => {
@@ -87,21 +87,7 @@ function BoardDetail() {
       </div>
 
       <div className="detail_reply">
-        <div className="community reply_insert">
-          <input
-            data-seq={b_seq}
-            onChange={changeReply}
-            name="r_writer"
-            placeholder="작성자를 입력해주세요"
-          />
-          <input
-            data-seq={b_seq}
-            onChange={changeReply}
-            name="r_content"
-            placeholder="댓글을 입력해주세요"
-          />
-          <button onClick={ReplySave}>등록</button>
-        </div>
+        <ReplyInsert />
         <div className="reply_view">{replyBody}</div>
       </div>
     </>

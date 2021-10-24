@@ -2,6 +2,7 @@ import BoardList from "./BoardList";
 import BoardDetail from "./BoardDetail";
 import BoardInsert from "./BoardInsert";
 import BoardItem from "./BoardItem";
+import BoardUpdate from "./BoardUpdate";
 import MainCommunity from "./MainCommunity";
 import Notice from "./Notice";
 import ReplyInsert from "./ReplyInsert";
@@ -13,6 +14,7 @@ export {
   BoardList,
   BoardDetail,
   BoardItem,
+  BoardUpdate,
   MainCommunity,
   ReplyInsert,
   ReplyItem,
