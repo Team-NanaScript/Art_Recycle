@@ -21,16 +21,22 @@ function Login() {
     await setUser(resultLogin);
     console.log("user", user);
 
-    if (resultLogin !== null) {
-      console.log("데이터있대?");
-      // history.replace("/");
-    } else if (resultLogin === null) {
-      console.log("데이터없대?");
-      return;
+    if (resultLogin) {
+      if (user) {
+        console.log("데이터있대?");
+        history.replace("/");
+      }
+      if (!user || resultLogin.u_pw !== user.u_pw) {
+        console.log("데이터없대?");
+        return null;
+      }
     }
     // if (user.u_id) {
     //   history.replace("/");
-    // }
+  };
+
+  const onJoinGo = (e) => {
+    history.push("/join");
   };
 
   return (
@@ -61,9 +67,11 @@ function Login() {
         {/* </Link> */}
         <div className="btn_button">
           <button className="btn_find">ID/PW 찾기</button>
-          <Link to="./Join">
-            <button className="btn_join">회원가입</button>
-          </Link>
+          {/* <Link to="./Join"> */}
+          <button className="btn_join" onClick={onJoinGo}>
+            회원가입
+          </button>
+          {/* </Link> */}
         </div>
       </div>
     </div>

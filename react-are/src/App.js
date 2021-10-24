@@ -2,7 +2,7 @@ import "./App.css";
 import MainNav from "./comps/MainNav";
 import { Footer, MainBody } from "./comps";
 import { BrowserRouter, Route } from "react-router-dom";
-import { Login, Join } from "./member";
+import { Login, Join, Logout } from "./member";
 import { Search, Detail } from "./search";
 import { AteInsert } from "./atelier";
 import Result from "./search/Result";
@@ -14,10 +14,11 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <MainNav />
         <UserContextProvider>
+          <MainNav />
           <Route path="/" component={MainBody} exact />
           <Route path="/login" component={Login} exact />
+          <Route path="/logout" component={Logout} exact />
           <Route path="/join" component={Join} />
         </UserContextProvider>
         {/* <HashTagContextProvider> */}

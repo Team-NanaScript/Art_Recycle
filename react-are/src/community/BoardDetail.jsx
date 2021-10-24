@@ -1,14 +1,23 @@
 import React, { useCallback, useEffect } from "react";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useCommuContext } from "../context/CommunityContextProvider";
+import { ReplyItem } from "../community";
 
 function BoardDetail() {
+  const history = useHistory();
+
   const { b_seq } = useParams();
   // console.log("b-seq", b_seq);
 
-  const { boardDetail, setBoardDetail, ReplySave, changeReply } =
-    useCommuContext();
+  const {
+    boardDetail,
+    setBoardDetail,
+    replyList,
+    setReplyList,
+    ReplySave,
+    changeReply,
+  } = useCommuContext();
 
   const boardViewDetail = useCallback(async () => {
     const res = await fetch(`http://localhost:5000/board/detail/${b_seq}`);
@@ -18,6 +27,32 @@ function BoardDetail() {
   useEffect(boardViewDetail, []);
 
   console.table(boardDetail);
+
+  const boardReviewDetail = useCallback(async () => {
+    const res = await fetch(
+      `http://localhost:5000/board/reply/detail/${b_seq}`
+    );
+    const replyView = await res.json();
+    console.log("댓글 목록 다 나오자!", replyView);
+
+    await setReplyList(replyView);
+    console.log("replyList 확인", replyList);
+  });
+  useEffect(boardReviewDetail, []);
+
+  const replyBody = replyList.map((reply, index) => {
+    return <ReplyItem reply={reply} />;
+  });
+
+  const clickHome = () => {
+    history.replace("/board");
+  };
+  const clickUpdate = () => {
+    history.replace(`/board/update/${b_seq}`);
+  };
+  const clickDelete = () => {
+    history.replace(`/board/delete/${b_seq}`);
+  };
 
   return (
     <>
@@ -44,16 +79,13 @@ function BoardDetail() {
         </div>
       </div>
       <div className="community detail_btn_list">
-        <Link to="/board">
-          <button>목록으로</button>
-        </Link>
-        <Link to="/board/update/{b_seq}">
-          <button>수정하기</button>
-        </Link>
-        <Link to="/board/delete/${b_seq}">
-          <button>삭제하기</button>
-        </Link>
+        <button onClick={clickHome}>목록으로</button>
+
+        <button onClick={clickUpdate}>수정하기</button>
+
+        <button onClick={clickDelete}>삭제하기</button>
       </div>
+
       <div className="detail_reply">
         <div className="community reply_insert">
           <input
@@ -66,17 +98,11 @@ function BoardDetail() {
             data-seq={b_seq}
             onChange={changeReply}
             name="r_content"
-            placeholder="작성자를 입력해주세요"
+            placeholder="댓글을 입력해주세요"
           />
           <button onClick={ReplySave}>등록</button>
         </div>
-        {/* 여기 값도 불러올 값 */}
-        <div className="reply_view">
-          <label>{boardDetail.r_writer}</label>
-          <input readOnly value={boardDetail.r_content} />
-          <i className="fas fa-pencil-alt"></i>
-          <span>&times;</span>
-        </div>
+        <div className="reply_view">{replyBody}</div>
       </div>
     </>
   );
