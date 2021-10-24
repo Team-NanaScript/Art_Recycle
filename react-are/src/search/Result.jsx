@@ -3,27 +3,30 @@ import "../css/result.css";
 import { useParams } from "react-router";
 import AteList from "../atelier/AteList";
 import { useHashTagContext } from "../context/HashTagContextProvider";
-import {hashSearch} from "../modules/searchFetch"
+import {querySearch} from "../modules/searchFetch"
 
 const Result = () => {
   const [ateList, setAteList] = useState([
     {
-      at_code: "001",
-      at_name: "공방명",
-      at_page: "https://www.instagram.com/recode_/",
-      at_image: "/static/media/result_image.jpg",
+      at_seq: 1,
+      at_name: "나do나 공방",
+      at_page: "https://www.instagram.com/nadona/",
+      at_image: "/media/atelier.jpg",
+      className: "list01"
     },
     {
-      at_code: "002",
-      at_name: "공방명",
-      at_page: "https://www.instagram.com/recode_/",
-      at_image: "../static/media/result_image.jpg",
+      at_seq: 2,
+      at_name: "Do It Yourself",
+      at_page: "https://www.instagram.com/do_it_yourself/",
+      at_image: "/assets/atelier.jpg",
+      className: "list02"
     },
     {
-      at_code: "003",
-      at_name: "공방명",
-      at_page: "https://www.instagram.com/recode_/",
+      at_seq: 3,
+      at_name: "do do doodle",
+      at_page: "https://www.instagram.com/dodoodledo/",
       at_image: "../image/result_image.jpg",
+      className: "list03"
     },
   ]);
   
@@ -32,13 +35,8 @@ const Result = () => {
   const { query } = useParams();
 
   const searchResult = useCallback(async () => {
-    // await hashSearch()
-    const res = await fetch("http://localhost:5000/search/"+query,
-    {headers:{
-      "Content-Type": "application/json",}
-    }
-    )
-    // const res = await fetch(`http://localhost:5000/users/test/${query}`);
+    // const result = await querySearch(query)
+    const res = await fetch(`http://localhost:5000/users/test/${query}`);
     // const tmpList = await res.json();
     // console.table(tmpList);
     // setAteList(tmpList);
@@ -50,7 +48,7 @@ const Result = () => {
     <div>
       <section>
         <h2 className="result">검색 결과</h2>
-        <p>{query}</p>
+        {/* <p>{query}</p> */}
         <AteList notMsg="검색 결과가 없습니다" ateList={ateList} />
       </section>
     </div>
