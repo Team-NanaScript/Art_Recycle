@@ -5,6 +5,7 @@ import BoardItem from "./BoardItem";
 import MainCommunity from "./MainCommunity";
 import Notice from "./Notice";
 import ReplyInsert from "./ReplyInsert";
+import ReplyItem from "./ReplyItem";
 // import NoticeInsert from "./NoticeInsert";
 
 export {
@@ -14,5 +15,6 @@ export {
   BoardItem,
   MainCommunity,
   ReplyInsert,
+  ReplyItem,
   Notice,
 };
