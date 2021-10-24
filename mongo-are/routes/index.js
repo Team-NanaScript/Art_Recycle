@@ -38,4 +38,20 @@ router.get("/test", (req, res) => {
   res.json(tags)
 });
 
+router.get("/search/:query", (req, res) => {
+  let { query } = req.params;
+  // console.log(query);
+  // let tmpString = "M01"
+  // const result = tmpString.includes(query.trim())
+  
+  // const result = await tags.find({h_id:query})
+  const result = tags.filter( tag=>{
+    tag.h_text.includes(query.trim())
+  }
+  )
+  
+  console.table(result);
+  res.json(result);
+});
+
 export default router;
