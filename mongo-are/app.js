@@ -32,6 +32,7 @@ mongoose.connect("mongodb://localhost:27017/are");
 import indexRouter from "./routes/index.js";
 import usersRouter from "./routes/users.js";
 import boardRouter from "./routes/board.js";
+import atelierRouter from "./routes/atelier.js";
 
 const app = express();
 
@@ -91,6 +92,7 @@ app.use((req, res, next) => {
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/board", boardRouter);
+app.use("/atelier", atelierRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

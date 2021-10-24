@@ -50,7 +50,7 @@ function MainNav() {
           </NavLink>
         </nav>
         <nav className="main_menu right">
-          <NavLink to="/" exact activeStyle={activeStyle}>
+          <NavLink to="/atelier" exact activeStyle={activeStyle}>
             공방등록
           </NavLink>
           <NavLink to="/join" exact activeStyle={activeStyle}>
