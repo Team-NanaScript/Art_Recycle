@@ -6,17 +6,33 @@ article.atelier_list {
 	margin: 10px auto;
 }
 
+article.atelier_list:hover {
+	cursor: pointer;
+}
+
 div.atelier_image {
 	flex: 1;
   
 	height: 20vh;
-	background-image: url("../image/result_image.jpg");
+	/* background-image: url("../image/result_image.jpg"); */
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: center;
 	background-size: cover;
   
 	border-radius: 15px 0 0 15px;
+}
+
+div.list01{
+	background-image: url("../image/result_image.jpg")
+}
+
+div.list02{
+	background-image: url("../image/atelier.jpg")
+}
+
+div.list03{
+	background-image: url("../image/sample.jpg")
 }
   
 div.atelier_item {
