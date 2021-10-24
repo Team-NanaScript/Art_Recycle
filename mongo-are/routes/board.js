@@ -34,15 +34,16 @@ router.get("/detail/:b_seq", async (req, res) => {
   const { b_seq } = req.params;
 
   console.log("seq", b_seq);
-  //   const detail_list = await board.findOne({ b_seq: b_seq });
+  const detail_list = await board.findOne({ b_seq: b_seq });
+  // .populate({ model: reply });
   //   res.json(detail_list);
 
-  const result = await board.findOne({
-    where: { b_seq },
-    include: { model: reply },
-  });
-  console.log(result);
-  res.json(result);
+  //   const result = await board.findOne({
+  //     where: { b_seq },
+  //     include: { model: reply },
+  //   });
+  // console.log(detail_list);
+  res.json(detail_list);
 });
 
 router.get("/update/:b_seq", (req, res) => {
@@ -64,8 +65,18 @@ router.get("/delete/:b_seq", (req, res) => {
 });
 
 router.post("/reply/:b_seq", (req, res) => {
-  const result = reply.create(req.body);
-  res.json(result);
+  const { b_seq } = req.params;
+  reply.create(req.body);
+  res.json("댓글 등록 완료!!!");
+});
+
+router.get("/reply/detail/:b_seq", async (req, res) => {
+  const { b_seq } = req.params;
+
+  console.log("seq", b_seq);
+  const detail_list = await reply.findOne({ b_seq: b_seq });
+
+  res.json(detail_list);
 });
 
 export default router;

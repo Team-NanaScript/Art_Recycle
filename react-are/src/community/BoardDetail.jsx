@@ -7,17 +7,17 @@ function BoardDetail() {
   const { b_seq } = useParams();
   // console.log("b-seq", b_seq);
 
-  const { boardDetail, setBoardDetail, ReplySave } = useCommuContext();
+  const { boardDetail, setBoardDetail, ReplySave, changeReply } =
+    useCommuContext();
 
   const boardViewDetail = useCallback(async () => {
     const res = await fetch(`http://localhost:5000/board/detail/${b_seq}`);
     const result = await res.json();
     await setBoardDetail(result);
   });
-
   useEffect(boardViewDetail, []);
+
   console.table(boardDetail);
-  console.log("r_writer", boardDetail.r_writer);
 
   return (
     <>
@@ -56,7 +56,18 @@ function BoardDetail() {
       </div>
       <div className="detail_reply">
         <div className="community reply_insert">
-          <input />
+          <input
+            data-seq={b_seq}
+            onChange={changeReply}
+            name="r_writer"
+            placeholder="작성자를 입력해주세요"
+          />
+          <input
+            data-seq={b_seq}
+            onChange={changeReply}
+            name="r_content"
+            placeholder="작성자를 입력해주세요"
+          />
           <button onClick={ReplySave}>등록</button>
         </div>
         {/* 여기 값도 불러올 값 */}

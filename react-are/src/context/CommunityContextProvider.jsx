@@ -5,9 +5,8 @@ import {
   useEffect,
   useState,
 } from "react";
-import moment, { weekdaysShort } from "moment";
+import moment from "moment";
 import { useHistory } from "react-router";
-import UUID from "react-uuid";
 
 const CommunityContext = createContext();
 
@@ -29,18 +28,25 @@ const CommunityContextProvider = ({ children }) => {
     b_count: 0,
   }); // 글 하나하나..
 
+  // Community List state
   const [commuList, setCommuList] = useState([]); // 게시판 리스트
 
+  // Community Detail state
   const [boardDetail, setBoardDetail] = useState({});
 
   //   Reply state
   const [reply, setReply] = useState({
+    r_bSeq: "",
     r_writer: "",
     r_content: "",
     r_date: "",
     r_time: "",
   });
 
+  // Reply List state
+  const [replyList, setReplyList] = useState([]);
+
+  // 커뮤니티 리스트 fetch
   const commuFetch = useCallback(async () => {
     const res = await fetch("http://localhost:5000/board/list");
     const boardList = await res.json();
@@ -51,12 +57,31 @@ const CommunityContextProvider = ({ children }) => {
   }, []);
   useEffect(commuFetch, [commuFetch]);
 
+  // 커뮤니티 리스트 -> 디테일
   const onTrClick = async (e) => {
     const b_seq = e.target.closest("tr").dataset.id;
+    // alert(b_seq);
+
+    replyFetch(b_seq);
 
     history.replace(`/board/detail/${b_seq}`);
   };
 
+  // 커뮤니티 리스트 fetch
+  const replyFetch = useCallback(async (b_seq) => {
+    // const b_seq = e.target.closest("tr").dataset.id;
+    alert(b_seq);
+
+    const res = await fetch(`http://localhost:5000/reply/detail/${b_seq}`);
+    const replyView = await res.json();
+    console.log("댓글 목록 다 나오자!", replyView);
+
+    await setReplyList(replyView);
+    console.log("replyList 확인", replyList);
+  }, []);
+  useEffect(replyFetch, [replyFetch]);
+
+  // 커뮤니티 insert - state에 setting
   const changeInput = (e) => {
     const { name, value } = e.target;
 
@@ -69,6 +94,7 @@ const CommunityContextProvider = ({ children }) => {
     });
   };
 
+  // 커뮤니티 게시글 등록
   const onClickSave = async () => {
     const { b_seq, b_date, b_time, b_writer, b_title, b_content } = board;
 
@@ -97,11 +123,30 @@ const CommunityContextProvider = ({ children }) => {
     history.replace("/board");
   };
 
-  const ReplySave = async () => {
-    const { b_seq } = board.b_seq;
-    const { r_bId, r_writer, r_content, r_date, r_time } = reply;
+  // 커뮤니티 디테일 댓글 insert - state에 setting
+  const changeReply = (e) => {
+    const { name, value } = e.target;
+    const r_bSeq = e.currentTarget.dataset.seq;
+    console.log("r_bSeq", r_bSeq);
 
-    const res = await fetch("http://localhost:5000/board/reply/:b_seq", {
+    setReply({
+      ...reply,
+      [name]: value,
+      r_bSeq: r_bSeq,
+      r_date: moment().format("YYYY[-]MM[-]DD"),
+      r_time: moment().format("HH:mm:ss"),
+    });
+    console.log("reply", reply);
+  };
+
+  // 커뮤니티 게시글 별 댓글 등록
+  const ReplySave = async () => {
+    const b_seq = reply.r_bSeq;
+    console.log("b_seq", b_seq);
+
+    const { r_bSeq, r_writer, r_content, r_date, r_time } = reply;
+
+    const res = await fetch(`http://localhost:5000/board/reply/${b_seq}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -109,7 +154,7 @@ const CommunityContextProvider = ({ children }) => {
       },
       credentials: "include",
       body: JSON.stringify({
-        r_bId,
+        r_bSeq,
         r_writer,
         r_content,
         r_date,
@@ -122,7 +167,7 @@ const CommunityContextProvider = ({ children }) => {
       alert(JSON.stringify(json));
     }
 
-    history.replace("/board/detail/:b_seq");
+    history.replace(`/board/detail/${b_seq}`);
   };
 
   const providerData = {
@@ -133,6 +178,7 @@ const CommunityContextProvider = ({ children }) => {
     onTrClick,
     boardDetail,
     setBoardDetail,
+    changeReply,
     ReplySave,
   };
 
