@@ -9,6 +9,7 @@ import Result from "./search/Result";
 import MainCommunity from "./community/MainCommunity";
 import UserContextProvider from "./context/UserContext";
 import HashTagContextProvider from "./context/HashTagContextProvider";
+import AtelierContextProvider from "./context/AtelierContextProvider";
 
 function App() {
   return (
@@ -37,7 +38,9 @@ function App() {
         <Route path="/board/detail/:b_seq" component={MainCommunity} exact />
         <Route path="/board/update/:b_seq" component={MainCommunity} exact />
         {/* <Route path="/board/delete/:b_seq" component={MainCommunity} exact /> */}
-        <Route path="/atelier" component={AteInsert} exact />
+        <AtelierContextProvider>
+          <Route path="/atelier" component={AteInsert} exact />
+        </AtelierContextProvider>
         <Footer />
       </div>
     </BrowserRouter>

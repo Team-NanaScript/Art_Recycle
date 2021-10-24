@@ -1,13 +1,17 @@
 .ate_section header {
   width: 1000px;
   margin: 1.7rem auto;
+}
+
+.ate_section header h2 {
+  display: inline-block;
 
   font-weight: bold;
   color: rgb(117, 139, 253);
 }
 
 .ate_section {
-  border: 1px solid lightgray;
+  /* border: 1px solid lightgray; */
 
   margin: 0 auto;
   padding-bottom: 50px;
@@ -20,12 +24,12 @@
 }
 
 form.ate_insert {
-  width: 70%;
   margin: 0 auto;
 }
 
-form.ate_insert div {
-  margin: 20px 0;
+div.insert_box div {
+  margin: 20px auto;
+  width: 80%;
 }
 
 form.ate_insert div label,
@@ -45,16 +49,12 @@ form.ate_insert div label {
 
 form.ate_insert div input {
   width: 70%;
+  border: 1px solid #ccc;
 }
 
 form.ate_insert div input:focus,
 form.ate_insert div textarea:focus {
   background-color: rgb(233, 237, 255);
-}
-
-form.ate_insert div textarea {
-  width: 70%;
-  resize: none;
 }
 
 .ate_btn_box {
