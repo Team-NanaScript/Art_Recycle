@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { useCommuContext } from "../context/CommunityContextProvider";
 import BoardItem from "./BoardItem";
+import "../css/board.css";
 
 function BoardList() {
   const { commuList } = useCommuContext();
@@ -17,6 +18,7 @@ function BoardList() {
 
   return (
     <div>
+      <h1></h1>
       <table className="com_board">
         <thead>
           <tr>
