@@ -1,0 +1,74 @@
+.ate_section header {
+  width: 1000px;
+  margin: 1.7rem auto;
+
+  font-weight: bold;
+  color: rgb(117, 139, 253);
+}
+
+.ate_section {
+  border: 1px solid lightgray;
+
+  margin: 0 auto;
+  padding-bottom: 50px;
+
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+
+  min-height: 40vh;
+}
+
+form.ate_insert {
+  width: 70%;
+  margin: 0 auto;
+}
+
+form.ate_insert div {
+  margin: 20px 0;
+}
+
+form.ate_insert div label,
+form.ate_insert div input {
+  padding: 0.4rem;
+}
+
+form.ate_insert div label {
+  display: inline-block;
+  width: 15%;
+
+  margin-right: 1rem;
+
+  vertical-align: top;
+  text-align: right;
+}
+
+form.ate_insert div input {
+  width: 70%;
+}
+
+form.ate_insert div input:focus,
+form.ate_insert div textarea:focus {
+  background-color: rgb(233, 237, 255);
+}
+
+form.ate_insert div textarea {
+  width: 70%;
+  resize: none;
+}
+
+.ate_btn_box {
+}
+
+.ate_btn_insert {
+  width: 40%;
+  padding: 1rem;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+
+  border: none;
+  background-color: #6d7eb1;
+  border-radius: 5px;
+}

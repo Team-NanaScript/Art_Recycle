@@ -60,26 +60,9 @@ const CommunityContextProvider = ({ children }) => {
   // 커뮤니티 리스트 -> 디테일
   const onTrClick = async (e) => {
     const b_seq = e.target.closest("tr").dataset.id;
-    // alert(b_seq);
-
-    replyFetch(b_seq);
 
     history.replace(`/board/detail/${b_seq}`);
   };
-
-  // 커뮤니티 리스트 fetch
-  const replyFetch = useCallback(async (b_seq) => {
-    // const b_seq = e.target.closest("tr").dataset.id;
-    alert(b_seq);
-
-    const res = await fetch(`http://localhost:5000/reply/detail/${b_seq}`);
-    const replyView = await res.json();
-    console.log("댓글 목록 다 나오자!", replyView);
-
-    await setReplyList(replyView);
-    console.log("replyList 확인", replyList);
-  }, []);
-  useEffect(replyFetch, [replyFetch]);
 
   // 커뮤니티 insert - state에 setting
   const changeInput = (e) => {
@@ -187,6 +170,22 @@ const CommunityContextProvider = ({ children }) => {
     document.head.appendChild(script);
   }, []);
 
+  const iconClick = async (e) => {
+    const r_Id = e.target.dataset.id;
+    const res = await fetch(`http://localhost:5000/board/reply/update/${r_Id}`);
+    alert(JSON.stringify(res.json));
+  };
+
+  const reviewDelete = async (e) => {
+    const r_Id = e.target.dataset.id;
+    const res = await fetch(`http://localhost:5000/board/reply/delete/${r_Id}`);
+
+    if (res?.ok) {
+      const json = await res.json();
+      alert(JSON.stringify(json));
+    }
+  };
+
   const providerData = {
     commuList,
     commuFetch,
@@ -195,6 +194,10 @@ const CommunityContextProvider = ({ children }) => {
     onTrClick,
     boardDetail,
     setBoardDetail,
+    replyList,
+    iconClick,
+    reviewDelete,
+    setReplyList,
     changeReply,
     ReplySave,
     note,

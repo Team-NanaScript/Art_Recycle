@@ -46,7 +46,7 @@ const exportPassport = () => {
             console.log("id없으면 넘어와야함");
             return done(null, false, { massage: "아이디없어요" });
           }
-          if (user.u_id == u_id || user.u_pw != u_pw) {
+          if (user.u_pw != u_pw) {
             console.log("비밀번호가 일치하지않으면 넘어와야함");
             return done(null, false, { massage: "비밀번호 없음" });
           }
