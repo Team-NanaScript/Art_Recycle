@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import { CKEditor } from "@ckeditor/ckeditor5-react";
 // import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import "../css/AteInsert.css";
+import note from "../modules/note.js";
 
 const AteInsert = () => {
+  useEffect(
+    () => ({
+      note,
+    }),
+    []
+  );
+
   return (
     <section className="ate_section">
       <header>
@@ -32,7 +40,12 @@ const AteInsert = () => {
         </div>
         <div>
           <label>공방소개</label>
-          <textarea name="at_desc" cols="30" rows="15" />
+          <textarea
+            id="summernote"
+            name="at_desc"
+            cols="30"
+            rows="15"
+          ></textarea>
           {/* <CKEditor
               editor={ClassicEditor}
               data="<p>Hello from CKEditor 5!</p>"
