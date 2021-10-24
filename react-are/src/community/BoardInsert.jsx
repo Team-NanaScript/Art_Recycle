@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useCommuContext } from "../context/CommunityContextProvider";
 
 function BoardInsert() {
   const { changeInput, onClickSave } = useCommuContext();
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.innerHTML = ` 
+	$(document).ready(function(){
+		$('#summernote').summernote({
+			lang: 'ko-KR',
+			height: 300,                 // 에디터 높이
+			minHeight: null,             // 최소 높이
+			maxHeight: null,
+		});
+	})
+      `;
+    script.type = "text/javascript";
+    script.async = "async";
+    document.head.appendChild(script);
+  }, []);
 
   return (
     <div className="detail_view board_insert">
@@ -14,10 +31,11 @@ function BoardInsert() {
         <label>제목</label>
         <input onChange={changeInput} name="b_title" type="text" />
       </div>
-      <div>
+      {/* <div>
         <label>내용</label>
         <input onChange={changeInput} name="b_content" type="text" />
-      </div>
+      </div> */}
+      <textarea id="summernote"></textarea>
       <div className="community">
         <button onClick={onClickSave}>저장</button>
       </div>
