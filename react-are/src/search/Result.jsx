@@ -33,7 +33,11 @@ const Result = () => {
 
   const searchResult = useCallback(async () => {
     // await hashSearch()
-    const res = await fetch("http://localhost:5000/test")
+    const res = await fetch("http://localhost:5000/search/"+query,
+    {headers:{
+      "Content-Type": "application/json",}
+    }
+    )
     // const res = await fetch(`http://localhost:5000/users/test/${query}`);
     // const tmpList = await res.json();
     // console.table(tmpList);
