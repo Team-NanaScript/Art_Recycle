@@ -23,7 +23,7 @@ function MainNav() {
     { id: 2, title: "커뮤니티", link: "/board" },
   ];
   const navRightList = [
-    { id: 3, title: "공방등록", link: "/" },
+    { id: 3, title: "공방등록", link: "/atelier" },
     { id: 4, title: "회원가입", link: "/join" },
     user?.u_id ? { id: 5, title: "로그아웃", link: "/logout" } : { id: 5, title: "로그인", link: "/login" },
   ];
@@ -31,14 +31,18 @@ function MainNav() {
   const navLeftItem = navLeftList.map((left) => {
     return (
       <li>
-        <NavLink to={left.link}>{left.title}</NavLink>
+        <NavLink activeStyle={activeStyle} to={left.link} exact>
+          {left.title}
+        </NavLink>
       </li>
     );
   });
   const navRightItem = navRightList.map((right) => {
     return (
       <li>
-        <NavLink to={right.link}>{right.title}</NavLink>
+        <NavLink activeStyle={activeStyle} to={right.link}>
+          {right.title}
+        </NavLink>
       </li>
     );
   });
@@ -66,7 +70,9 @@ function MainNav() {
       </div>
       <div className="menu_wrap">
         <nav className="main_menu center">
-          <ul style={dispalyStyle}>{navLeftItem}</ul>
+          <ul activeStyle={activeStyle} style={dispalyStyle}>
+            {navLeftItem}
+          </ul>
 
           {/* <NavLink to="/" exact activeStyle={activeStyle}>
             A-Re 소개
