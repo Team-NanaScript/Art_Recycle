@@ -18,6 +18,7 @@ export const useCommuContext = () => {
 const CommunityContextProvider = ({ children }) => {
   const history = useHistory();
 
+  //   Community state
   const [board, setBoard] = useState({
     b_seq: 1,
     b_date: "",
@@ -32,6 +33,14 @@ const CommunityContextProvider = ({ children }) => {
 
   const [boardDetail, setBoardDetail] = useState({});
 
+  //   Reply state
+  const [reply, setReply] = useState({
+    r_writer: "",
+    r_content: "",
+    r_date: "",
+    r_time: "",
+  });
+
   const commuFetch = useCallback(async () => {
     const res = await fetch("http://localhost:5000/board/list");
     const boardList = await res.json();
@@ -44,22 +53,6 @@ const CommunityContextProvider = ({ children }) => {
 
   const onTrClick = async (e) => {
     const b_seq = e.target.closest("tr").dataset.id;
-
-    // const res = await fetch(`http://localhost:5000/board/detail/${b_seq}`);
-
-    // const result = await res.json();
-    // console.log("=== 1 ===");
-    // console.table(result);
-    // console.log("=== 2 ===");
-    // 위에랑 결과 자체는 같은 데 JSON 형식으로 나와서 table 안 됨
-    // console.table(JSON.stringify(result));
-
-    // await setBoardDetail( result );
-    // console.log("=== 3 ===");
-    // 아무것도 안 뜸..
-    // 왜지...
-    // 살려주세여....
-    // console.table(boardDetail);
 
     history.replace(`/board/detail/${b_seq}`);
   };
@@ -104,6 +97,34 @@ const CommunityContextProvider = ({ children }) => {
     history.replace("/board");
   };
 
+  const ReplySave = async () => {
+    const { b_seq } = board.b_seq;
+    const { r_bId, r_writer, r_content, r_date, r_time } = reply;
+
+    const res = await fetch("http://localhost:5000/board/reply/:b_seq", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000",
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        r_bId,
+        r_writer,
+        r_content,
+        r_date,
+        r_time,
+      }),
+    });
+
+    if (res?.ok) {
+      const json = await res.json();
+      alert(JSON.stringify(json));
+    }
+
+    history.replace("/board/detail/:b_seq");
+  };
+
   const providerData = {
     commuList,
     commuFetch,
@@ -112,6 +133,7 @@ const CommunityContextProvider = ({ children }) => {
     onTrClick,
     boardDetail,
     setBoardDetail,
+    ReplySave,
   };
 
   return (

@@ -29,23 +29,6 @@ table.com_board {
   width: 800px;
 }
 
-/* Insert.jsx 
-div.board_insert label,
-div.board_insert input {
-  display: inline-block;
-  width: 20%;
-  margin: 5px;
-}
-
-div.board_insert label {
-  text-align: right;
-}
-
-div.board_insert input {
-  width: 500px;
-}
-*/
-
 /* BoardDetail.jsx */
 div.detail_view {
   width: 700px;
@@ -90,4 +73,29 @@ div.reply_insert button {
 div.reply_insert input {
   width: 500px;
   padding: 0.5rem;
+}
+
+div.detail_reply div {
+}
+
+div.reply_view label,
+div.reply_view input,
+div.reply_view span {
+  display: inline-block;
+}
+
+div.reply_view label {
+  width: 5%;
+}
+
+div.reply_view input {
+  border: none;
+  border-bottom: 1px solid rgba(117, 140, 253);
+  width: 50%;
+  padding: 0.5rem;
+}
+
+div.reply_view span,
+div.reply_view i {
+  margin: 0.1rem 0.2rem;
 }
