@@ -25,7 +25,9 @@ function MainNav() {
   const navRightList = [
     { id: 3, title: "공방등록", link: "/atelier" },
     { id: 4, title: "회원가입", link: "/join" },
-    user?.u_id ? { id: 5, title: "로그아웃", link: "/logout" } : { id: 5, title: "로그인", link: "/login" },
+    user?.u_id
+      ? { id: 5, title: "로그아웃", link: "/logout" }
+      : { id: 5, title: "로그인", link: "/login" },
   ];
 
   const navLeftItem = navLeftList.map((left) => {
@@ -40,7 +42,7 @@ function MainNav() {
   const navRightItem = navRightList.map((right) => {
     return (
       <li>
-        <NavLink activeStyle={activeStyle} to={right.link}>
+        <NavLink activeStyle={activeStyle} to={right.link} exact>
           {right.title}
         </NavLink>
       </li>
@@ -58,7 +60,13 @@ function MainNav() {
         }}
       >
         <svg width="97" height="35">
-          <text transform="translate(0 29)" fill="#27187f" fontSize="35" fontFamily="Ubuntu-Bold" fontWeight="700">
+          <text
+            transform="translate(0 29)"
+            fill="#27187f"
+            fontSize="35"
+            fontFamily="Ubuntu-Bold"
+            fontWeight="700"
+          >
             <tspan x="0" y="0">
               Art
             </tspan>

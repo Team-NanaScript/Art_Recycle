@@ -3,7 +3,7 @@ import atelier from "../models/atelier.js";
 
 const router = express.Router();
 
-router.post("/", (req, res) => {
+router.post("/insert", (req, res) => {
   atelier.create(req.body);
 
   res.json("INSERT SUCCESS");
