@@ -1,6 +1,5 @@
 // import React, { useCallback } from "react";
 import { useHashTagContext } from "../context/HashTagContextProvider";
-import { BsBoxSeam } from "react-icons/bs";
 
 const wayData = [
   {

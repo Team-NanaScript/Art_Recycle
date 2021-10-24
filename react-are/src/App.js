@@ -4,6 +4,7 @@ import { Footer, MainBody } from "./comps";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Login, Join, Logout } from "./member";
 import { Search, Detail } from "./search";
+import { AteInsert } from "./atelier";
 import Result from "./search/Result";
 import MainCommunity from "./community/MainCommunity";
 import UserContextProvider from "./context/UserContext";
@@ -21,7 +22,11 @@ function App() {
           <Route path="/join" component={Join} />
         </UserContextProvider>
         {/* <HashTagContextProvider> */}
-        <Route path={["/search/local", "/search/way", "/search/material"]} component={Search} exact />
+        <Route
+          path={["/search/local", "/search/way", "/search/material"]}
+          component={Search}
+          exact
+        />
         <Route path="/search/result/:query" component={Result} exact />
         {/* </HashTagContextProvider> */}
         <Route path="/detail/:at_code" component={Detail} exact />
@@ -30,6 +35,7 @@ function App() {
         <Route path="/board" component={MainCommunity} exact />
         <Route path="/board/insert" component={MainCommunity} />
         <Route path="/board/detail/:b_seq" component={MainCommunity} exact />
+        <Route path="/atelier" component={AteInsert} exact />
         <Footer />
       </div>
     </BrowserRouter>
