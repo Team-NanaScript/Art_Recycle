@@ -85,13 +85,13 @@ div.reply_view span {
 }
 
 div.reply_view label {
-  width: 5%;
+  width: 20%;
 }
 
 div.reply_view input {
   border: none;
   border-bottom: 1px solid rgba(117, 140, 253);
-  width: 50%;
+  width: 60%;
   padding: 0.5rem;
 }
 
