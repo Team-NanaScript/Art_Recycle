@@ -1,9 +1,7 @@
 import { Route } from "react-router";
 import CommunityContextProvider from "../context/CommunityContextProvider";
 import "../css/community.css";
-import Board from "./Board";
-import BoardDetail from "./BoardDetail";
-import BoardInsert from "./BoardInsert";
+import { BoardInsert, BoardList, BoardDetail, Notice } from "../community";
 
 function MainCommunity() {
   return (
@@ -15,13 +13,16 @@ function MainCommunity() {
         <BoardInsert />
       </Route>
       <Route path="/board" exact>
-        <Board />
+        <BoardList />
       </Route>
       <Route path="/board/detail/:b_seq" exact>
         <BoardDetail />
       </Route>
       <Route path="/board/update/:b_seq" exact>
         <BoardInsert />
+      </Route>
+      <Route path="/notice" exact>
+        <Notice />
       </Route>
     </CommunityContextProvider>
   );

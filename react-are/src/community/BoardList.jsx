@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useCommuContext } from "../context/CommunityContextProvider";
 import BoardItem from "./BoardItem";
 
-function Board() {
+function BoardList() {
   const { commuList } = useCommuContext();
 
   const commu_body = commuList.map((board, index) => {
@@ -36,4 +36,4 @@ function Board() {
   );
 }
 
-export default Board;
+export default BoardList;
