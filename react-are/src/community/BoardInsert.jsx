@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useCommuContext } from "../context/CommunityContextProvider";
+import note from "../modules/note.js";
 
 function BoardInsert() {
-  const { changeInput, onClickSave, note } = useCommuContext();
+  const { changeInput, onClickSave } = useCommuContext();
+
+  useEffect(() => {
+    {
+      note;
+    }
+  }, []);
 
   return (
     <div className="detail_view board_insert">
@@ -18,7 +25,7 @@ function BoardInsert() {
         <label>내용</label>
         <input onChange={changeInput} name="b_content" type="text" />
       </div> */}
-      <textarea id="summernote" note={note}></textarea>
+      <textarea id="summernote"></textarea>
       <div className="community">
         <button onClick={onClickSave}>저장</button>
       </div>

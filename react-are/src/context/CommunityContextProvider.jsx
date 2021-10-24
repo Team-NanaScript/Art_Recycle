@@ -153,23 +153,6 @@ const CommunityContextProvider = ({ children }) => {
     history.replace(`/board/detail/${b_seq}`);
   };
 
-  const note = useEffect(() => {
-    const script = document.createElement("script");
-    script.innerHTML = ` 
-	  $(document).ready(function(){
-		  $('#summernote').summernote({
-			  lang: 'ko-KR',
-			  height: 300,                 // 에디터 높이
-			  minHeight: null,             // 최소 높이
-			  maxHeight: null,
-		  });
-	  })
-		`;
-    script.type = "text/javascript";
-    script.async = "async";
-    document.head.appendChild(script);
-  }, []);
-
   const iconClick = async (e) => {
     const r_Id = e.target.dataset.id;
     const res = await fetch(`http://localhost:5000/board/reply/update/${r_Id}`);
@@ -200,7 +183,6 @@ const CommunityContextProvider = ({ children }) => {
     setReplyList,
     changeReply,
     ReplySave,
-    note,
   };
 
   return (
