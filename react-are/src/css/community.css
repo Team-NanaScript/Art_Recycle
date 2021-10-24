@@ -75,7 +75,8 @@ div.reply_insert input {
   padding: 0.5rem;
 }
 
-div.detail_reply div {
+div.reply_insert input.r_writer {
+  width: 150px;
 }
 
 div.reply_view label,

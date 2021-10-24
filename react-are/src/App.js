@@ -35,6 +35,8 @@ function App() {
         <Route path="/board" component={MainCommunity} exact />
         <Route path="/board/insert" component={MainCommunity} />
         <Route path="/board/detail/:b_seq" component={MainCommunity} exact />
+        <Route path="/board/update/:b_seq" component={MainCommunity} exact />
+        {/* <Route path="/board/delete/:b_seq" component={MainCommunity} exact /> */}
         <Route path="/atelier" component={AteInsert} exact />
         <Footer />
       </div>

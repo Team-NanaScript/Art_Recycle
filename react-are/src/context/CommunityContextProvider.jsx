@@ -106,6 +106,15 @@ const CommunityContextProvider = ({ children }) => {
     history.replace("/board");
   };
 
+  const onClickUpdate = async (e) => {
+    const b_seq = e.target.dataset.id;
+    const res = await fetch(`http://localhost:5000/board/update/${b_seq}`);
+    if (res?.ok) {
+      const json = await res.json();
+      alert(JSON.stringify(json));
+    }
+  };
+
   // 커뮤니티 디테일 댓글 insert - state에 setting
   const changeReply = (e) => {
     const { name, value } = e.target;
@@ -175,6 +184,7 @@ const CommunityContextProvider = ({ children }) => {
     changeInput,
     onClickSave,
     onTrClick,
+    onClickUpdate,
     boardDetail,
     setBoardDetail,
     replyList,
