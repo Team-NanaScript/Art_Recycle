@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect } from "react";
 import { useHistory, useParams } from "react-router";
-import { Link } from "react-router-dom";
 import { useCommuContext } from "../context/CommunityContextProvider";
 import { ReplyItem } from "../community";
 import ReplyInsert from "./ReplyInsert";

@@ -33,6 +33,7 @@ import indexRouter from "./routes/index.js";
 import usersRouter from "./routes/users.js";
 import boardRouter from "./routes/board.js";
 import atelierRouter from "./routes/atelier.js";
+import searchRouter from "./routes/search.js";
 
 const app = express();
 
@@ -93,6 +94,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/board", boardRouter);
 app.use("/atelier", atelierRouter);
+app.use("/search", searchRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

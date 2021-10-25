@@ -12,8 +12,6 @@ function BoardInsert() {
 				$('#summernote').summernote({
 					lang: 'ko-KR',
 					height: 300,                 // 에디터 높이
-					minHeight: null,             // 최소 높이
-					maxHeight: null,
 				});
 			})
 				  `;
@@ -32,11 +30,11 @@ function BoardInsert() {
         <label>제목</label>
         <input onChange={changeInput} name="b_title" type="text" />
       </div>
-      {/* <div>
+      {/* <textarea id="summernote" name="b_content"></textarea> */}
+      <div>
         <label>내용</label>
         <input onChange={changeInput} name="b_content" type="text" />
-      </div> */}
-      <textarea id="summernote"></textarea>
+      </div>
       <div className="community">
         <button onClick={onClickSave}>저장</button>
       </div>

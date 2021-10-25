@@ -63,10 +63,6 @@ a.booking {
   padding: 3px;
 }
 
-/* 
 div.map {
-  width: 616px;
-  height: 280px;
-  margin: 0 auto;
-} 
-*/
+  display: inline-block;
+}

@@ -18,7 +18,6 @@ function BoardList() {
 
   return (
     <div>
-      <h1></h1>
       <table className="com_board">
         <thead>
           <tr>

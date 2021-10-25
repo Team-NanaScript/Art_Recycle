@@ -33,7 +33,6 @@ table.com_board {
 div.detail_view {
   width: 700px;
   margin: 0.5rem auto;
-  border: 1px solid;
 }
 
 div.detail_view label,
@@ -52,6 +51,10 @@ div.detail_view input {
   border: none;
   border-bottom: 1px solid rgba(117, 140, 253);
   width: 50%;
+}
+
+div.detail_view div.note-editor {
+  margin: 1rem auto;
 }
 
 div.detail_reply {

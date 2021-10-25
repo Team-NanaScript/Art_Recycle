@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import { useParams } from "react-router";
 import { useCommuContext } from "../context/CommunityContextProvider";
-// import CKEditor from "react-native-ckeditor";
 
 function BoardInsert() {
   const { b_seq } = useParams();
