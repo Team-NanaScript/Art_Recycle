@@ -30,11 +30,11 @@ function BoardInsert() {
         <label>제목</label>
         <input onChange={changeInput} name="b_title" type="text" />
       </div>
-      {/* <textarea id="summernote" name="b_content"></textarea> */}
-      <div>
+      <textarea id="summernote" name="b_content"></textarea>
+      {/* <div>
         <label>내용</label>
         <input onChange={changeInput} name="b_content" type="text" />
-      </div>
+      </div> */}
       <div className="community">
         <button onClick={onClickSave}>저장</button>
       </div>

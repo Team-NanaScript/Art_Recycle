@@ -42,12 +42,24 @@ function Detail() {
         <div className="community postscr_insert">
           <input name="p_writer" placeholder="작성자를 입력해주세요" />
           <input name="p_content" placeholder="후기를 입력해주세요" />
-          <button>등록</button>
+          <button
+            onClick={() => {
+              alert("후기 INSERT SUCCESS!");
+            }}
+          >
+            등록
+          </button>
         </div>
       </div>
-      <div>
+      <div className="postscript_view">
         <label>userId</label>
         <input value="공방 너무 이쁘네욤" />
+        <i className="fas fa-pencil-alt"></i>
+        <span>&times;</span>
+      </div>
+      <div className="postscript_view">
+        <label>nanask</label>
+        <input value="집에서 가까워서 좋아요" />
         <i className="fas fa-pencil-alt"></i>
         <span>&times;</span>
       </div>

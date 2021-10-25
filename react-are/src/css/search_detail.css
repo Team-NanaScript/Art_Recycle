@@ -66,3 +66,50 @@ a.booking {
 div.map {
   display: inline-block;
 }
+
+div.detail_view input {
+  border: none;
+  border-bottom: 1px solid rgba(117, 140, 253);
+  width: 50%;
+}
+
+div.postscript_insert {
+  display: flex;
+  margin: 0 auto;
+}
+
+div.postscript_insert input,
+div.postscript_insert button {
+  margin: 0.3rem;
+}
+
+div.postscript_insert input {
+  width: 500px;
+  padding: 0.5rem;
+}
+
+div.postscript_insert input.r_writer {
+  width: 150px;
+}
+
+div.postscript_view label,
+div.postscript_view input,
+div.postscript_view span {
+  display: inline-block;
+}
+
+div.postscript_view label {
+  width: 20%;
+}
+
+div.postscript_view input {
+  border: none;
+  border-bottom: 1px solid rgba(117, 140, 253);
+  width: 60%;
+  padding: 0.5rem;
+}
+
+div.postscript_view span,
+div.postscript_view i {
+  margin: 0.1rem 0.2rem;
+}

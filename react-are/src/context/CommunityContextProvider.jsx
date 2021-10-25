@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import moment from "moment";
 import { useHistory } from "react-router";
 
@@ -156,7 +150,7 @@ const CommunityContextProvider = ({ children }) => {
 
     if (res?.ok) {
       const json = await res.json();
-      alert(JSON.stringify(json));
+      setReplyList(json);
     }
 
     history.replace(`/board/detail/${b_seq}`);
@@ -195,11 +189,7 @@ const CommunityContextProvider = ({ children }) => {
     ReplySave,
   };
 
-  return (
-    <CommunityContext.Provider value={providerData}>
-      {children}
-    </CommunityContext.Provider>
-  );
+  return <CommunityContext.Provider value={providerData}>{children}</CommunityContext.Provider>;
 };
 
 export default CommunityContextProvider;
