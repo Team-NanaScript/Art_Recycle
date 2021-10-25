@@ -64,7 +64,10 @@ router.post("/reply/:b_seq", (req, res) => {
   // console.log("b_seq", b_seq);
 
   reply.create(req.body);
-  res.json("댓글 등록 완료!!!");
+  //   res.json("댓글 등록 완료!!!");
+
+  const detail_list = await reply.find({ r_bSeq: b_seq });
+  res.json(detail_list);
 });
 
 router.get("/reply/detail/:b_seq", async (req, res) => {

@@ -6,8 +6,8 @@ function BoardItem({ board, index }) {
   return (
     <tr onClick={onTrClick} data-id={board.b_seq}>
       <td>{index + 1}</td>
-      <td>{board.b_title}</td>
       <td>{board.b_writer}</td>
+      <td>{board.b_title}</td>
       <td>{board.b_date}</td>
       <td>0</td>
     </tr>
