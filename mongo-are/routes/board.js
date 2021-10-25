@@ -59,7 +59,7 @@ router.get("/delete/:b_seq", (req, res) => {
   res.json(result);
 });
 
-router.post("/reply/:b_seq", (req, res) => {
+router.post("/reply/:b_seq", async (req, res) => {
   const { b_seq } = req.params;
   // console.log("b_seq", b_seq);
 
