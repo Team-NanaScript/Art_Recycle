@@ -1,6 +1,5 @@
-import React, { useCallback, useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 import { useCommuContext } from "../context/CommunityContextProvider";
 
 function ReplyInsert() {

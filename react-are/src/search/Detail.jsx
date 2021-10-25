@@ -39,7 +39,17 @@ function Detail() {
         </div>
       </section>
       <div className="postscr">
-        <h3>후기~</h3>
+        <div className="community postscr_insert">
+          <input name="p_writer" placeholder="작성자를 입력해주세요" />
+          <input name="p_content" placeholder="후기를 입력해주세요" />
+          <button>등록</button>
+        </div>
+      </div>
+      <div>
+        <label>userId</label>
+        <input value="공방 너무 이쁘네욤" />
+        <i className="fas fa-pencil-alt"></i>
+        <span>&times;</span>
       </div>
     </div>
   );
