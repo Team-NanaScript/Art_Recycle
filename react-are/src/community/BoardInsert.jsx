@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useCommuContext } from "../context/CommunityContextProvider";
-import note from "../modules/note.js";
 
 function BoardInsert() {
   const { changeInput, onClickSave } = useCommuContext();

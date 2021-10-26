@@ -1,26 +1,10 @@
 import React, { useEffect } from "react";
 import { useAtelierContext } from "../context/AtelierContextProvider";
 import "../css/AteInsert.css";
+import Editor from "../comps/Editor";
 
 const AteInsert = () => {
   const { changeInput, onClickSave } = useAtelierContext();
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.innerHTML = ` 
-			$(document).ready(function(){
-				$('#summernote').summernote({
-					lang: 'ko-KR',
-					height: 300,                 // 에디터 높이
-					minHeight: null,             // 최소 높이
-					maxHeight: null,
-				});
-			})
-				  `;
-    script.type = "text/javascript";
-    script.async = "async";
-    document.head.appendChild(script);
-  }, []);
 
   return (
     <section className="ate_section">
@@ -58,7 +42,8 @@ const AteInsert = () => {
         <hr />
         <h3>상세 소개</h3>
         <p>공방에 대한 자세한 설명</p>
-        <div className="summernote">
+        <Editor name="at_desc" onChange={changeInput} />
+        {/* <div className="summernote">
           <textarea
             id="summernote"
             name="at_desc"
@@ -75,7 +60,7 @@ const AteInsert = () => {
           >
             등록
           </button>
-        </div>
+        </div> */}
       </form>
     </section>
   );
