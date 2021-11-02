@@ -96,6 +96,8 @@ router.post("/join", async (req, res) => {
 });
 
 router.post("/logout", async (req, res) => {
+  // const user = req.json()
+  console.log("왜 여기까지 안오냐고ㅗ오오오오오오");
   await req.logout();
 
   await req.session.distroy();
@@ -104,3 +106,7 @@ router.post("/logout", async (req, res) => {
 });
 
 export default router;
+
+router.get("/logout", (req, res) => {
+  console.log("여기는 나옴?");
+});

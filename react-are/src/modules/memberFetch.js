@@ -61,13 +61,16 @@ const fetchJoin = async (joinData) => {
 };
 
 const fetchLogout = async () => {
-  const res = await fetch("http://localhost:5000/user/logout", fetchOption);
+  // const res =
+  // await fetch("http://localhost:5000/user/logout", fetchOption);
+  // const res =
+  await fetch("http://localhost:5000/user/logout");
   alert("logout 을 성공하였습니다");
   console.log("logout");
 
   // console.log("res.json", res.json());
 
-  return res.json();
+  // return res.json();
 };
 
 export { fetchLogin, fetchJoin, fetchUser, fetchCheck, fetchLogout };
