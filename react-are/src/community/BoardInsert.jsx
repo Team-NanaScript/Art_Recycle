@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useCommuContext } from "../context/CommunityContextProvider";
+import Editor from "../comps/Editor";
 
 function BoardInsert() {
-  const { changeInput, onClickSave } = useCommuContext();
+  const { changeInput, onClickSave, changeContent } = useCommuContext();
 
+  /*
   useEffect(() => {
     const script = document.createElement("script");
     script.innerHTML = ` 
@@ -18,6 +20,7 @@ function BoardInsert() {
     script.async = "async";
     document.head.appendChild(script);
   }, []);
+  */
 
   return (
     <div className="detail_view board_insert">
@@ -29,11 +32,12 @@ function BoardInsert() {
         <label>제목</label>
         <input onChange={changeInput} name="b_title" type="text" />
       </div>
-      <textarea id="summernote" name="b_content"></textarea>
+      {/* <textarea id="summernote" name="b_content"></textarea> */}
       {/* <div>
         <label>내용</label>
         <input onChange={changeInput} name="b_content" type="text" />
       </div> */}
+      <Editor name="b_content" changeContent={changeContent} />
       <div className="community">
         <button onClick={onClickSave}>저장</button>
       </div>

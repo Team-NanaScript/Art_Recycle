@@ -44,9 +44,9 @@ const CommunityContextProvider = ({ children }) => {
   const commuFetch = useCallback(async () => {
     const res = await fetch("http://localhost:5000/board/list");
     const boardList = await res.json();
-    // console.log("커뮤니티 리스트", boardList);
+    console.log("커뮤니티 리스트", boardList);
 
-    await setCommuList(boardList);
+    // await setCommuList(boardList);
     // console.log("commuList", commuList);
   }, []);
   useEffect(commuFetch, [commuFetch]);
@@ -62,12 +62,23 @@ const CommunityContextProvider = ({ children }) => {
   const changeInput = (e) => {
     const { name, value } = e.target;
 
+    // console.log("b_content", name["b_content"].value);
+
     setBoard({
       ...board,
       [name]: value,
       b_seq: commuList.length,
       b_date: moment().format("YYYY[-]MM[-]DD"),
       b_time: moment().format("HH:mm:ss"),
+    });
+
+    console.log("board", board);
+  };
+
+  const changeContent = (html) => {
+    setBoard({
+      ...board,
+      b_content: html,
     });
   };
 
@@ -187,6 +198,7 @@ const CommunityContextProvider = ({ children }) => {
     setReplyList,
     changeReply,
     ReplySave,
+    changeContent,
   };
 
   return <CommunityContext.Provider value={providerData}>{children}</CommunityContext.Provider>;

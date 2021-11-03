@@ -12,12 +12,7 @@ class EditorComponent extends Component {
       //[{ 'font': [] }],
       [{ header: [1, 2, false] }],
       ["bold", "italic", "underline", "strike", "blockquote"],
-      [
-        { list: "ordered" },
-        { list: "bullet" },
-        { indent: "-1" },
-        { indent: "+1" },
-      ],
+      [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
       ["link", "image"],
       [{ align: [] }, { color: [] }, { background: [] }], // dropdown with defaults from theme
       ["clean"],
@@ -43,7 +38,7 @@ class EditorComponent extends Component {
   ];
 
   render() {
-    const { value, onChange, name } = this.props;
+    const { value, changeContent, name } = this.props;
     return (
       <div style={{ height: "350px" }}>
         <ReactQuill
@@ -52,13 +47,9 @@ class EditorComponent extends Component {
           theme="snow"
           modules={this.modules}
           formats={this.formats}
-          value={value || ""}
-          //   onChange={(content, delta, source, editor) =>
-          //     onChange(editor.getHTML())
-          //   }
-          onChange={(content, delta, source, editor) =>
-            console.log(editor.getHTML())
-          }
+          //   value={content}
+          onChange={(content, delta, source, editor) => changeContent(editor.getHTML())}
+          //   onChange={(content, delta, source, editor) => console.log(editor.getHTML())}
         />
       </div>
     );
