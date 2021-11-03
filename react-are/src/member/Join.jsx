@@ -49,10 +49,10 @@ function Join() {
       alert("이름을 입력해주세요");
       return;
     }
-    if (!user?.u_nickname) {
-      alert("사용할 닉네임을 입력해주세요");
-      return;
-    }
+    // if (!user?.u_nickname) {
+    //   alert("사용할 닉네임을 입력해주세요");
+    //   return;
+    // }
 
     const joinData = {
       u_id: user.u_id,
@@ -64,7 +64,7 @@ function Join() {
     console.log("넘겨준데이터", joinData);
     fetchJoin(joinData);
     console.log("join됐나?");
-    // history.push("/login");
+    history.push("/login");
   };
 
   return (

@@ -35,7 +35,7 @@ const fetchLogin = async (u_id, u_pw) => {
     return users;
   } else {
     console.log("로그인실패했대, fetchLogin");
-    return res.json([]);
+    return [];
   }
 };
 
@@ -62,9 +62,9 @@ const fetchJoin = async (joinData) => {
 
 const fetchLogout = async () => {
   // const res =
-  // await fetch("http://localhost:5000/user/logout", fetchOption);
+  await fetch("http://localhost:5000/users/logout", fetchOption);
   // const res =
-  await fetch("http://localhost:5000/user/logout");
+  // await fetch("http://localhost:5000/user/logout");
   alert("logout 을 성공하였습니다");
   console.log("logout");
 

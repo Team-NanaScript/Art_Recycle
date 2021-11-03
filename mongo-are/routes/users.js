@@ -100,7 +100,7 @@ router.post("/logout", async (req, res) => {
   console.log("왜 여기까지 안오냐고ㅗ오오오오오오");
   await req.logout();
 
-  await req.session.distroy();
+  await req.session.destroy();
   console.log("logout?");
   res.send({ massage: "logout ok" });
 });
