@@ -36,10 +36,10 @@ import atelierRouter from "./routes/atelier.js";
 
 const app = express();
 
-const whilteURL = ["http://localhost:3000"];
+const whiteURL = ["http://localhost:3000"];
 const corsOption = {
   origin: (origin, callback) => {
-    const isWhiteURL = whilteURL.indexOf(origin) !== -1;
+    const isWhiteURL = whiteURL.indexOf(origin) !== -1;
     callback(null, isWhiteURL);
   },
   //로그인 다음 세션정보를 클라이언트에게 전달하겠다는 의미
