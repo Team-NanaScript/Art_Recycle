@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import moment from "moment";
 import { useHistory } from "react-router";
+import UUID from "react-uuid";
 
 const CommunityContext = createContext();
 
@@ -40,17 +41,6 @@ const CommunityContextProvider = ({ children }) => {
   // Reply List state
   const [replyList, setReplyList] = useState([]);
 
-  // 커뮤니티 리스트 fetch
-  const commuFetch = useCallback(async () => {
-    const res = await fetch("http://localhost:5000/board/list");
-    const boardList = await res.json();
-    console.log("커뮤니티 리스트", boardList);
-
-    // await setCommuList(boardList);
-    // console.log("commuList", commuList);
-  }, []);
-  useEffect(commuFetch, [commuFetch]);
-
   // 커뮤니티 리스트 -> 디테일
   const onTrClick = async (e) => {
     const b_seq = e.target.closest("tr").dataset.id;
@@ -67,7 +57,7 @@ const CommunityContextProvider = ({ children }) => {
     setBoard({
       ...board,
       [name]: value,
-      b_seq: commuList.length,
+      b_seq: UUID(),
       b_date: moment().format("YYYY[-]MM[-]DD"),
       b_time: moment().format("HH:mm:ss"),
     });
@@ -185,7 +175,7 @@ const CommunityContextProvider = ({ children }) => {
 
   const providerData = {
     commuList,
-    commuFetch,
+    setCommuList,
     changeInput,
     onClickSave,
     onTrClick,
