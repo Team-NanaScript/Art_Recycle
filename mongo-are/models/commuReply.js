@@ -4,7 +4,8 @@ import board from "../models/board.js";
 const Schema = mongoose.Schema;
 
 const reply = Schema({
-  r_Id: { type: Schema.Types.ObjectId, ref: "board" },
+  //   r_Id: { type: Schema.Types.ObjectId, ref: "board" },
+  r_Id: String,
   r_bSeq: String,
   r_writer: String,
   r_content: String,

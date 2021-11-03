@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import moment from "moment";
 import { useHistory } from "react-router";
 import UUID from "react-uuid";
@@ -31,6 +31,7 @@ const CommunityContextProvider = ({ children }) => {
 
   //   Reply state
   const [reply, setReply] = useState({
+    r_Id: "",
     r_bSeq: "",
     r_writer: "",
     r_content: "",
@@ -40,13 +41,6 @@ const CommunityContextProvider = ({ children }) => {
 
   // Reply List state
   const [replyList, setReplyList] = useState([]);
-
-  // 커뮤니티 리스트 -> 디테일
-  const onTrClick = async (e) => {
-    const b_seq = e.target.closest("tr").dataset.id;
-
-    history.replace(`/board/detail/${b_seq}`);
-  };
 
   // 커뮤니티 insert - state에 setting
   const changeInput = (e) => {
@@ -119,6 +113,7 @@ const CommunityContextProvider = ({ children }) => {
     setReply({
       ...reply,
       [name]: value,
+      r_Id: UUID(),
       r_bSeq: r_bSeq,
       r_date: moment().format("YYYY[-]MM[-]DD"),
       r_time: moment().format("HH:mm:ss"),
@@ -131,7 +126,7 @@ const CommunityContextProvider = ({ children }) => {
     const b_seq = reply.r_bSeq;
     console.log("b_seq", b_seq);
 
-    const { r_bSeq, r_writer, r_content, r_date, r_time } = reply;
+    const { r_Id, r_bSeq, r_writer, r_content, r_date, r_time } = reply;
 
     const res = await fetch(`http://localhost:5000/board/reply/${b_seq}`, {
       method: "POST",
@@ -141,6 +136,7 @@ const CommunityContextProvider = ({ children }) => {
       },
       credentials: "include",
       body: JSON.stringify({
+        r_Id,
         r_bSeq,
         r_writer,
         r_content,
@@ -163,13 +159,22 @@ const CommunityContextProvider = ({ children }) => {
     alert(JSON.stringify(res.json));
   };
 
-  const reviewDelete = async (e) => {
+  const replyDelete = async (e) => {
     const r_Id = e.target.dataset.id;
-    const res = await fetch(`http://localhost:5000/board/reply/delete/${r_Id}`);
+    const b_seq = e.target.dataset.seq;
+    // const res = await fetch(`http://localhost:5000/board/reply/delete/${r_Id}`);
+    const res = await fetch(`http://localhost:5000/board/reply/delete/${b_seq}/${r_Id}`);
 
+    /*
     if (res?.ok) {
       const json = await res.json();
       alert(JSON.stringify(json));
+    }
+	*/
+
+    if (res?.ok) {
+      const json = await res.json();
+      setReplyList(json);
     }
   };
 
@@ -178,13 +183,12 @@ const CommunityContextProvider = ({ children }) => {
     setCommuList,
     changeInput,
     onClickSave,
-    onTrClick,
     onClickUpdate,
     boardDetail,
     setBoardDetail,
     replyList,
     iconClick,
-    reviewDelete,
+    replyDelete,
     setReplyList,
     changeReply,
     ReplySave,
