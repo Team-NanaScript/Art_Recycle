@@ -20,11 +20,20 @@ const AtelierContextProvider = ({ children }) => {
     at_desc: "", // 공방소개
   });
 
+  // Input 내용 setting을 위한 change()
   const changeInput = (e) => {
     const { name, value } = e.target;
     setAtelier({
       ...atelier,
       [name]: value,
+    });
+  };
+
+  // Editor 내용 setting을 위한 change()
+  const changeContentInput = (html) => {
+    setAtelier({
+      ...atelier,
+      at_desc: html,
     });
   };
 
@@ -63,6 +72,7 @@ const AtelierContextProvider = ({ children }) => {
   const propsStore = {
     changeInput,
     onClickSave,
+    changeContentInput,
   };
 
   return (
