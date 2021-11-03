@@ -52,6 +52,7 @@ const AteInsert = () => {
             onChange={changeInput}
           ></textarea>
         </div>
+ */}
         <div className="ate_btn_box">
           <button
             type="button"
@@ -60,7 +61,7 @@ const AteInsert = () => {
           >
             등록
           </button>
-        </div> */}
+        </div>
       </form>
     </section>
   );
