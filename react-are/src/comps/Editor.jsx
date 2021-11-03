@@ -9,7 +9,6 @@ class EditorComponent extends Component {
 
   modules = {
     toolbar: [
-      //[{ 'font': [] }],
       [{ header: [1, 2, false] }],
       ["bold", "italic", "underline", "strike", "blockquote"],
       [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
@@ -20,7 +19,6 @@ class EditorComponent extends Component {
   };
 
   formats = [
-    //'font',
     "header",
     "bold",
     "italic",
@@ -49,7 +47,6 @@ class EditorComponent extends Component {
           formats={this.formats}
           //   value={content}
           onChange={(content, delta, source, editor) => changeContent(editor.getHTML())}
-          //   onChange={(content, delta, source, editor) => console.log(editor.getHTML())}
         />
       </div>
     );
