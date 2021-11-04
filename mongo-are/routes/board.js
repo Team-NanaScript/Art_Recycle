@@ -12,6 +12,7 @@ router.post("/insert", (req, res) => {
 
 router.get("/list", async (req, res) => {
   const result = await board.find({});
+  //   console.log("result", result);
 
   await res.json(result);
 });
@@ -35,6 +36,13 @@ router.get("/detail/:b_seq", async (req, res) => {
 
   // console.log("seq", b_seq);
   const detail_list = await board.findOne({ b_seq: b_seq });
+  //   const detail_list = await board.findOne({ where: { b_seq: "278fd65-6cc4-1143-a13b-d5c23a012dc6" } });
+  //   const detail_list = await board.findOne({ where: { b_seq } });
+  //   const detail_list = await board.findOne({ where: "278fd65-6cc4-1143-a13b-d5c23a012dc6" });
+  //   const detail_list = await board.findOne({ where: "2021-11-03" });
+
+  console.log("rs", detail_list);
+
   // .populate({ model: reply });
   //   res.json(detail_list);
 
