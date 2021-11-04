@@ -15,9 +15,12 @@ const AtelierContextProvider = ({ children }) => {
     at_name: "", // 공방명
     at_subname: "", // 간단소개
     at_addr: "", // 주소
-    at_on: "", // 영업시간
+    at_open: "", // 영업시간
     at_site: "", // 웹사이트
-    at_desc: "", // 공방소개
+    at_hashtag: [], // 해시태그
+    at_thumbnail: "", // 썸네일
+    at_image: [], // 이미지파일들
+    at_content: "", // 공방소개
   });
 
   // Input 내용 setting을 위한 change()
@@ -33,14 +36,24 @@ const AtelierContextProvider = ({ children }) => {
   const changeContentInput = (html) => {
     setAtelier({
       ...atelier,
-      at_desc: html,
+      at_content: html,
     });
   };
 
   // 공방글 등록
   const onClickSave = useCallback(async () => {
-    const { at_seq, at_name, at_subname, at_addr, at_on, at_site, at_desc } =
-      atelier;
+    const {
+      at_seq,
+      at_name,
+      at_subname,
+      at_addr,
+      at_open,
+      at_site,
+      at_hashtag,
+      at_thumbnail,
+      at_image,
+      at_content,
+    } = atelier;
 
     const res = await fetch("http://localhost:5000/atelier/insert", {
       method: "POST",
@@ -54,9 +67,12 @@ const AtelierContextProvider = ({ children }) => {
         at_name,
         at_subname,
         at_addr,
-        at_on,
+        at_open,
         at_site,
-        at_desc,
+        at_hashtag,
+        at_thumbnail,
+        at_image,
+        at_content,
       }),
     });
 
