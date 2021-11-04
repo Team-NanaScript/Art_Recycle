@@ -53,36 +53,37 @@ function MainNav() {
 
   return (
     <header className="App-header">
-      <div
-        id="logo"
-        onClick={() => {
-          history.push("/");
-        }}
-      >
-        <svg width="97" height="35">
-          <text
-            transform="translate(0 29)"
-            fill="#27187f"
-            fontSize="35"
-            fontFamily="Ubuntu-Bold"
-            fontWeight="700"
-          >
-            <tspan x="0" y="0">
-              Art
-            </tspan>
-            <tspan y="0" fill="#758bfd">
-              Re
-            </tspan>
-          </text>
-        </svg>
-      </div>
-      <div className="menu_wrap">
-        <nav className="main_menu center">
-          <ul activeStyle={activeStyle} style={dispalyStyle}>
-            {navLeftItem}
-          </ul>
+      <div className="header_wrap">
+        <div
+          id="logo"
+          onClick={() => {
+            history.push("/");
+          }}
+        >
+          <svg width="97" height="35">
+            <text
+              transform="translate(0 29)"
+              fill="#27187f"
+              fontSize="35"
+              fontFamily="Ubuntu-Bold"
+              fontWeight="700"
+            >
+              <tspan x="0" y="0">
+                Art
+              </tspan>
+              <tspan y="0" fill="#758bfd">
+                Re
+              </tspan>
+            </text>
+          </svg>
+        </div>
+        <div className="menu_wrap">
+          <nav className="main_menu center">
+            <ul activeStyle={activeStyle} style={dispalyStyle}>
+              {navLeftItem}
+            </ul>
 
-          {/* <NavLink to="/" exact activeStyle={activeStyle}>
+            {/* <NavLink to="/" exact activeStyle={activeStyle}>
             A-Re 소개
           </NavLink>
           <NavLink to="/search/local" exact activeStyle={activeStyle}>
@@ -91,9 +92,9 @@ function MainNav() {
           <NavLink to="/board" exact activeStyle={activeStyle}>
             커뮤니티
           </NavLink> */}
-        </nav>
-        <nav className="main_menu right">
-          {/* <NavLink to="/atelier" exact activeStyle={activeStyle}>
+          </nav>
+          <nav className="main_menu right">
+            {/* <NavLink to="/atelier" exact activeStyle={activeStyle}>
             공방등록
           </NavLink>
           <NavLink to="/join" exact activeStyle={activeStyle}>
@@ -102,8 +103,9 @@ function MainNav() {
           <NavLink to="/login" exact activeStyle={activeStyle}>
             로그인
           </NavLink> */}
-          <ul style={dispalyStyle}>{navRightItem}</ul>
-        </nav>
+            <ul style={dispalyStyle}>{navRightItem}</ul>
+          </nav>
+        </div>
       </div>
     </header>
   );

@@ -20,30 +20,36 @@
 } */
 
 /* Main Nav */
-header.App-header {
+.App-header {
   padding: 5px;
-  justify-content: space-around;
-  align-items: center;
   border-bottom: 2px solid lightslategrey;
 }
 
-header.App-header,
-header.App-header div.menu_wrap,
-header.App-header div.menu_wrap nav.main_menu {
+.App-header div.header_wrap {
+  padding: 5px;
+  width: 1000px;
+  margin: 0 auto;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.App-header div.header_wrap,
+.App-header div.header_wrap div.menu_wrap,
+.App-header div.header_wrap div.menu_wrap nav.main_menu {
   display: flex;
   flex-direction: row;
 }
 
-header.App-header div#logo {
+.App-header div.header_wrap div#logo {
   padding: 10px;
   margin-left: 10px;
   cursor: pointer;
 }
 
-header.App-header div.menu_wrap nav.main_menu {
+.App-header div.header_wrap div.menu_wrap nav.main_menu {
   margin-right: 1rem;
 }
-header.App-header div.menu_wrap nav.main_menu a {
+.App-header div.header_wrap div.menu_wrap nav.main_menu a {
   text-decoration: none;
   transition: 0.2s;
   margin: 2px 10px;
@@ -52,7 +58,7 @@ header.App-header div.menu_wrap nav.main_menu a {
   padding: 15px 10px;
 }
 
-header.App-header div.menu_wrap nav.main_menu a:hover {
+.App-header div.header_wrap div.menu_wrap nav.main_menu a:hover {
   color: #27187f;
   border-radius: 30px;
   background-color: #bac5ff;
@@ -67,8 +73,8 @@ section.main_body article.main_top div.main_search_box {
 
 section.main_body article.main_top,
 section.main_body article.main_bottom {
-  margin: 0 auto;
   width: 1000px;
+  margin: 0 auto;
 }
 
 section.main_body,

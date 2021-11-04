@@ -49,13 +49,11 @@ const Result = () => {
   useEffect(searchResult, [searchResult]);
 
   return (
-    <div>
-      <section>
-        <h2 className="result">검색 결과</h2>
-        {/* <p>{query}</p> */}
-        <AteList notMsg="검색 결과가 없습니다" ateList={ateList} />
-      </section>
-    </div>
+    <section className="result_wrap">
+      <h2 className="result">검색 결과</h2>
+      {/* <p>{query}</p> */}
+      <AteList notMsg="검색 결과가 없습니다" ateList={ateList} />
+    </section>
   );
 };
 
