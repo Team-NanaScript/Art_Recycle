@@ -30,6 +30,7 @@ function Login() {
       // if (!user || resultLogin.u_pw !== user.u_pw) {
       if (!user) {
         console.log("데이터없대?");
+        console.log("저장을 안했나...?");
         return null;
       }
     }
