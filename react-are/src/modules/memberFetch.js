@@ -26,7 +26,7 @@ const fetchLogin = async (u_id, u_pw) => {
   console.log("fetchLogin 아이디, 비밀번호", u_id, u_pw);
   const res = await fetch("http://localhost:5000/users/login", fetchOption);
   // console.log("fetchLogin res", res);
-  // console.log("fetchLogin 오류발생지점");
+  console.log("fetchLogin 오류발생지점");
   // console.table(users);
 
   if (res?.ok) {
@@ -35,7 +35,7 @@ const fetchLogin = async (u_id, u_pw) => {
     return users;
   } else {
     console.log("로그인실패했대, fetchLogin");
-    return [];
+    return [{}];
   }
 };
 
