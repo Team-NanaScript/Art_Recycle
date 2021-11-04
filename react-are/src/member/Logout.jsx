@@ -7,10 +7,10 @@ function Logout() {
   const { setUser } = useUserContext();
   const history = useHistory();
 
-  const fetchUserOut = useCallback(() => {
-    fetchLogout();
+  const fetchUserOut = useCallback(async () => {
+    await fetchLogout();
     console.log("fetchUserOut");
-    setUser([]);
+    await setUser([]);
     history.replace("/");
   }, [setUser]);
 

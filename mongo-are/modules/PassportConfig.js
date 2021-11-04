@@ -37,7 +37,7 @@ const exportPassport = () => {
         // const userid = users.findOne({ u_id: "sksk" });
         // console.log(userid);
 
-        users.findOne({ u_id: u_id }, (err, user) => {
+        const result = users.findOne({ u_id: u_id }, (err, user) => {
           console.log("받아온 user정보", user);
           if (err) {
             return done(err); // 시스템오류
@@ -64,10 +64,10 @@ const exportPassport = () => {
 
         //   // return done(null, false, { messege: "login fail" });
         // });
-        // if (!result) {
-        //   console.log("실패");
-        //   return done(null, false, { messege: "login fail" });
-        // }
+        if (!result) {
+          console.log("실패");
+          return done(null, false, { messege: "login fail" });
+        }
       }
     )
   );

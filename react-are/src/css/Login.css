@@ -5,13 +5,37 @@
 /* } */
 
 div.login {
-  display: flex;
-  flex-direction: column;
-  height: 10%;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* height: 30%;
   margin-bottom: 10%;
   margin-top: 10%;
+  width: 1000px; */
 }
 
+@media screen and (max-width: 768px) {
+  div.id_pw {
+    margin-top: 30px;
+    height: 405px;
+  }
+  div.id_pw div.input_id {
+    width: 50px;
+    margin: 20px;
+  }
+
+  div.btn_button button {
+  }
+  body {
+    background-color: #ccc;
+  }
+}
+
+@media screen and (max-height: 920px) {
+  div.id_pw {
+    margin-top: 30px;
+    height: 405px;
+  }
+}
 div.input_id input,
 div.btn_button button {
   outline: none;
@@ -20,12 +44,13 @@ div.btn_button button {
   text-align: center;
 }
 div.id_pw {
-  height: 70vh;
+  height: 405px;
   margin-top: 5%;
+  /* margin-bottom: 12%; */
 }
 div.id_pw div.input_id {
   position: relative;
-  width: 30%;
+  width: 500px;
   margin: 0 auto;
 }
 
@@ -52,12 +77,13 @@ div.btn_button button {
   padding: 2px 3px 2px 3px;
   margin: 5px;
   outline: none;
+  width: 150px;
 }
 
 button.btn_login {
   padding: 15px 20px 20px 20px;
   /* font-family: Ubuntu; */
-  width: 15%;
+  width: 250px;
   font-weight: bold;
   font-size: 24;
 }

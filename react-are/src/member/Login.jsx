@@ -18,15 +18,17 @@ function Login() {
 
   const onLoginClick = async (e) => {
     const resultLogin = await fetchLogin(user.u_id, user.u_pw);
+    console.log();
     await setUser(resultLogin);
-    console.log("user", user);
+    console.log("user", user.u_id, user.u_pw);
 
     if (resultLogin) {
       if (user) {
         console.log("데이터있대?");
         history.replace("/");
       }
-      if (!user || resultLogin.u_pw !== user.u_pw) {
+      // if (!user || resultLogin.u_pw !== user.u_pw) {
+      if (err) {
         console.log("데이터없대?");
         return null;
       }
@@ -42,15 +44,9 @@ function Login() {
   return (
     <div>
       <header>
-        {/* <div id="logo">
-        <svg width="97" height="35">
-          <text transform="translate(0 29)" fill="#27187f" fontSize="35" fontFamily="Ubuntu-Bold, Ubuntu" fontWeight="700">
-            <tspan x="0" y="0">Art</tspan>
-            <tspan y="0" fill="#758bfd">Re</tspan>
-          </text>
-		  </svg>
-		 </div>    */}
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0" />
       </header>
+      {/* <div className="login"> */}
       <div className="id_pw">
         <div className="input_id">
           <input name="u_id" placeholder="ID" onChange={loginChange} />
@@ -74,6 +70,7 @@ function Login() {
           {/* </Link> */}
         </div>
       </div>
+      {/* </div> */}
     </div>
   );
 }
