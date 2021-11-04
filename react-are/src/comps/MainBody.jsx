@@ -2,16 +2,25 @@ import React from "react";
 import "../css/main.css";
 
 function MainBody({ history }) {
+  const querySearch = (query) => {
+    if (query.trim() === "") {
+      alert("검색어를 입력해주세요!");
+      return;
+    }
+    history.push(`/search/result/${query}`);
+  };
+
   const keyToSearch = (e) => {
     if (e.keyCode === 13) {
       let query = e.target.value;
-      history.push(`/search/result/${query}`);
+      querySearch(query);
     }
   };
 
   const btnToSearch = () => {
     let search_query = document.querySelector("input.main_search").value;
-    history.push(`/search/result/${search_query}`);
+    // history.push(`/search/result/${search_query}`);
+    querySearch(search_query);
   };
 
   const btnOnClick = (e) => {
