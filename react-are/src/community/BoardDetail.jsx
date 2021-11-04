@@ -10,14 +10,8 @@ function BoardDetail() {
   const { b_seq } = useParams();
   // console.log("b-seq", b_seq);
 
-  const {
-    boardDetail,
-    setBoardDetail,
-    replyList,
-    setReplyList,
-    ReplySave,
-    changeReply,
-  } = useCommuContext();
+  const { boardDetail, setBoardDetail, replyList, setReplyList, ReplySave, changeReply } =
+    useCommuContext();
 
   const boardViewDetail = useCallback(async () => {
     const res = await fetch(`http://localhost:5000/board/detail/${b_seq}`);
@@ -28,9 +22,7 @@ function BoardDetail() {
   console.table(boardDetail);
 
   const boardReviewDetail = useCallback(async () => {
-    const res = await fetch(
-      `http://localhost:5000/board/reply/detail/${b_seq}`
-    );
+    const res = await fetch(`http://localhost:5000/board/reply/detail/${b_seq}`);
     const replyView = await res.json();
     console.log("댓글 목록 다 나오자!", replyView);
 
@@ -40,7 +32,7 @@ function BoardDetail() {
   useEffect(boardReviewDetail, []);
 
   const replyBody = replyList.map((reply, index) => {
-    return <ReplyItem reply={reply} />;
+    return <ReplyItem reply={reply} b_seq={b_seq} />;
   });
 
   const clickHome = () => {
@@ -79,9 +71,7 @@ function BoardDetail() {
       </div>
       <div className="community detail_btn_list">
         <button onClick={clickHome}>목록으로</button>
-
         <button onClick={clickUpdate}>수정하기</button>
-
         <button onClick={clickDelete}>삭제하기</button>
       </div>
 

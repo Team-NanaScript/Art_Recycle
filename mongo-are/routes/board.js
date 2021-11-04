@@ -55,7 +55,7 @@ router.post("/update/:b_seq", async (req, res) => {
 
 router.get("/delete/:b_seq", (req, res) => {
   const { b_seq } = req.params;
-  const result = board.destroy({ where: { b_seq } });
+  const result = board.deleteOne({ b_seq: b_seq });
   res.json(result);
 });
 
@@ -63,7 +63,7 @@ router.post("/reply/:b_seq", async (req, res) => {
   const { b_seq } = req.params;
   // console.log("b_seq", b_seq);
 
-  reply.create(req.body);
+  await reply.create(req.body);
   //   res.json("댓글 등록 완료!!!");
 
   const detail_list = await reply.find({ r_bSeq: b_seq });
@@ -78,24 +78,33 @@ router.get("/reply/detail/:b_seq", async (req, res) => {
   res.json(detail_list);
 });
 
+/*
 router.get("/reply/update/:r_Id", (req, res) => {
   const { r_Id } = req.params;
   const result = reply.findOne({ r_Id: r_Id });
+
   res.json(result);
 });
+*/
 
 router.post("/reply/update/:r_Id", (req, res) => {
   const { r_Id } = req.params;
-  const result = reply.findOne({ r_Id: r_Id });
+  //   const result = reply.findOne({ r_Id: r_Id });
+  const result = reply.updateMany(req.body, { where: r_Id });
+
   res.json(result);
 });
 
-router.get("/reply/delete/:r_Id", async (req, res) => {
-  const { r_Id } = req.params;
+router.get("/reply/delete/:b_seq/:r_Id", async (req, res) => {
+  const { b_seq, r_Id } = req.params;
   // console.log("r_Id", r_Id);
 
   await reply.deleteOne({ r_Id: r_Id });
-  await res.json("삭제 완료!");
+
+  const detail_list = await reply.find({ r_bSeq: b_seq });
+  res.json(detail_list);
+
+  //   await res.json("삭제 완료!");
 });
 
 export default router;
