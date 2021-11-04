@@ -76,3 +76,19 @@ form.ate_insert div textarea:focus {
   background-color: #6d7eb1;
   border-radius: 5px;
 }
+
+/* 여기는 checkbox */
+
+.material_checkbox {
+  display: flex;
+}
+
+.material_checkbox div {
+  width: 50px;
+}
+
+.material_checkbox div input {
+}
+
+.material_checkbox div p {
+}
