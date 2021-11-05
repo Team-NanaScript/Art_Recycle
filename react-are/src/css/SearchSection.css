@@ -46,6 +46,14 @@ div.tag:hover {
   font-weight: bold;
 }
 
+div.tag.on {
+  background-color: rgb(117, 139, 253);
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
 /* LocalSearcch */
 div.local_box {
   flex: 1;
