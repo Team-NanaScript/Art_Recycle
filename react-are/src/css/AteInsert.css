@@ -11,8 +11,6 @@
 }
 
 .ate_section {
-  /* border: 1px solid lightgray; */
-
   margin: 0 auto;
   padding-bottom: 50px;
 
@@ -27,21 +25,30 @@
   display: inline-block;
 }
 
+/* form.ate_insert */
+
 form.ate_insert {
   margin: 0 auto;
 }
 
-div.insert_box div {
+/* articl */
+article label,
+article input {
+  padding: 0.4rem;
+}
+
+article input:focus,
+article textarea:focus {
+  background-color: rgb(233, 237, 255);
+}
+
+/* article.insert_box */
+article.insert_box div {
   margin: 20px auto;
   width: 80%;
 }
 
-form.ate_insert div label,
-form.ate_insert div input {
-  padding: 0.4rem;
-}
-
-form.ate_insert div label {
+article.insert_box label {
   display: inline-block;
   width: 20%;
 
@@ -51,15 +58,16 @@ form.ate_insert div label {
   text-align: right;
 }
 
-form.ate_insert div input {
+article.insert_box input {
   width: 70%;
   border: 1px solid #ccc;
 }
 
-form.ate_insert div input:focus,
-form.ate_insert div textarea:focus {
-  background-color: rgb(233, 237, 255);
+/* article.hashtag_insert_box */
+article.hashtag_insert_box {
 }
+
+/* button */
 
 .ate_btn_box {
 }
@@ -79,16 +87,18 @@ form.ate_insert div textarea:focus {
 
 /* 여기는 checkbox */
 
-.material_checkbox {
+div.checkbox {
   display: flex;
+  justify-content: space-evenly;
 }
 
-.material_checkbox div {
-  width: 50px;
+div.checkbox div {
+  /* width: 50px; */
 }
 
-.material_checkbox div input {
+div.checkbox div input {
+  display: block;
 }
 
-.material_checkbox div p {
+.checkbox div p {
 }
