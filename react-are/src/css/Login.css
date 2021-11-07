@@ -22,12 +22,6 @@ div.login {
     width: 50px;
     margin: 20px;
   }
-
-  div.btn_button button {
-  }
-  body {
-    background-color: #ccc;
-  }
 }
 
 @media screen and (max-height: 920px) {

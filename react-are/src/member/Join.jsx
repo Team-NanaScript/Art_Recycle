@@ -23,7 +23,6 @@ function Join() {
   };
 
   const joinCheck = (e) => {
-    alert("중복되는 아이디가 존재합니다");
     const checkData = {
       u_id: user.u_id,
       // u_email: user.u_email,
@@ -69,10 +68,11 @@ function Join() {
 
   return (
     <div className="join_form">
-      <div>
+      <div className="check_box1">
         <label>ID</label>
-        <input onChange={joinChange} name="u_id" placeholder="ID는 3 ~ 15글자 내로 입력해주세요" />
-        <button onClick={joinCheck}>중복 확인</button>
+        <input onChange={joinChange} name="u_id" />
+        <input id="id_check" type="button" onClick={joinCheck} value="중복확인" />
+        <div className="id_check"></div>
       </div>
       <div>
         <label>Password</label>

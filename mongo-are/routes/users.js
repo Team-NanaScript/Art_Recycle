@@ -45,7 +45,9 @@ router.post("/", (req, res) => {
 
 router.post("/signup", async (req, res) => {
   console.log("여기까지 왔나요? 유효성검사");
-  const isId = await users.findOne({ where: { id: req.body.u_id } });
+  console.log("body", req.body);
+  // const { u_id } = req.body;
+  const isId = await users.findOne({ where: { u_id: req.body } });
 
   // const isEmail = users.findOne({where :{email : req.body.u_email}})
 
@@ -63,11 +65,11 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-router.post("/login", passport.authenticate("local"), (req, res) => {
+router.post("/login", passport.authenticate("local"), async (req, res) => {
   console.log("와 여기까지 왔다");
   console.log("login", req.user);
 
-  const login = res.json({
+  const login = await res.json({
     u_id: req.user.u_id,
     u_pw: req.user.u_pw,
   });
@@ -97,16 +99,20 @@ router.post("/join", async (req, res) => {
 
 router.post("/logout", async (req, res) => {
   // const user = req.json()
-  console.log("왜 여기까지 안오냐고ㅗ오오오오오오");
-  await req.logout();
-
-  await req.session.destroy();
-  console.log("logout?");
-  res.send({ massage: "logout ok" });
+  // console.log("왜 여기까지 안오냐고ㅗ오오오오오오");
+  // await req.logout();
+  // await req.session.distroy();
+  await req.session.destroy((err) => {
+    req.logout();
+    console.log("logout?");
+    res.send({ massage: "logout ok" });
+  });
 });
 
 export default router;
 
-router.get("/logout", (req, res) => {
-  console.log("여기는 나옴?");
-});
+// router.get("/logout", async (req, res) => {
+//   await req.session.destroy((err) => {
+//     req.logout();
+//     // res.redirect("/");
+//   });
