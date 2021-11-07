@@ -54,25 +54,36 @@ const wayData = [
 ];
 
 const AteInsert = () => {
-  const { changeInput, onClickSave, changeContentInput } = useAtelierContext();
+  const { changeInput, onClickSave, changeContentInput, changeHashtagInput } =
+    useAtelierContext();
 
-  const material_checkbox = () => {
-    return materialData.map((tag) => {
+  const local_checkbox = () => {
+    return localData.map((tag) => {
       return (
         <div key={tag.h_id}>
-          <input type="checkbox" name="at_hashtag" value={tag.h_id} />
+          <input
+            type="checkbox"
+            name="at_hashtag"
+            value={tag.h_id}
+            onChange={changeHashtagInput}
+          />
           {tag.h_text}
         </div>
       );
     });
   };
 
-  const local_checkbox = () => {
-    return localData.map((tag) => {
+  const material_checkbox = () => {
+    return materialData.map((tag) => {
       return (
         <div key={tag.h_id}>
-          <input type="checkbox" name="at_hashtag" value={tag.h_id} />
-          <p>{tag.h_text}</p>
+          <input
+            type="checkbox"
+            name="at_hashtag"
+            value={tag.h_id}
+            onChange={changeHashtagInput}
+          />
+          {tag.h_text}
         </div>
       );
     });
@@ -82,8 +93,13 @@ const AteInsert = () => {
     return wayData.map((tag) => {
       return (
         <div key={tag.h_id}>
-          <input type="checkbox" name="at_hashtag" value={tag.h_id} />
-          <p>{tag.h_text}</p>
+          <input
+            type="checkbox"
+            name="at_hashtag"
+            value={tag.h_id}
+            onChange={changeHashtagInput}
+          />
+          {tag.h_text}
         </div>
       );
     });
@@ -99,7 +115,7 @@ const AteInsert = () => {
         <article className="insert_box">
           <hr />
           <h3>기본 정보</h3>
-          <p>공방에 대한 기본적인 정보 입력</p>
+          <p>공방에 대한 기본적인 정보 입력하세요</p>
           <div>
             <label>공방명</label>
             <input onChange={changeInput} name="at_name" />
@@ -114,7 +130,7 @@ const AteInsert = () => {
           </div>
           <div>
             <label>영업시간</label>
-            <input onChange={changeInput} name="at_on" />
+            <input onChange={changeInput} name="at_open" />
           </div>
           <div>
             <label>웹사이트 주소</label>
@@ -122,9 +138,10 @@ const AteInsert = () => {
           </div>
         </article>
 
-        <hr />
-        <h3>해시태그</h3>
         <article className="hashtag_insert_box">
+          <hr />
+          <h3>해시태그</h3>
+          <p>공방에 해당하는 모든 요소를 선택해주세요 (중복선택가능)</p>
           <div>
             <label>지역</label>
             <div className="checkbox">{local_checkbox()}</div>
@@ -144,11 +161,11 @@ const AteInsert = () => {
           <h3>사진 첨부</h3>
           <div>
             <label>대표사진</label>
-            <input type="file" accept="image/*" />
+            <input type="file" accept="image/*" name="at_thumbnail" />
           </div>
           <div>
             <label>내용사진</label>
-            <input type="file" accept="image/*" multiple />
+            <input type="file" accept="image/*" multiple name="at_image" />
           </div>
         </article>
 

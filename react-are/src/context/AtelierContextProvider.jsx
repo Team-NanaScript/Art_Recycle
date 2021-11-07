@@ -23,7 +23,9 @@ const AtelierContextProvider = ({ children }) => {
     at_content: "", // 공방소개
   });
 
-  // Input 내용 setting을 위한 change()
+  const [checkedHashtag, setCheckedHashtag] = useState([]);
+
+  // Input 내용 setting을 위한 onChange()
   const changeInput = (e) => {
     const { name, value } = e.target;
     setAtelier({
@@ -32,7 +34,37 @@ const AtelierContextProvider = ({ children }) => {
     });
   };
 
-  // Editor 내용 setting을 위한 change()
+  // checkbox 내용 setting을 위한 onChange()
+  const changeHashtagInput = (e) => {
+    const value = e.target.value;
+    const checked = e.target.checked;
+
+    // 새롭게 체크하는 것
+    if (checked) {
+      //value값을 추가한 배열을 생성하여 at_hashtag에 값을 넣음
+      setCheckedHashtag(checkedHashtag.concat(value));
+      setAtelier({
+        ...atelier,
+        at_hashtag: checkedHashtag,
+      });
+      // console.log("지금 체크할게요");
+
+      // 체크를 푸는 것
+    } else {
+      // value값을 없앤 배열을 생성하여 at_hashtag에 값을 넣음
+      setCheckedHashtag(checkedHashtag.filter((tag) => tag !== value));
+      setAtelier({
+        ...atelier,
+        at_hashtag: checkedHashtag,
+      });
+      // console.log("체크풀었어요");
+    }
+    // console.log("value: ", value);
+    // console.log("checked: ", checked);
+    // console.log("checkedHashtag: ", checkedHashtag);
+  };
+
+  // Editor 내용 setting을 위한 onChange()
   const changeContentInput = (html) => {
     setAtelier({
       ...atelier,
@@ -89,6 +121,7 @@ const AtelierContextProvider = ({ children }) => {
     changeInput,
     onClickSave,
     changeContentInput,
+    changeHashtagInput,
   };
 
   return (

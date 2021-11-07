@@ -32,6 +32,11 @@ form.ate_insert {
 }
 
 /* articl */
+article {
+  width: 80%;
+  margin: 0 auto;
+}
+
 article label,
 article input {
   padding: 0.4rem;
@@ -65,6 +70,15 @@ article.insert_box input {
 
 /* article.hashtag_insert_box */
 article.hashtag_insert_box {
+  margin: 20px auto;
+}
+
+article.hashtag_insert_box > div {
+  background-color: #e9edff;
+  border-radius: 5px;
+  width: 50%;
+  margin: 1rem auto;
+  padding: 1rem;
 }
 
 /* button */
@@ -88,16 +102,16 @@ article.hashtag_insert_box {
 /* 여기는 checkbox */
 
 div.checkbox {
-  display: flex;
-  justify-content: space-evenly;
 }
 
 div.checkbox div {
-  /* width: 50px; */
+  display: inline-block;
+  width: 80px;
+
+  /* text-align: left; */
 }
 
 div.checkbox div input {
-  display: block;
 }
 
 .checkbox div p {
