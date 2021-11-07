@@ -11,6 +11,7 @@ const fetchCheck = async (checkData) => {
   fetchOption.body = JSON.stringify(checkData);
   console.log("checkData", checkData);
   const res = await fetch("http://localhost:5000/users/signup", fetchOption);
+  console.log("중복확인 후", res.json);
 
   if (res.ok) {
     const json = await res.json();

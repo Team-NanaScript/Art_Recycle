@@ -1,9 +1,37 @@
+@media screen and (max-width: 768px) {
+  div.join_form {
+    margin-top: 30px;
+    height: 405px;
+  }
+  div.join_form input {
+    width: 50px;
+    margin: 20px;
+  }
+}
+
 div.join_form {
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;*/
   margin-top: 4%;
   width: 1000px;
-  height: 72vh;
+  height: 800px;
   margin: auto;
   margin-top: 4%;
+}
+
+input#id_check {
+  width: 9% !important;
+  /* font-size: 12px; */
+  margin: auto;
+  font-weight: bold;
+}
+
+div.check_box1 label {
+  width: 10%;
+}
+div.check_box1 input {
+  width: 21% !important;
 }
 
 div.join_form label {
@@ -25,11 +53,10 @@ div.btn_join button {
 
 div.join_form input {
   display: inline-block;
-  width: 35%;
+  width: 30%;
   margin: 6px;
   padding: 20px;
-
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #aaa;
 }
 
 div.join_form input:focus {
