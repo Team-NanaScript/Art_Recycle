@@ -14,14 +14,26 @@ div.join_form {
   flex-direction: column;
   flex-wrap: wrap;*/
   margin-top: 4%;
-  width: 1000px;
+  width: 1400px;
   height: 800px;
   margin: auto;
   margin-top: 4%;
 }
+input#email_check {
+  width: 10% !important;
+  font-weight: bold;
+}
+
+div.check_box2 input {
+  width: 19% !important;
+  margin-left: -10px;
+}
+div.check_box2 label {
+  width: 10%;
+}
 
 input#id_check {
-  width: 9% !important;
+  width: 10% !important;
   /* font-size: 12px; */
   margin: auto;
   font-weight: bold;
@@ -31,7 +43,7 @@ div.check_box1 label {
   width: 10%;
 }
 div.check_box1 input {
-  width: 21% !important;
+  width: 20% !important;
 }
 
 div.join_form label {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../css/Join.css";
 import { Link, useHistory } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
-import { fetchCheck, fetchJoin } from "../modules/memberFetch";
+import { fetchIdCheck, fetchJoin, fetchEmailCheck } from "../modules/memberFetch";
 
 function Join() {
   // const { joinUser, setJoinUser } = useState({
@@ -28,7 +28,14 @@ function Join() {
       // u_email: user.u_email,
       // u_nickname: user.u_nick,
     };
-    fetchCheck(checkData);
+    fetchIdCheck(checkData);
+  };
+
+  const joinEmailCheck = (e) => {
+    const checkEmail = {
+      u_email: user.u_email,
+    };
+    fetchEmailCheck(checkEmail);
   };
 
   const joinClick = (e) => {
@@ -72,7 +79,6 @@ function Join() {
         <label>ID</label>
         <input onChange={joinChange} name="u_id" />
         <input id="id_check" type="button" onClick={joinCheck} value="중복확인" />
-        <div className="id_check"></div>
       </div>
       <div>
         <label>Password</label>
@@ -82,9 +88,10 @@ function Join() {
         <label>Password 확인</label>
         <input onChange={joinChange} name="u_pw" />
       </div>
-      <div>
+      <div className="check_box2">
         <label>Email</label>
         <input onChange={joinChange} name="u_email" />
+        <input id="email_check" type="button" onClick={joinEmailCheck} value="중복확인" />
         {/* <button>이메일 확인</button> */}
       </div>
       <div>

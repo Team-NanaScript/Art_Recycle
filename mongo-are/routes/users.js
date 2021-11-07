@@ -1,16 +1,42 @@
 import express from "express";
 const router = express.Router();
 import passport from "passport";
-import user from "../models/user.js";
+// import user from "../models/user.js";
 import users from "../models/user.js";
+import email from "../config/email.js";
 
-const userList = {
-  u_id: "nana",
-  u_pw: "nanana",
-  u_email: "nananana",
-  u_name: "na",
-  u_nickname: "naa",
-  u_role: 0,
+// const mailOpt = (user_data, title, contents) => {
+//   const mailOption = {
+//     from: "ArtRe",
+//     to: users.email,
+//     subject: "emil 인증번호를 확인해주세요",
+//     text: <b>인증번호</b>,
+//   };
+//   return mailOption;
+// };
+
+// const sendMail = (mailOption) => {
+//   mailPoster.sendMail(mailOption, function (err, send) {
+//     if (err) {
+//       console.log(`err : ${err}`);
+//     } else {
+//       console.log(`전송완료 : ${send}`);
+//     }
+//   });
+// };
+
+// const userList = {
+//   u_id: "nana",
+//   u_pw: "nanana",
+//   u_email: "nananana",
+//   u_name: "na",
+//   u_nickname: "naa",
+//   u_role: 0,
+// };
+
+var generateRandom = function (min, max) {
+  var ranNum = Math.floor(Math.random() * (max - min + 1)) + min;
+  return ranNum;
 };
 
 /* GET users listing. */
@@ -43,11 +69,12 @@ router.post("/", (req, res) => {
   }
 });
 
-router.post("/signup", async (req, res) => {
+router.post("/idcheck", async (req, res) => {
   console.log("여기까지 왔나요? 유효성검사");
   console.log("body", req.body);
-  // const { u_id } = req.body;
-  const isId = await users.findOne({ where: { u_id: req.body } });
+  const { u_id } = req.body;
+  // const isId = await users.findOne({ where: { u_id: req.body } });
+  const isId = await users.findOne({ u_id });
 
   // const isEmail = users.findOne({where :{email : req.body.u_email}})
 
@@ -57,12 +84,39 @@ router.post("/signup", async (req, res) => {
 
   console.log("isId", isId);
   if (isId) {
-    console.log("일치하는 아이디 없음");
-  } else {
     console.log("일치하는 아이디 있음");
+    // res.send(1);
+    return res.json(isId);
+  } else {
+    console.log("일치하는 아이디 없음");
     // return check;
+    // res.send({ massage: "2" });
     return null;
   }
+});
+
+router.post("/echeck", async (req, res) => {
+  const number = generateRandom(111111, 999999);
+
+  const { u_email } = req.body;
+  console.log("email", u_email);
+
+  const mailOptions = {
+    from: "ArtRe",
+    to: u_email,
+    subjct: "ArtRe 인증 관련 이메일입니다.",
+    text: " 받으신 인증번호를 입력해주세요 " + number,
+  };
+  // const result = await
+  email.sendMail(mailOptions, (err, res) => {
+    if (err) {
+      console.log("실패");
+      // return res.send({ massage: "인증실패" });
+    } else {
+      console.log("성공?");
+      // return res.send(number);
+    }
+  });
 });
 
 router.post("/login", passport.authenticate("local"), async (req, res) => {
@@ -99,7 +153,7 @@ router.post("/join", async (req, res) => {
 
 router.post("/logout", async (req, res) => {
   // const user = req.json()
-  // console.log("왜 여기까지 안오냐고ㅗ오오오오오오");
+  console.log("왜 여기까지 안오냐고ㅗ오오오오오오");
   // await req.logout();
   // await req.session.distroy();
   await req.session.destroy((err) => {
