@@ -7,18 +7,26 @@ const fetchOption = {
   credentials: "include",
 };
 
-const fetchCheck = async (checkData) => {
+const fetchIdCheck = async (checkData) => {
   fetchOption.body = JSON.stringify(checkData);
   console.log("checkData", checkData);
-  const res = await fetch("http://localhost:5000/users/signup", fetchOption);
-  console.log("중복확인 후", res.json);
+  const res = await fetch("http://localhost:5000/users/idcheck", fetchOption);
+  // console.log("중복확인 후", res);
 
   if (res.ok) {
     const json = await res.json();
     console.log("정보", json);
-  } else {
-    console.log("실패?");
+    alert("사용중인 아이디입니다.");
   }
+  if (res === null) {
+    console.log("실패?");
+    alert("사용가능한 아이디입니다.");
+  }
+};
+
+const fetchEmailCheck = async (checkEmail) => {
+  fetchOption.body = JSON.stringify(checkEmail);
+  const res = await fetch("http://localhost:5000/users/echeck", fetchOption);
 };
 
 const fetchLogin = async (u_id, u_pw) => {
@@ -74,4 +82,4 @@ const fetchLogout = async () => {
   // return res.json();
 };
 
-export { fetchLogin, fetchJoin, fetchUser, fetchCheck, fetchLogout };
+export { fetchLogin, fetchJoin, fetchUser, fetchIdCheck, fetchLogout, fetchEmailCheck };
