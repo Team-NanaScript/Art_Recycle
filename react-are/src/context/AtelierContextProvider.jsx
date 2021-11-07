@@ -73,7 +73,7 @@ const AtelierContextProvider = ({ children }) => {
   };
 
   // 공방글 등록
-  const onClickSave = useCallback(async () => {
+  const onClickSave = async () => {
     const {
       at_seq,
       at_name,
@@ -113,9 +113,17 @@ const AtelierContextProvider = ({ children }) => {
       console.log("공방 등록 추가", JSON.stringify(json));
     }
 
-    // 나중에 at_seq로 변경 필요
-    history.replace(`/detail/${at_name}`);
-  });
+    history.replace(`/detail/${at_seq}`);
+  };
+
+  // 디테일보기 작성중
+  // 이거 해당 컴포넌트에서 작성해야하나?
+  const showAtelierDetail = async (e) => {
+    const at_seq = e.target.dataset.seq;
+    const response = await fetch(
+      `http://localhost:5000/atelier/detail/${at_seq}`
+    );
+  };
 
   const propsStore = {
     changeInput,
