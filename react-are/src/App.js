@@ -8,7 +8,6 @@ import { AteInsert } from "./atelier";
 import Result from "./search/Result";
 import MainCommunity from "./community/MainCommunity";
 import UserContextProvider from "./context/UserContext";
-import HashTagContextProvider from "./context/HashTagContextProvider";
 import AtelierContextProvider from "./context/AtelierContextProvider";
 
 function App() {
