@@ -7,11 +7,13 @@ import {
   BoardDetail,
   Notice,
   BoardUpdate,
+  CommunityNav,
 } from "../community";
 
 function MainCommunity() {
   return (
     <CommunityContextProvider>
+      <CommunityNav />
       <Route path="/" exact>
         Main
       </Route>

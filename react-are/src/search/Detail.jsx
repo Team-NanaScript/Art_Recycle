@@ -10,7 +10,6 @@ function Detail() {
         <h2>공방명</h2>
         <h4>간단설명</h4>
       </header>
-      <div>BOX ATELIER - 리폼/리페어 지속 가능한 패션 서비스 제공</div>
       <div className="detail_section">
         <div>
           <h3>Address</h3>
