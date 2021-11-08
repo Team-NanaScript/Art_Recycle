@@ -102,13 +102,16 @@ article.hashtag_insert_box > div {
 /* 여기는 checkbox */
 
 div.checkbox {
+  /* 체크박스 text 정렬 맞추기위한 눈물나는 코드 */
+  margin-left: 60px;
 }
 
 div.checkbox div {
   display: inline-block;
   width: 80px;
 
-  /* text-align: left; */
+  /* 체크박스 text 정렬 맞추기위한 눈물나는 코드 */
+  text-align: left;
 }
 
 div.checkbox div input {
