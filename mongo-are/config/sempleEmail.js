@@ -9,3 +9,5 @@ const SempleTransport = nodemailer.createTransport({
     u_pw: "YOURPASS",
   },
 });
+
+export default { SempleTransport };

@@ -3,7 +3,8 @@ const router = express.Router();
 import passport from "passport";
 // import user from "../models/user.js";
 import users from "../models/user.js";
-import email from "../config/email.js";
+// import email from "../config/email.js";
+import email from "../config/sempleEmail.js";
 
 // const mailOpt = (user_data, title, contents) => {
 //   const mailOption = {
