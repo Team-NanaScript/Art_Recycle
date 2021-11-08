@@ -7,6 +7,7 @@ import MainCommunity from "./MainCommunity";
 import Notice from "./Notice";
 import ReplyInsert from "./ReplyInsert";
 import ReplyItem from "./ReplyItem";
+import CommunityNav from "./CommunityNav";
 // import NoticeInsert from "./NoticeInsert";
 
 export {
@@ -19,4 +20,5 @@ export {
   ReplyInsert,
   ReplyItem,
   Notice,
+  CommunityNav,
 };
