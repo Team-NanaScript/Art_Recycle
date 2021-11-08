@@ -1,5 +1,5 @@
 import React from "react";
-import { Tmap } from "./index";
+import { Tmap } from "../search/index";
 
 import "../css/search_detail.css";
 
