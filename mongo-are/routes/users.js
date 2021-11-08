@@ -82,17 +82,13 @@ router.post("/idcheck", async (req, res) => {
   // const check = res.json({
   //   u_id: req.user.u_id,
   // });
-
   console.log("isId", isId);
   if (isId) {
     console.log("일치하는 아이디 있음");
-    // res.send(1);
-    return res.json(isId);
+    res.json(isId);
   } else {
     console.log("일치하는 아이디 없음");
-    // return check;
-    // res.send({ massage: "2" });
-    return null;
+    res.json(isId);
   }
 });
 

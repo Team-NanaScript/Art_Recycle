@@ -19,19 +19,19 @@ function Login() {
   const onLoginClick = async (e) => {
     const resultLogin = await fetchLogin(user.u_id, user.u_pw);
     console.log();
-    await setUser(resultLogin);
     console.log("user", user.u_id, user.u_pw);
 
     if (resultLogin) {
       if (user) {
         console.log("데이터있대?");
+        await setUser(resultLogin);
         history.replace("/");
       }
       // if (!user || resultLogin.u_pw !== user.u_pw) {
       if (!user) {
         console.log("데이터없대?");
         console.log("저장을 안했나...?");
-        return null;
+        return;
       }
     }
     // if (user.u_id) {

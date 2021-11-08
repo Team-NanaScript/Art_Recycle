@@ -13,13 +13,17 @@ const fetchIdCheck = async (checkData) => {
   const res = await fetch("http://localhost:5000/users/idcheck", fetchOption);
   // console.log("중복확인 후", res);
 
-  if (res.ok) {
-    const json = await res.json();
+  const json = await res.json();
+  // if (res?.ok) {
+  if (json) {
     console.log("정보", json);
+    // console.log("data", res.text());
     alert("사용중인 아이디입니다.");
-  }
-  if (res === null) {
-    console.log("실패?");
+
+    // } else if (res == null) {
+  } else {
+    console.log("실패?", json);
+    // console.log("data No", res.text());
     alert("사용가능한 아이디입니다.");
   }
 };
