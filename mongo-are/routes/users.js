@@ -116,16 +116,46 @@ router.post("/echeck", async (req, res) => {
   });
 });
 
-router.post("/login", passport.authenticate("local", { failureFlash: true, successFlash: true }), async (req, res) => {
+router.post("/login", passport.authenticate("local", { successMessage: "success", successRedirect: "login", failureRedirect: "loginfail", failureFlash: true, successFlash: true }), (req, res) => {
+  // console.log("와 여기까지 왔다");
+  // console.log("login", req.user);
+  // if (res.status(200)) {
+  //   const ok = req.flash();
+  //   console.log("ok", ok);
+  // }
+  // const login = await res.json({
+  //   u_id: req.user.u_id,
+  //   u_pw: req.user.u_pw,
+  // });
+  // return login;
+  // console.log("login 성공한 id,pw", res.json());
+  // console.log("err,user,info", err, user, info);
+});
+
+router.get("/login", async (req, res) => {
   console.log("와 여기까지 왔다");
   console.log("login", req.user);
+  // const re = await req.flash();
 
+  const re = req.flash();
+  // console.log("re", re);
+
+  console.log("제바아랄", re);
   const login = await res.json({
     u_id: req.user.u_id,
     u_pw: req.user.u_pw,
   });
   return login;
-  // console.log("login 성공한 id,pw", res.json());
+});
+
+router.get("/loginfail", async (req, res) => {
+  console.log("로그인 실패");
+  // const login = await res.json({});
+  // const err = await req.flash();
+  // console.log("실패제발아아알", err);
+  // await res.render("실패");
+  // return login;
+  // return res.json({});
 });
 
 router.post("/join", async (req, res) => {
