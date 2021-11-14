@@ -26,12 +26,12 @@ function Login() {
         console.log("데이터있대?");
         await setUser(resultLogin);
         history.replace("/");
-      }
-      // if (!user || resultLogin.u_pw !== user.u_pw) {
-      if (!user) {
+      } else {
+        // if (!user || resultLogin.u_pw !== user.u_pw) {
+        // if (!user) {
         console.log("데이터없대?");
         console.log("저장을 안했나...?");
-        return;
+        // return;
       }
     }
     // if (user.u_id) {

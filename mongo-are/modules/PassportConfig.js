@@ -1,7 +1,6 @@
 import passport from "passport";
 import passportLocal from "passport-local";
 import users from "../models/user.js";
-// import flash from "connect-flash";
 
 // local login 정책을 수행하는 모듈
 const LocalStratege = passportLocal.Strategy;
@@ -46,14 +45,14 @@ const exportPassport = () => {
           if (!user) {
             console.log("id없으면 넘어와야함");
             // return done(null, false, { massage: "아이디없어요" });
-            return done(null, false, { massage: "ID 또는 비밀번호가 틀립니다" });
+            return done(null, false, { massage: "아이디없어요" });
           }
           if (user.u_pw != u_pw) {
             console.log("비밀번호가 일치하지않으면 넘어와야함");
-            return done(null, false, { massage: "ID 또는 비밀번호가 틀립니다" });
+            return done(null, false, { massage: "비밀번호 없음" });
           }
           console.log("id, pw 일치");
-          return done(null, user), { massage: "˚✧₊⁎( ˘ω˘ )⁎⁺˳✧༚ " };
+          return done(null, user);
         });
 
         // const result = users.map((user) => {

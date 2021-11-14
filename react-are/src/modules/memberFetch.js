@@ -46,9 +46,9 @@ const fetchLogin = async (u_id, u_pw) => {
   if (users) {
     console.log("fetchlogin 성공시", users);
     return users;
-  } else if (users === null) {
+  } else {
     console.log("로그인실패했대, fetchLogin");
-    return [{}];
+    // return {};
   }
 };
 
