@@ -76,11 +76,11 @@ app.use(
     },
   })
 );
-app.use(flash());
 
 app.use(passport.initialize()); // passport start
 app.use(passport.session());
 PassportConfig();
+app.use(flash());
 
 // 미들웨어 넣어주기
 // response를 할 때 session에 담긴 값을 클라이언트로 전송하기 위한 옵션설정
