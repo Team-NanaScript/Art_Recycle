@@ -42,11 +42,11 @@ const fetchLogin = async (u_id, u_pw) => {
   console.log("fetchLogin 오류발생지점");
   // console.table(users);
 
-  if (res?.ok) {
-    const users = await res.json();
+  const users = await res.json();
+  if (users) {
     console.log("fetchlogin 성공시", users);
     return users;
-  } else {
+  } else if (users === null) {
     console.log("로그인실패했대, fetchLogin");
     return [{}];
   }

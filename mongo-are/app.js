@@ -14,6 +14,7 @@ import cors from "cors";
 import passport from "passport";
 import PassportConfig from "./modules/PassportConfig.js";
 import session from "express-session";
+import flash from "connect-flash";
 
 /** mongoose DB 관련 */
 import mongoose from "mongoose";
@@ -75,6 +76,7 @@ app.use(
     },
   })
 );
+app.use(flash());
 
 app.use(passport.initialize()); // passport start
 app.use(passport.session());
