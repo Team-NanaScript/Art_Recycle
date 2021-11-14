@@ -5,7 +5,7 @@ import passport from "passport";
 import users from "../models/user.js";
 // import email from "../config/email.js";
 import email from "../config/sempleEmail.js";
-// import flash from "connect-flash";
+
 // const mailOpt = (user_data, title, contents) => {
 //   const mailOption = {
 //     from: "ArtRe",
@@ -116,13 +116,9 @@ router.post("/echeck", async (req, res) => {
   });
 });
 
-router.post("/login", passport.authenticate("local", { failureFlash: true }), async (req, res) => {
+router.post("/login", passport.authenticate("local", { failureFlash: true, successFlash: true }), async (req, res) => {
   console.log("와 여기까지 왔다");
   console.log("login", req.user);
-  const fmsg = req.flash();
-  console.log(fmsg);
-  // req.flash("msg", "˚✧₊⁎( ˘ω˘ )⁎⁺˳✧༚ ");
-  // req.flash();
 
   const login = await res.json({
     u_id: req.user.u_id,
@@ -131,10 +127,6 @@ router.post("/login", passport.authenticate("local", { failureFlash: true }), as
   return login;
   // console.log("login 성공한 id,pw", res.json());
 });
-
-// router.get("/login", (req, res) => {
-//   console.log("여기는뭐지?");
-// });
 
 router.post("/join", async (req, res) => {
   // if (req.user) {
