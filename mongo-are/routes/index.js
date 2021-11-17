@@ -72,8 +72,9 @@ router.get(decodeURI("/testok/:query"), (req, res) => {
 // 	at_desc: String, // 공방소개
 //   });
 
+// 공방이름 쿼리 검색 index에서 atelier로 이동함
 // db.ateliers.find({"at_name":{$regex: ".*do.*"}}).pretty()
-router.get(decodeURI("/search/:query"), async (req, res) => {
+router.get(decodeURI("/searchok/:query"), async (req, res) => {
   let { query } = req.params;
 
   let search_query = ".*" + query + ".*";

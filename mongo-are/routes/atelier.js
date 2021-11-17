@@ -22,4 +22,11 @@ router.post("/update/:b_seq", async (req, res) => {
   const { at_seq } = req.params;
 });
 
+router.get(decodeURI("/search/:query"), async (req, res) => {
+  let { query } = req.params;
+
+  const result = await atelier.find({ at_name: { $regex: query } });
+  await res.json(result);
+});
+
 export default router;

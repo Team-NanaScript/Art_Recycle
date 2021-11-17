@@ -7,7 +7,7 @@ import {
   WaySearch,
   MaterialSearch,
   HashTag,
-  Result,
+  HashResult,
   SearchNav,
 } from "../search";
 import HashTagContextProvider from "../context/HashTagContextProvider";
@@ -18,21 +18,19 @@ const Search = () => {
   // });
 
   return (
-    // <BrowserRouter>
-      <div className="Search">
-        <header>
-          <h2>공방찾기</h2>
-        </header>
-        <SearchNav />
-        <HashTagContextProvider>
-          <Route path="/search/local" component={LocalSearch} exact />
-          <Route path="/search/way" component={WaySearch} exact />
-          <Route path="/search/material" component={MaterialSearch} exact />
-          <HashTag />
-          <Result />
-        </HashTagContextProvider>
-      </div>
-    // </BrowserRouter>
+    <div className="Search">
+      <header>
+        <h2>공방찾기</h2>
+      </header>
+      <SearchNav />
+      <HashTagContextProvider>
+        <Route path="/search/local" component={LocalSearch} exact />
+        <Route path="/search/way" component={WaySearch} exact />
+        <Route path="/search/material" component={MaterialSearch} exact />
+        <HashTag />
+        <HashResult />
+      </HashTagContextProvider>
+    </div>
   );
 };
 
