@@ -7,7 +7,7 @@ function MainBody({ history }) {
       alert("검색어를 입력해주세요!");
       return;
     }
-    history.push(`/search/result/${query}`);
+    history.push(`/search/${query}`);
   };
 
   const keyToSearch = (e) => {
@@ -19,7 +19,6 @@ function MainBody({ history }) {
 
   const btnToSearch = () => {
     let search_query = document.querySelector("input.main_search").value;
-    // history.push(`/search/result/${search_query}`);
     querySearch(search_query);
   };
 

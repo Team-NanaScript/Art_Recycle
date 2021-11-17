@@ -1,9 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import "../css/result.css";
-import { useParams } from "react-router";
 import AteList from "../atelier/AteList";
 import { useHashTagContext } from "../context/HashTagContextProvider";
-import { querySearch } from "../modules/searchFetch";
+import { hashSearch } from "../modules/searchFetch";
 
 const Result = () => {
   const [ateList, setAteList] = useState([
@@ -30,28 +29,23 @@ const Result = () => {
     // },
   ]);
 
-  // const { hashTagList } = useHashTagContext();
-
-  const { query } = useParams();
+  const { hashTagList } = useHashTagContext();
 
   const searchResult = useCallback(async () => {
-    // const result = await querySearch(query)
-    const uri = "http://localhost:5000/search/" + query;
-    // const encodeUri = encodeURI(uri);
-    // const res = await fetch(`http://localhost:5000/users/test/${query}`);
-    // const res = await fetch(encodeUri);
-    const res = await fetch(uri);
-    const tmpList = await res.json();
-    console.table(tmpList);
-    setAteList(tmpList);
+    const tmpStr = hashSearch[hashSearch.length - 1].h_id;
+    const resultLogin = await hashSearch(tmpStr);
+    // const uri = "http://localhost:5000/search/" + query;
+    // const res = await fetch(uri);
+    // const tmpList = await res.json();
+    // console.table(tmpList);
+    // setAteList(tmpList);
   }, []);
 
-  useEffect(searchResult, [searchResult]);
+  useEffect(searchResult, [hashTagList]);
 
   return (
     <section className="result_wrap">
       <h2 className="result">검색 결과</h2>
-      {/* <p>{query}</p> */}
       <AteList notMsg="검색 결과가 없습니다" ateList={ateList} />
     </section>
   );

@@ -5,7 +5,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { Login, Join, Logout } from "./member";
 import { Search } from "./search";
 import { AteInsert, AteDetail } from "./atelier";
-import Result from "./search/Result";
+import QueryResult from "./search/QueryResult";
 import MainCommunity from "./community/MainCommunity";
 import UserContextProvider from "./context/UserContext";
 import AtelierContextProvider from "./context/AtelierContextProvider";
@@ -21,24 +21,26 @@ function App() {
           <Route path="/logout" component={Logout} exact />
           <Route path="/join" component={Join} />
         </UserContextProvider>
-        {/* <HashTagContextProvider> */}
         <Route
+          //   path={"/search/**"}
           path={["/search/local", "/search/way", "/search/material"]}
           component={Search}
           exact
         />
-        <Route path="/search/result/:query" component={Result} exact />
-        {/* </HashTagContextProvider> */}
-        <Route path="/detail/:at_code" component={AteDetail} exact />
-        {/* <Route path="/search/way" component={Search} exact /> */}
-        {/* <Route path="/search/material" component={Search} exact /> */}
-        <Route path="/board" component={MainCommunity} exact />
-        <Route path="/board/insert" component={MainCommunity} />
-        <Route path="/board/detail/:b_seq" component={MainCommunity} exact />
-        <Route path="/board/update/:b_seq" component={MainCommunity} exact />
+        <Route path="/search/:query" component={QueryResult} exact />
+        <Route
+          path={["/board", "/board/**", "/notice", "/notice/**"]}
+          component={MainCommunity}
+          exact
+        />
+        {/* <Route path="/board" component={MainCommunity} exact /> */}
+        {/* <Route path="/board/insert" component={MainCommunity} /> */}
+        {/* <Route path="/board/detail/:b_seq" component={MainCommunity} exact /> */}
+        {/* <Route path="/board/update/:b_seq" component={MainCommunity} exact /> */}
         {/* <Route path="/board/delete/:b_seq" component={MainCommunity} exact /> */}
         <AtelierContextProvider>
           <Route path="/atelier" component={AteInsert} exact />
+          <Route path="/detail/:at_code" component={AteDetail} exact />
         </AtelierContextProvider>
         <Footer />
       </div>
