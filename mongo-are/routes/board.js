@@ -36,21 +36,8 @@ router.get("/detail/:b_seq", async (req, res) => {
 
   // console.log("seq", b_seq);
   const detail_list = await board.findOne({ b_seq: b_seq });
-  //   const detail_list = await board.findOne({ where: { b_seq: "278fd65-6cc4-1143-a13b-d5c23a012dc6" } });
-  //   const detail_list = await board.findOne({ where: { b_seq } });
-  //   const detail_list = await board.findOne({ where: "278fd65-6cc4-1143-a13b-d5c23a012dc6" });
-  //   const detail_list = await board.findOne({ where: "2021-11-03" });
-
   console.log("rs", detail_list);
 
-  // .populate({ model: reply });
-  //   res.json(detail_list);
-
-  //   const result = await board.findOne({
-  //     where: { b_seq },
-  //     include: { model: reply },
-  //   });
-  // console.log(detail_list);
   res.json(detail_list);
 });
 
@@ -74,7 +61,9 @@ router.post("/reply/:b_seq", async (req, res) => {
   await reply.create(req.body);
   //   res.json("댓글 등록 완료!!!");
 
+  // 이 과정을 거치지 않고 res.json을 하게 되면 댓글을 등록한 후에 바로 보여지지 않는다.
   const detail_list = await reply.find({ r_bSeq: b_seq });
+
   res.json(detail_list);
 });
 
